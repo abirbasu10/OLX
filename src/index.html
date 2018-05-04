@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <base href='/'>
+    <meta charset="utf-8" />
+    
+    <link rel="icon" type="image/png" href="../assets/img/shipIcon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title class="notranslate"> Get My Req</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    
+    <!--     Fonts and icons     -->
+    <!-- <link href="../assets/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link href='../assets/materialIcons/materialIcons.css' rel='stylesheet' type='text/css'>
+      <script src="../assets/js/checkOutJS/checkout.js"></script>
+
+   
+    <!-- <link href="/assets/css/demo.css" rel="stylesheet" type="text/css"> -->
+    <style>
+
+.googleTranslateBtn{
+  position:absolute;
+  z-index:2;
+  right:20px;
+  top:60px;
+}
+    </style>
+</head>
+<body>
+    <div class="row pull-right googleTranslateBtn" id="google_translate_element"></div>
+  <app-root>
+      
+    <div class="loader" style="position:fixed;width:100%;height:100%;background: linear-gradient(to top,blue,#27bdcf, white);">
+      <!--<svg class="circular" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+      </svg>-->
+       <img src="/assets/img/sailing-boat.gif" style="position: absolute;margin: auto;top: 0;left: 0; right: 0;bottom: 0;"> 
+    </div>
+
+
+   <script>
+ function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    // here is where you change the language
+    //pageLanguage: 'en',
+    async : false
+  }, 'google_translate_element');
+}
+
+</script>
+
+
+  </app-root>
+</body>
+
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+
+</html>
