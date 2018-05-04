@@ -119,7 +119,7 @@ export class CompanyDashboardComponent implements OnInit {
       this.startAnimationForLineChart(dailySalesChart); */
       /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
 
-      var dataCompanyPurchase = {
+      var dataCompanyPurchase1 = {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         series: [
           [282, 468, 400, 500]
@@ -144,7 +144,7 @@ export class CompanyDashboardComponent implements OnInit {
           }
         }]
       ];
-      var dataCompanyPurchase = new Chartist.Bar('#dataCompanyPurchase', dataCompanyPurchase, optionsCompanyPurchase, responsiveOptions);
+      var dataCompanyPurchase = new Chartist.Bar('#dataCompanyPurchase', dataCompanyPurchase1, optionsCompanyPurchase, responsiveOptions);
 
       //start animation for the Purchase By Company Chart
       this.startAnimationForBarChart(dataCompanyPurchase);
