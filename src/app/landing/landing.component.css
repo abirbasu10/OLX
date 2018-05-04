@@ -1,0 +1,531 @@
+/* @import url('https://fonts.googleapis.com/css?family=Ubuntu'); */
+
+.material-icons
+{
+    position: relative;
+    top:5px;
+}
+
+mark
+{
+    font-weight: bold;
+    background-color: #fdea0a;
+}
+
+nav
+{
+    background-color:rgb(12,5,113,0.75);
+    color:white;
+}
+nav li
+{
+    font-size: 15px;
+}
+nav li:hover, nav li:active
+{
+    background-color: #eedb09;
+    border-radius: 20px;
+    color:#000000;
+    
+}
+
+.sidebar-background
+{
+    /* background: linear-gradient(to bottom, green,red ) */
+    background:black
+}
+
+.visionHeading
+{
+    margin-right:5px; 
+   
+    position:relative; 
+    z-index:+1;
+}
+
+.visionText
+{
+    color:aliceblue; 
+    background:black; 
+    opacity:0.7;
+    /* border-radius: 20px; */
+    border-top: 30px solid rgba(0,0,0,0.5);
+    border-left: 0px solid transparent;
+    border-right: 20px solid transparent;
+    /* border-top-right-radius: 1%;
+    border-bottom-left-radius: 1%; */
+
+}
+
+.missionHeading
+{
+    margin-left:5px; 
+    border-radius:20px; 
+    position:relative; 
+    z-index:+1;
+}
+
+.missionText
+{
+    color:aliceblue; 
+    background:black; 
+    opacity:0.7;
+    border-radius: 20px;
+}
+
+
+#contactUs
+{
+    
+    color:white;
+    font-size: 20px;
+    background:linear-gradient(141deg, #2a6763 0%, #1fc8db 51%, #2cb5e8 75%);
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
+
+.contactUsHeading:after
+{
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 10%; /* Change this to whatever width you want. */
+    padding-top: 5px; /* This creates some space between the element and the border. */
+    border-bottom: 2px solid white;
+}
+
+#contactUs a
+{
+    color:white;
+    text-decoration: underline;
+}
+
+#contactUs a:hover
+{
+    color:#b0a4f9;
+    text-decoration: underline;
+}
+
+#contactUs input, #contactUs textarea
+{
+    border:solid 1px #4c4c4c; 
+    color:#d0cbcb;
+}
+
+#contactUs label
+{
+    font-size: 15px;
+    font-weight: bold;
+    color:#f1efef;
+}
+
+#contactUs .form-control
+{
+    background-image: linear-gradient(to right,transparent, transparent) !important;
+}
+
+.contactInfoSelf
+{
+    font-size: 18px;
+}
+
+.contactBtn
+{
+    width:100%;
+    background-color:#d64737
+}
+
+
+.main-panel{
+    width:100% !important;
+}
+.navbar .navbar-nav > li{
+    background: #f4e8b7 !important;
+    color: #3d3737 !important;
+    
+    font-size: 14px !important;
+}
+.navbar .navbar-nav > li >  a{
+    font-weight: 800 !important; 
+ 
+    /* background: #f0e022;
+    color: #3d3737; */
+
+}
+
+.mission-vission-content{
+    text-align: center;
+    background: #000000;
+    opacity: 0.7;
+    font-size:20px;
+    line-height: 1.8;
+    color:aliceblue;
+}
+
+.main-panel .main-content {
+     margin-top: 0 !important;
+     padding:  0 !important;
+    min-height: calc(100% - 123px);
+}
+
+
+.background_content{
+    margin-top:0px !important;
+}
+
+.parallax_mission_vission {
+    /* The image used */
+    background-image: url("/assets/img/ViewDemoBG1.jpg");
+
+    /* Set a specific height */
+    min-height: 285px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: bottom;
+    /* background-repeat: round; */
+    background-size: cover;
+    
+}
+
+.parallax {
+    /* The image used */
+  
+
+    /* Set a specific height */
+    
+    background-image: url("/assets/img/login12.jpg");
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.parallax2 {
+    /* The image used */
+    background-image: url("/assets/img/Landing/ocean_1.jpg");
+
+    /* Set a specific height */
+    min-height: 285px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax-content
+{
+    font-size: 25px;
+    text-align: center;
+    line-height: 50px;
+    color: aliceblue;
+    
+}
+
+/* section{
+    height:600px;
+} */
+
+.background_content
+{
+    margin-top:10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    background: #f16334;
+    line-height: 1.7;
+    padding-left: 20px;
+    /* color: #fdfafa; */
+}
+
+.backgroundSectionImg
+{
+    padding-top: 0px;
+    border-radius: 5px;
+    position: relative;
+    top: 25px;
+    z-index: +1;
+}
+
+.backgroundText
+{
+    background:linear-gradient(141deg, #70a78f 0%, #ece488 51%, #d1e096 75%);
+    padding-bottom: 30px;
+}
+
+.backgroundRow
+{
+    padding-left: 30px;
+}
+
+.backgroundRow>li
+{
+    padding-left: 45px;
+}
+/* .probHeading
+{
+    border-bottom: solid #f16334 2px;
+    border-width: 2px;
+    left: 50%;
+} */
+.backgroundHeading:after, .probHeading:after, .solnHeading:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 15%; /* Change this to whatever width you want. */
+    padding-top: 5px; /* This creates some space between the element and the border. */
+    border-bottom: 2px solid #f16334;
+}
+
+.probRow
+{
+    height: 36px;
+    font-size: 18px;
+    padding: 18px;
+    color:black;
+    font-weight: 500;
+    padding-bottom:10px;
+}
+.solnRow
+{
+    
+    font-size: 18px;
+    
+    color:black;
+    font-weight: 500;
+    padding-bottom:10px;
+    line-height:35px
+}
+
+
+#probSoln
+{
+   /* background-image: linear-gradient(to bottom right, #eaeaeb, #f8f8f8);*/
+    
+}
+/* .solnRow
+{
+    height: 36px;
+    font-size: 20px;
+    padding: 15px;
+} */
+
+
+.before_probSoln
+{
+    padding-top: 20px;
+    font-size: 25px;
+    position: relative;
+    top: 11px;
+    color:#ffffff;
+}
+
+.prob_soln
+{
+    background-image: url("/assets/img/Landing/ocean_1.jpg");
+     background-repeat: round; 
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+.footer
+{
+    background: grey;
+    color:black;
+    font-size: 20px;
+    margin-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+body
+{
+    background-image: linear-gradient(to bottom right, #eaeaeb, #f8f8f8);
+    /* background-color: white; */
+}
+
+/* .fade-in-left {
+	-webkit-animation: fadeinleft 4000ms ease-in-out;
+	  -moz-animation: fadeinleft 4000ms ease-in-out;
+	  -o-animation: fadeinleft 4000ms ease-in-out;
+	  -ms-animation: fadeinleft 4000ms ease-in-out;
+	  animation: fadeinleft 4000ms ease-in-out;
+}
+
+@-webkit-keyframes fadeinleft {
+    0%{ 
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+  }
+  100%{
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+  }
+}
+@-moz-keyframes fadeinleft {
+    0%{ 
+    opacity: 0;
+    -moz-transform: translateX(100%);
+  }
+  100%{
+    opacity: 1;
+    -moz-transform: translateX(0%);
+  }
+}
+@keyframes fadeinleft {
+    0%{ 
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+.fade-in-right {
+	-webkit-animation: fadeinright 4000ms ease-in-out;
+	  -moz-animation: fadeinright 4000ms ease-in-out;
+	  -o-animation: fadeinright 4000ms ease-in-out;
+	  -ms-animation: fadeinright 4000ms ease-in-out;
+	  animation: fadeinright 4000ms ease-in-out;
+}
+
+@-webkit-keyframes fadeinright {
+    0%{ 
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+  }
+  100%{
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+  }
+}
+@-moz-keyframes fadeinright {
+    0%{ 
+    opacity: 0;
+    -moz-transform: translateX(-100%);
+  }
+  100%{
+    opacity: 1;
+    -moz-transform: translateX(0%);
+  }
+}
+@keyframes fadeinright {
+    0%{ 
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0%);
+  }
+} */
+
+/* rounded leaf-folded corner css*/
+.fold-left
+{
+    position: relative;
+    margin-top: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+
+    background: #000000;
+    opacity: 0.7;
+    font-size:20px;
+    line-height: 1.5;
+    color:aliceblue;
+}
+.fold-left:before{
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: 0;
+    border-left: 50px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 50px solid #ffd700;
+}
+.fold-left:after{
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: 0px;
+    background:#000000;
+    width: calc(100% - 50px);
+    height: 50px;
+}
+
+
+
+
+.fold-right
+{
+    position: relative;
+    margin-top: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+
+    background:rgba(0,0,0,0.93);
+     opacity: 0.7; 
+    font-size:20px;
+    line-height: 1.4;
+    color:aliceblue;
+}
+.fold-right:before
+{
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: 0;
+    border-left: 0px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid #ffd700;
+}
+.fold-right:after{
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: 0px;
+    background:rgba(0,0,0,0.93);
+    width: calc(100% - 50px);
+    height: 50px;
+}
+
+
+
+/* Slide transition on button */
+
+.viewDemoBtn{
+    display:inline-block;
+    position:relative;
+    margin:0.4em;  padding:1em;
+    color:black;
+    width:200px;
+    background: #fdea0a;
+    border: solid 1px #fdea0a;
+    font-size: 15px;
+    font-weight: bold;
+    z-index:0;
+  
+  }
+  .viewDemoBtn:before {
+    content: "";
+    position: absolute;
+    z-index:-1;
+    top: 0;  left: 0;  right: 0;  bottom: 0;
+    background: black;
+    
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform .3s ease-out;
+  }
+  .viewDemoBtn:hover:before{transform: scaleX(1);}
+
+.viewDemoBtn:hover{color:white;}

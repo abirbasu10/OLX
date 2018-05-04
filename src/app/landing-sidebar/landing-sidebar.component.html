@@ -1,0 +1,31 @@
+<div class="logo simple-text">
+    
+    <a (click)="sidebarToggle()" routerLink="/index" class="logoColor">
+        <div class="logo-img">
+            <i class="material-icons notranslate">directions_boat</i>
+        </div>
+        Get My Req
+    </a>
+
+</div>
+
+<div class="sidebar-wrapper notranslate">
+    <!-- <ul class="nav nav-mobile-menu" *ngIf="isMobileMenu()">
+
+        <li><a (click)="sidebarToggle()" routerLink="/vessel/dashboard">Profile</a></li>
+        <li><a (click)="sidebarToggle()" routerLink="/vessel/changePassword">Change Password</a></li>
+        <li><a (click)="sidebarToggle()" routerLink="/index">Logout</a></li>            
+        
+    </ul> -->
+
+    <div class="nav-container">
+        <ul class="nav">
+            <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
+                <a  [href]="[menuItem.path]">
+                    <i class="material-icons notranslate">{{menuItem.icon}}</i>
+                    <p (click)="sidebarToggle()">{{menuItem.title}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

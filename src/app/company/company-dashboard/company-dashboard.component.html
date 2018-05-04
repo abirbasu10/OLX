@@ -1,0 +1,391 @@
+<company-navbar></company-navbar>
+
+<div class="wrapper">
+    <div class="sidebar" data-color='red' data-image=""  style="z-index:2032">
+        <company-sidebar></company-sidebar>
+        <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+    </div>
+    <div class="main-panel">
+            
+            <!-- <router-outlet></router-outlet> -->
+            <div class="main-content">
+                    
+                    <div class="container-fluid">
+                         <div class="row ">
+                            <div class="col-md-4" style="font-size: 20px;background: #f44336;color: white;margin-bottom:20px;padding: 5px;">
+                                <div class="row">
+                                    <div class="col-md-12" >
+                                        Logged in as Company User
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="position:relative; bottom:16px"> 
+                            <div class="col-md-2 col-xs-4">
+                                <img class="img-responsive" src="/assets/img/admin/Company/MarineAffiliates.jpg"
+                                    style="width:100px; height:100px; border-radius:50%; border:solid black 1px">
+                            </div>
+                            <div class="col-md-8 hidden-xs">
+                                <div class="row">
+                                    <div class="col-md-12" style="font-size:45px; position:relative; right: 60px; top:45px">
+                                        Marine Affiliates
+                                    </div>
+                                </div> 
+                                <!-- <div class="row">
+                                    <div class="col-md-12" style="font-size:17px; position:relative; right: 57px; top:48px">
+                                        Logged in as Company
+                                    </div>
+                                </div>    -->
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats" >
+                                    <div class="card-header" data-background-color="red">
+                                        <i class="material-icons notranslate">info_outline</i>
+                                    </div>
+                                    <div class="card-content">
+                                        <p class="category">Total Orders</p>
+                                        <h3 class="title">500</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons notranslate">local_offer</i> Orders for the month: 40
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+        
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats" >
+                                    <div class="card-header" data-background-color="blue">
+                                        <i class="material-icons notranslate">attach_money</i>
+                                    </div>
+                                    <div class="card-content">
+                                        <p class="category">Total Purchases</p>
+                                        <h3 class="title">$34,245</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons notranslate">date_range</i> 2017
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats" >
+                                    <div class="card-header" data-background-color="green">
+                                        <i class="material-icons notranslate">receipt</i>
+                                    </div>
+                                    <div class="card-content">
+                                        <p class="category" style="font-size:13px">Orders Received</p>
+                                            <h3 class="title">40</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons text-danger">add_alert</i> <a routerLink="/company/orderManagement">New Orders Placed</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+        
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="card card-stats" >
+                                    <div class="card-header" data-background-color="orange">
+                                        <i class="material-icons notranslate">star</i>
+                                    </div>
+                                    <div class="card-content">
+                                        <p class="category">Ratings</p>
+                                            <h3 class="title">7.2/10</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons notranslate">update</i> Just Updated
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                        </div>
+                    
+                      
+                        <div class="row">
+        
+                            <div class="col-md-4">
+                                <div class="card" >
+                                    <div class="card-header card-chart" data-background-color="green">
+                                        <div class="ct-chart" id="dataCompanyPurchase"></div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h4 class="title">Purchases By Company (* $100)</h4>
+                                        <p class="category">2018</p>
+                                        <!-- <p class="category"><span class="text-success"><i class="fa fa-long-arrow-up"></i> 55%  </span> increase in today sales.</p> -->
+                                    </div>
+                                    <!-- <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons notranslate">access_time</i> updated 4 minutes ago
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+        
+        
+                            <div class="col-md-4">
+                                <div class="card" >
+                                    <div class="card-header card-chart" data-background-color="red">
+                                        <div class="ct-chart" id="emailsSubscriptionChart"></div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h4 class="title">Purchases Per Ship (* $100)</h4>
+                                        <p class="category">2018</p>
+                                    </div>
+                                    <!-- <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons notranslate">access_time</i> campaign sent 2 days ago
+                                        </div>
+                                    </div> -->
+            
+                                </div>
+                            </div>
+        
+                            <div class="col-md-4">
+                                <div class="card" >
+                                    <div class="card-header card-chart" data-background-color="blue">
+                                        <div class="ct-chart" id="completedTasksChart"></div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h4 class="title">Purchases By Port (* $100)</h4>
+                                        <p class="category">2018</p>
+                                    </div>
+                                    <!-- <div class="card-footer">
+                                        <div class="stats">
+                                            <i class="material-icons notranslate">access_time</i> campaign sent 2 days ago
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                         </div>   
+                        <!-- <div class="row">
+                            <mat-form-field>
+                                <textarea>
+                                    abcd
+                                </textarea>
+                            </mat-form-field>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-md-offset-3">
+                                <!-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="card card-stats" >
+                                        <div class="card-header" data-background-color="orange">
+                                            <i class="material-icons notranslate">speaker_notes</i>
+                                        </div>
+                                        <div class="card-content">
+                                            <p class="category_cards">Orders Placed</p>
+                                            <h5 class="title">500</h5>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="stats_cards">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="card card-stats" >
+                                        <div class="card-header" data-background-color="green">
+                                            <i class="material-icons notranslate">account_box</i>
+                                        </div>
+                                        <div class="card-content">
+                                            <p class="category">Crew Stength</p>
+                                            <h3 class="title">20,000</h3>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="stats">
+                                                <i class="material-icons notranslate">date_range</i> Last 24 Hours
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                            <!-- Total Ship and Types of ships -->
+                        <div class="col-lg-6 col-md-6">
+                                <div class="card" >
+                                    <div class="card-header" data-background-color="green">
+                                      <div class="row">
+                                        <div class="col-md-2">
+                                            <i class="material-icons notranslate" style="font-size:50px">directions_boat</i>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h4 class="title">Ships Overview</h4>
+                                            <p class="category">Total Ships Owned: {{totalVessel}}</p>
+                                        </div>                          
+                                      </div>                        
+                                    </div>
+                                    <div class="card-content table-responsive">
+                                        <table class="table table-hover">
+                                            <thead class="text-warning">
+                                                <tr >
+                                                    <th>Ship Type</th>
+                                                    <th>Numbers</th>
+                                                    <!-- <th>Country</th> -->
+                                                    <!-- <th>Country</th> -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let vc of vesselcount.type_count">
+                                                    <td>{{vc.type}}</td>
+                                                    <td>{{vc.count}}</td>
+                                                                                        
+                                                </tr>
+                                                <!-- <tr>
+                                                    <td>Cruise</td>
+                                                    <td>200</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>Oil Tankers</td>
+                                                    <td>150</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>Motor Boats</td>
+                                                    <td>150</td>
+                                                    
+                                                </tr> -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                        </div>
+                
+                        <div class="col-lg-6 col-md-6">
+                            <div class="card" >
+                                <div class="card-header" data-background-color="orange">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <i class="material-icons notranslate" style="font-size:50px">group</i>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h4 class="title">Crew Stats</h4>
+                                            <p class="category">Total Crew Under Company: {{totalCrew}}</p>
+                                        </div>                          
+                                      </div>                   
+                                </div>
+                                <div class="card-content table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="text-warning">
+                                            <tr>
+                                                <th>Nationality</th>
+                                                <th>Numbers</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody *ngFor="let cr of crewNationalities.nation_count">
+                                            <tr>
+                                                <td>{{cr.name}}</td>
+                                                <td>{{cr.count}}</td>
+                                                
+                                            </tr>
+                                            <!-- <tr>
+                                                <td>Singapore</td>
+                                                <td>7000</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>United Kingdom</td>
+                                                <td>5000</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>USA</td>
+                                                <td>5000</td>
+                                                
+                                            </tr> -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="card" >
+                                    <div class="card-header" data-background-color="red">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <i class="material-icons notranslate" style="font-size:50px">directions_boat</i>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <h4 class="title">Ship Details</h4>
+                                                <p class="category">Voyage and Orders Overview</p>
+                                            </div>                          
+                                        </div>                        
+                                    </div>
+                                    <div class="card-content table-responsive">
+                                        <table class="table table-hover">
+                                            <thead class="text-warning">
+                                                <tr>
+                                                    <th>Ship Name</th>
+                                                    <th>Budget Allocated ($)</th>
+                                                    <th>Budget Used ($)</th>
+                                                    <th>Avg Victualing Rate</th>
+                                                    <th>Order Number</th>
+                                                    <th>Vendor Selected</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a routerLink="/company/vesselDashboard/">GreatShip</a></td>
+                                                    <td>34820</td>
+                                                    
+                                                    <td>28134</td>
+                                                    <td>7.8</td>
+                                                    <td><a routerLink="/company/companyOrderList/Od001">Od001</a></td>
+                                                    <td>Mariners Bay</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a routerLink="/company/vesselDashboard">Sea Horse</a></td>
+                                                    <td>31120</td>
+                                                    
+                                                    <td>19432</td>
+                                                    <td>6.2</td>
+                                                    <td><a routerLink="/company/companyOrderList/Od002">Od002</a></td>
+                                                    <td>Sea Farer</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a routerLink="/company/vesselDashboard">Night King</a></td>
+                                                    <td>35500</td>
+                                                    
+                                                    <td>28762</td>
+                                                    <td>9.5</td>
+                                                    <td><a routerLink="/company/companyOrderList/Od003">Od003</a></td>
+                                                    <td>The Indian</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a routerLink="/company/vesselDashboard">Oceans 20</a></td>
+                                                    <td>40500</td>
+                                                    
+                                                    <td>30000</td>
+                                                    <td>10.5</td>
+                                                    <td><a routerLink="/company/companyOrderList/Od004">Od004</a></td>
+                                                    <td>Maharashtra Greats</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>                
+                        </div>
+                
+                        
+                    </div>
+                </div>
+            <!-- <div *ngIf="isMaps('maps')"> -->
+                <company-footer></company-footer>
+            <!-- </div> -->
+        </div>
+</div>

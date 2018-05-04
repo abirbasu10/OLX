@@ -1,0 +1,93 @@
+<company-navbar></company-navbar>
+<button type="button" class="btn btn-sm btn-primary add_button pull-right" title="Add Employee" (click)="openDialog()">
+        <i class="material-icons notranslate plus_sign" >person_add</i>
+    </button>
+
+<div class="wrapper">
+        <div class="sidebar" data-color='red' data-image=""  style="z-index:2032">
+            <company-sidebar></company-sidebar>
+            <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+        </div>
+        <div class="main-panel">
+                
+                <!-- <router-outlet></router-outlet> -->
+                <div class="main-content">
+                        <div class="container-fluid">
+                            
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header" data-background-color="red">
+                                            <h4 class="title"><i class="material-icons notranslate">supervisor_account</i> Employees</h4>
+                                            <!-- <p class="category">Here is a subtitle for this table</p>                       -->
+                                        </div>
+                                        
+                                        <div class="card-content table-responsive">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons notranslate">search</i>
+                                                        </span>
+                                                        <mat-form-field class="example-full-width">
+                                                            <input matInput placeholder="Search" type="text" [value]="searchTerm" (input)="searchEmployee($event)">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>                                    
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <table class="table">
+                                                        <thead class="text-danger">
+                                                            <tr>
+                                                                <th>ID</th>
+                                                                <th>Name</th>
+                                                                <th>Designation </th>
+                                                                <th>Role</th>
+                                                                <th>Email</th>
+                                                                <th>Contact</th>
+                                                                <th>Edit</th>
+                                                                <th>Delete</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody *ngFor="let employee of employees">
+                                                        <tr>
+                                                            <td>
+                                                                {{employee.id}}
+                                                            </td>
+                                                            <td>
+                                                                    <a routerLink="/company/employeeDetails/{{employee.id}}">
+                                                                        {{employee.name}}
+                                                                    </a>
+                                                            </td>
+                                                            <td>{{employee.designation}}</td>
+                                                            <td>{{employee.role}}</td>
+                                                            <td>{{employee.email}}</td>
+                                                            <td>{{employee.contact}}</td> 
+                                                            <td><button class="btn btn-sm btn-success" value="{{employee.id}}" data-toggle="modal" 
+                                                                data-target="#empAddEditModal" (click)="setCurrentEmployee(employee)" ><i class="material-icons notranslate">edit</i></button></td>
+                                                            <td><button class="btn btn-sm btn-danger" value="{{employee.id}}" 
+                                                                (click)="deleteEmployee(employee)"> <i class="material-icons notranslate">delete</i></button></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                    
+                            
+                                  
+                        </div>
+                    </div>
+                <!-- <div *ngIf="isMaps('maps')"> -->
+                    <company-footer></company-footer>
+                <!-- </div> -->
+            </div>
+</div>
+
+

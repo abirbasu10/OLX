@@ -1,0 +1,94 @@
+<form [formGroup]="formdata" id="AddEditEmployeeForm" (ngSubmit) = "addEditEmployee(formdata.value)">
+    <div class="modal-body">
+      <div class="row">
+          <!-- <div class="col-md-6">
+              <div class="input-group">
+                  
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Employee ID" type="text" value="{{data.currentEmployee.id}}" id="empId" 
+                      formControlName="id" readonly>
+                  </mat-form-field>
+              </div>
+          </div> -->
+          <div class="col-md-6">
+              <div class="input-group">
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Employee Name" type="text" value="{{data.currentEmployee.name}}"
+                      formControlName="name">
+                      
+                          <mat-error *ngIf="nameFormControl.hasError('required')">
+                            Employee Name is <strong>required</strong>
+                          </mat-error>
+                  </mat-form-field>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="input-group">
+                  <!-- <span class="input-group-addon">
+                      <i class="material-icons notranslate">search</i>
+                  </span> -->
+
+                  
+                
+
+                  <mat-form-field>
+                        <mat-select placeholder="Designation" [(ngModel)]="empDesignation" [ngModelOptions]="{standalone: true}">
+                            <mat-option  *ngFor="let designation of data.designations"  value="{{designation}}">
+                                {{designation}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="input-group">
+                <!-- <span class="input-group-addon">
+                    <i class="material-icons notranslate">search</i>
+                </span> -->
+                <mat-form-field>
+                    <mat-select placeholder="Role" [(ngModel)]="empRole" [ngModelOptions]="{standalone: true}">
+                        <mat-option  *ngFor="let r of roles"  value="{{r.name}}">
+                            {{r.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+              <div class="input-group">
+
+                    <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Email" value="{{data.currentEmployee.email}}"
+                            formControlName="email">
+                            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                              Please enter a valid email address
+                            </mat-error>
+                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                              Email is <strong>required</strong>
+                            </mat-error>
+                          </mat-form-field>
+                  <!-- <span class="input-group-addon">
+                      <i class="material-icons notranslate">search</i>
+                  </span> -->
+                
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="input-group">
+                  <!-- <span class="input-group-addon">
+                      <i class="material-icons notranslate">search</i>
+                  </span> -->
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Contact" type="tel" id="empContact" value="{{data.currentEmployee.contact}}"
+                      formControlName="contact">
+                  </mat-form-field>
+              </div>
+          </div>
+      </div>
+      <div class="row pull-right">
+        <!-- <button class="btn" data-dismiss="AddEditEmployeeForm" (click)="onNoClick()" > Close</button>   -->
+        <button type="submit" class="btn btn-primary"  [disabled] = "!formdata.valid" > Save Changes</button>
+      </div>
+    </div>
+    
+  </form>

@@ -1,0 +1,45 @@
+.profile_img_div{
+    padding-top:56px;
+}
+.profile_img{
+    margin-top:50px;
+    border-radius: 50%;
+    border-color: solid black 3px !important;
+    color: #F44336;
+    font-size:100px;
+    width:120px;
+    height: 120px;
+    position: absolute!important;
+    bottom: -38px !important;
+    right: 44% !important;
+    z-index: +1;
+}
+
+.name{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.designation{
+    font-size: 16px;
+}
+
+.row{
+    margin-bottom: 30px!important
+}
+
+/* label{
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    
+} */
+
+.material-icons{
+    position:relative;
+    top: 5px;
+}
+
+hr{
+    border-color:#b51725!important;
+}

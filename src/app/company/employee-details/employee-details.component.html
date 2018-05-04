@@ -1,0 +1,125 @@
+<company-navbar></company-navbar>
+
+<div class="wrapper">
+  <div class="sidebar" data-color='red' data-image=""  style="z-index:2032">
+      <company-sidebar></company-sidebar>
+      <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+  </div>
+  <div class="main-panel">
+    
+    <!-- <router-outlet></router-outlet> -->
+    <div class="main-content">
+      <div class="container-fluid">
+        <!-- <div class="col-md-12 profile_img_div" style="text-align:center">
+            <i class="material-icons profile_img">account_circle</i>
+            <img class="img-responsive profile_img" src="/assets/img/company/employee/EricSimmons.jpg">
+        </div> -->
+        <div class="col-md-12">
+          <div class="card small card-profile">
+            <div class="card-header" data-background-color="red">
+              
+                <div class="card-avatar">
+                                  
+                    <img class="img-responsive " src="/assets/img/company/employee/NoImage.jpg" 
+                    style="border-radius: 50%;">
+                
+                </div>
+                <div style="text-align: center; padding-top:30px">
+                  <div class="name">{{currentEmployee.name}}</div>
+                </div>
+                <div style="text-align: center">
+                    <div class="designation">{{currentEmployee.designation}}</div>
+                </div>
+            </div>
+              
+            <div class="card-body" style="text-align: left">
+              <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="col-md-4">
+                      <label>
+                          <i class="material-icons notranslate">email</i> Email: 
+                      </label>
+                      {{currentEmployee.email}}
+                    </div>
+                    <div class="col-md-4">
+                      <label>
+                          <i class="material-icons notranslate">phone_iphone</i> Mobile: 
+                      </label>
+                      {{currentEmployee.contact}}
+                    </div>
+                    <div class="col-md-4">
+                      <label>
+                          <i class="material-icons notranslate">phone</i> Office Contact: 
+                      </label>
+                      {{currentEmployee.contact}}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="col-md-12">
+                      <label>
+                          <i class="material-icons notranslate">home</i> Address: 
+                      </label>
+                      32/19, Chandi Ghosh Road, Kudghat, Kolkata-700040.
+                      </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="col-md-4">
+                      <label>
+                        <i class="material-icons notranslate">cake</i> Date of Birth: 
+                      </label>
+                      {{currentEmployee.dob}}
+                    </div>
+                    <div class="col-md-4">
+                      <label>
+                          <i class="material-icons notranslate">assignment</i> Current Status:
+                      </label>
+                      On Board- Sea Horse
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+              <!-- <div class="card-header" data-background-color="red">
+                  <div class="row">
+                    <div class="col-md-4 col-md-offset-4" style="text-align: center">
+                          <i class="material-icons notranslate">directions_boat</i>
+                    </div>
+                  </div>           
+              </div> -->
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-md-6 col-md-offset-3" style="text-align: center">
+                          <h3 class="card-title">Profile</h3>
+                          <hr>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                      
+                          {{currentEmployee.name}} has been with us for the past 1 year. He has been working as
+                          a {{currentEmployee.designation}}. He is an exceptional worker. He is hardworking, and 
+                          highly dedicated and committed to his work.
+                      
+                    </div>
+                  </div>                
+              </div>              
+          </div>
+        </div>
+      </div>        
+    </div>
+    <!-- <div *ngIf="isMaps('maps')"> -->
+        <company-footer></company-footer>
+    <!-- </div> -->
+  </div>
+    
+</div>

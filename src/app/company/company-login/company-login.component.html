@@ -1,0 +1,186 @@
+<div class="full-page-background" ></div>
+<div class="wrapper" style="background-image: url(../../../assets/img/admin/login5.jpg);;background-size:cover; background-repeat:round;">
+    
+    <div class="main-panel">
+              
+        <!-- <router-outlet name="admin"></router-outlet> -->
+        <div class="wrapper-full-page">
+            <nav class="navbar navbar-primary navbar-transparent navbar-fixed-top hidden-xs">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target="#menu-example" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span> 
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/#/dashboard"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="menu-example">
+                            <div class="logo simple-text pull-left">
+            
+                                    <a routerLink="/index">
+                                    <div class="logo-img">
+                                        <i class="material-icons notranslate">directions_boat</i> Get My Req
+                                    </div>
+                                
+                                </a>
+                            
+                            </div>
+                        <!-- <ul class="nav navbar-nav navbar-right">
+                        
+                            <li class="">
+                                <a routerLink="/company/register">
+                                    <i class="material-icons notranslate">person_add</i> Register
+                                </a>
+                            </li>
+                            
+                        
+                        </ul> -->
+                    </div>
+                </div>
+            </nav>
+            <div class="full-page " filter-color="black">
+                
+                <div class="content login-page">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-md-offset-2" style="padding-top:80px">
+                            
+                                    <div class="card card-login">
+                                        <div class="card-header text-center" data-background-color="red">
+                                            <h4 class="card-title">Company Login</h4>
+                                            <!--<div class="social-line">
+                                                <a class="btn btn-just-icon btn-simple" href="#btn">
+                                                    <i class="fa fa-facebook-square"></i>
+                                                </a>
+                                                <a class="btn btn-just-icon btn-simple" href="#pablo">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                                <a class="btn btn-just-icon btn-simple" href="#eugen">
+                                                    <i class="fa fa-google-plus"></i>
+                                                </a>
+                                            </div>-->
+                                        </div>
+                                        <p class="category text-center">
+                                        
+                                        </p>
+                                        <form>
+                                        <div class="card-content">
+                                        
+
+                                        
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons notranslate">email</i>
+                                                </span>
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Email" type="email" [formControl]="emailFormControl">
+                                                
+                                                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                                            Please enter a valid email address
+                                                        </mat-error>
+                                                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                                                            Email is <strong>required</strong>
+                                                    </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="input-group" id="userPassword">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons notranslate">lock_outline</i>
+                                                </span>
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Password" type="password" id="password" [(ngModel)]="userPassword" [ngModelOptions]="{standalone: true}" (keyup)="login()">
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="row" style="margin-left: 6px;">
+                                                    <div class="input-group ">
+                                                            <div class="col-md-1">
+                                                                    <label>
+                                                                    
+                                                                            <input type="checkbox" class="toggle">
+                                                                            
+                                                                        </label>
+                                                                </div>
+                                                            <div class="col-md-5">
+                                                                    <label style="color:black">
+                                                                        Remember Me
+                                                                            
+                                                                        </label>
+                                                                </div>
+                                                        
+                                                            <div class="col-md-6 forgotPasswordLink ">
+                                                                <span>
+                                                                    <p data-toggle="modal" class="pull-right" data-target="#forgotPasswordModal">Forgot Password ?</p>
+                                                                </span>
+                                                            </div>
+
+                                                        
+                                                        </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12" style="text-align: center">
+                                                    Not Registered Yet? 
+                                                    <a routerLink="/company/register">
+                                                        <font color="red">
+                                                        Click Here
+                                                        </font>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                        <div class="footer text-center">
+                                            <a routerLink="/company/dashboard">    <button class="btn login-btn " type="submit" id="loginButton">Login</button></a>
+                                        </div>
+                                    </form> 
+                                    </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header" data-background-color="red">
+                                        <h5 class="modal-title" id="forgotPasswordModal">Forgot Password</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true" >&times;</span>
+                                            </button>
+                                    </div>
+                                        
+                                    <div class="modal-body">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons notranslate">email</i>
+                                            </span>
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Enter Registered Email" type="email">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="modal-footer">
+                                        <input type="button" class="btn submit-btn" value="Submit" data-dismiss="vesselAddEditModal" (click)="submitRegisteredEmail()">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        
+        </div>
+        
+        <company-footer></company-footer>
+    </div>
+
+    <!-- <div class="footer">
+      <div>
+           
+      </div>
+    </div> -->
+
+</div>
