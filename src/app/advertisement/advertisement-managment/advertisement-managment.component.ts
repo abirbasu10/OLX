@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category,SubCategory,Advertisement } from '../../classDefinition'
 import { CATEGORIES,SUBCATEGORIES,ADVERTISEMENTS } from '../../application_mock_Data'
 
-@Component({
+@Component({ 
   selector: 'app-advertisement-managment',
   templateUrl: './advertisement-managment.component.html',
   styleUrls: ['./advertisement-managment.component.css']
@@ -13,6 +13,7 @@ export class AdvertisementManagmentComponent implements OnInit {
 subCatgories:SubCategory[]=[]
 advertisements:Advertisement[]=[]
 currentLocation:string=""
+currentCategory:Category={id:null,name:""}
 currentSubCat:SubCategory={id:null,name:"",categoryDetails:{id:null,name:""}}
   constructor() { }
 
@@ -28,43 +29,45 @@ currentSubCat:SubCategory={id:null,name:"",categoryDetails:{id:null,name:""}}
     }
 
   
-  generateSubCategory(catId:number){
-    
+  generateSubCategory(cat:Category,catId:number){
+    this.currentCategory=cat
     this.subCatgories=[]
-    for(let subCat of SUBCATEGORIES){
-      if(subCat.categoryDetails.id==catId){        
-        this.subCatgories.push(subCat)
-      }
-    }
-  }
-
-  setCurrentLocation(location:string){
-this.currentLocation=location
+        for(let subCat of SUBCATEGORIES){
+          if(subCat.categoryDetails.id==catId){        
+            this.subCatgories.push(subCat)
+          }
+        }
   }
 
 
-  loadAdvertisementBySubCategory(subCatId:number){
-    alert(this.currentSubCat.name)
+  setCurrentSubCategory(subCat:SubCategory){
+    this.currentSubCat=subCat
+ 
+    this.loadAdvertisementBySubCategory()
+  }
+
+  loadAdvertisementBySubCategory(){
+    
     this.advertisements=[]
     var tempLocation=""
     for (let ad of ADVERTISEMENTS){
-      if(ad.subCategoryDetails.id==subCatId){
+      if(ad.subCategoryDetails.id==this.currentSubCat.id){
+        
         tempLocation=ad.portDetails.name+","+ad.portDetails.stateDetails.name+","+ad.portDetails.stateDetails.countryDetails.name
       
       if(this.currentLocation.toLowerCase()==tempLocation.toLowerCase()){
        
           this.advertisements.push(ad)
+          
       }
       }
     }
-
+    
   }
 
   loadAdvertisementsBySearchTerm(event){
     this.advertisements=[]
    var tempLocation=""
-   
-
 
    if(this.currentLocation.length){
      
@@ -77,7 +80,7 @@ this.currentLocation=location
             this.advertisements.push(ad)
         }
         }
-      
+       
     }   
   }else{
     for (let ad of ADVERTISEMENTS){
@@ -95,7 +98,7 @@ if(event.target.value.length==0){
   
   this.advertisements=[]
 }
-console.log(this.advertisements)
+
   }
 
 
