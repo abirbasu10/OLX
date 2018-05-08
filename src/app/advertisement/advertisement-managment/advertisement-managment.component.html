@@ -1,0 +1,137 @@
+<!-- 
+<button type="button" class="btn btn-sm btn-primary add_button pull-right" title="Add Employee" (click)="openDialog()">
+        <i class="material-icons notranslate plus_sign" >person_add</i>
+    </button> -->
+
+<div class="wrapper">
+        <div class="sidebar" data-color='orange' data-image=""  style="z-index:2032">
+            <advertisement-sidebar></advertisement-sidebar>
+            <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+        </div>
+        <div class="main-panel">
+                
+                <!-- <router-outlet></router-outlet> -->
+                <div class="main-content">
+                        <div class="container-fluid">
+                            
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header" data-background-color="orange">
+                                            <h4 class="title"><i class="material-icons notranslate">dashboard</i> Advertisements</h4>
+                                            <!-- <p class="category">Here is a subtitle for this table</p>                       -->
+                                        </div>
+                                        
+                                        <div class="card-content table-responsive">
+                                             <div class="row">
+                                                <div class="col-md-2">
+                                                 <img src="../assets/img/olxicon.jpg" class="img-responsive" style="width: 30%;">
+                                                </div>   
+
+                                                <div class="col-md-3 pull-left">
+                                                    <h4>Largest Market for Marine</h4>
+                                                </div>  
+
+                                                <div class="col-md-3">
+                                                   <a routerLink="/company/login">
+                                                    <h4  style="color:blue"><i class="material-icons notranslate">person</i> My Account</h4>
+                                                   </a>
+                                                </div>  
+
+                                                <div class="col-md-3">
+                                                    <button class="btn btn-warning">Submit a Free Ad</button>
+                                                </div>  
+                                            </div> 
+
+                                            <div class="row" style="color:cornflowerblue" id="filters">
+
+                                                <div class="col-md-3">
+                                                    <mat-form-field>
+                                                            <i class="material-icons notranslate" matPrefix>location_on</i>
+                                                        <mat-select placeholder="Location" >
+                                                             
+                                                            <mat-option  *ngFor="let location of  locations"  value="{{location}}" (click)="setCurrentLocation(location)">
+                                                                {{location}}
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <mat-form-field>
+                                                        <mat-select placeholder="Category" [(ngModel)]="category" [ngModelOptions]="{standalone: true}" >
+                                                            <mat-option  *ngFor="let category of  categories"  value="{{category.id}}" (click)="generateSubCategory(category.id)">
+                                                                {{category.name}}
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <mat-form-field>
+                                                        <mat-select placeholder="Sub Category" [(ngModel)]="currentSubCat" [ngModelOptions]="{standalone: true}" >
+                                                            <mat-option  *ngFor="let subCat of  subCatgories"  value="{{subCat.name}}"  (click)="loadAdvertisementBySubCategory(subCat.id)">
+                                                                {{subCat.name}}
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                        
+                                                        <mat-form-field class="example-full-width">
+                                                                
+                                                                <input type="text" matInput  (input)="loadAdvertisementsBySearchTerm($event)" placeholder="Search for a specific product">
+                                                                <mat-icon matSuffix>search</mat-icon>
+                                                            </mat-form-field>
+                                                    </div>
+                                            </div> 
+
+                                             <div class="row" id=ads>
+                                               
+                                                   
+                                               
+
+                                                <table class="table table-hover table-responsive" >
+                                                        <thead class="text-danger notranslate" style="text-align:center">
+                                                            <tr class="row"  >
+                                                                <th class="col-md-2" >Product Name </th>
+                                                                <th class="col-md-2">Description</th>
+                                                                <th class="col-md-4">Category</th>
+                                                                <th class="col-md-4">SubCategory</th>
+                                                                <th class="col-md-4">Location</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody  >
+                                                            <tr class="row" *ngFor="let ad of advertisements" >
+                                                                <td class="col-md-2 notranslate"> {{ad.productName}}</td>
+                                                                <td  class="col-md-4">{{ad.productDescription}}</td>
+                                                                <td  class="col-md-4">{{ad.subCategoryDetails.categoryDetails.name}}</td>
+                                                                <td class="col-md-2">{{ad.subCategoryDetails.name}} </td>
+                                                                <td class="col-md-2">{{ad.portDetails.name}},{{ad.portDetails.stateDetails.name}},{{ad.portDetails.stateDetails.countryDetails.name}} </td>
+                                                                   
+                                                               
+                                                            </tr>
+                                                        </tbody>
+                                                </table> 
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                    
+                            
+                                  
+                        </div>
+                    </div>
+                
+                    <advertisement-footer></advertisement-footer>
+                
+            </div>
+</div>
+
+
+

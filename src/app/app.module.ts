@@ -79,6 +79,12 @@ import { LandingComponent } from './landing/landing.component';
 
 import { LandingNavbarComponent } from './landing-navbar/landing-navbar.component';
 import { LandingSidebarComponent } from './landing-sidebar/landing-sidebar.component';
+import { AdvertisementComponent } from './advertisement/advertisement.component';
+import { AdvertisementSidebarComponent } from './advertisement/advertisement-sidebar/advertisement-sidebar.component';
+//import { AdvertisementNavbarComponent } from './advertisement/advertisement-navbar/advertisement-navbar.component';
+import { AdvertisementFooterComponent } from './advertisement/advertisement-footer/advertisement-footer.component';
+import { AdvertisementManagmentComponent } from './advertisement/advertisement-managment/advertisement-managment.component';
+import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
 
 @NgModule({
   declarations: [
@@ -133,6 +139,18 @@ CompanyComponent,
     LandingNavbarComponent,
 
     LandingSidebarComponent,
+
+    AdvertisementComponent,
+
+    AdvertisementSidebarComponent,
+
+  //  AdvertisementNavbarComponent,
+
+    AdvertisementFooterComponent,
+
+    AdvertisementManagmentComponent,
+
+    CreateAdvertisementComponent,
     //AdminSubscriptionManagementComponent
    
   ],
