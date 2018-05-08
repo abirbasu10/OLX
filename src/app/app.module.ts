@@ -79,18 +79,17 @@ import { LandingComponent } from './landing/landing.component';
 
 import { LandingNavbarComponent } from './landing-navbar/landing-navbar.component';
 import { LandingSidebarComponent } from './landing-sidebar/landing-sidebar.component';
-<<<<<<< HEAD
+
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PlaceAdComponent } from './place-ad/place-ad.component';
-=======
 import { AdvertisementComponent } from './advertisement/advertisement.component';
 import { AdvertisementSidebarComponent } from './advertisement/advertisement-sidebar/advertisement-sidebar.component';
 //import { AdvertisementNavbarComponent } from './advertisement/advertisement-navbar/advertisement-navbar.component';
 import { AdvertisementFooterComponent } from './advertisement/advertisement-footer/advertisement-footer.component';
 import { AdvertisementManagmentComponent } from './advertisement/advertisement-managment/advertisement-managment.component';
 import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
->>>>>>> 43ca47cfabe0aa4a91c784f4a1d3319ffad10c99
+
 
 @NgModule({
   declarations: [
@@ -146,13 +145,13 @@ CompanyComponent,
 
     LandingSidebarComponent,
 
-<<<<<<< HEAD
+
     LoginComponent,
 
     RegisterComponent,
 
     PlaceAdComponent,
-=======
+
     AdvertisementComponent,
 
     AdvertisementSidebarComponent,
@@ -164,7 +163,7 @@ CompanyComponent,
     AdvertisementManagmentComponent,
 
     CreateAdvertisementComponent,
->>>>>>> 43ca47cfabe0aa4a91c784f4a1d3319ffad10c99
+
     //AdminSubscriptionManagementComponent
    
   ],
