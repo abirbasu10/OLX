@@ -1,0 +1,168 @@
+<div class="full-page-background" ></div>
+<div class="wrapper" style="background-image: url(../../../assets/img/admin/login5.jpg);;background-size:cover; background-repeat:round;">
+    
+    <div class="main-panel">
+              
+        <!-- <router-outlet name="admin"></router-outlet> -->
+        <div class="wrapper-full-page">
+          <nav class="navbar navbar-primary navbar-transparent navbar-fixed-top hidden-xs">
+              <div class="container">
+                  <div class="navbar-header">
+                      <button class="navbar-toggle" data-target="#menu-example" data-toggle="collapse" type="button">
+                          <span class="sr-only">Toggle navigation</span> 
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="/#/dashboard"></a>
+                  </div>
+                  <div class="collapse navbar-collapse" id="menu-example">
+                          <div class="logo simple-text pull-left">
+          
+                              <a routerLink="/index">
+                                  <div class="logo-img">
+                                      <i class="material-icons notranslate">directions_boat</i> Get My Req
+                                  </div>
+                                
+                              </a>
+                            
+                          </div>
+                      <!-- <ul class="nav navbar-nav navbar-right">
+                        
+                          <li class="">
+                              <a routerLink="/company/login">
+                                  <i class="material-icons notranslate">lock_open</i> Login
+                              </a>
+                          </li>
+                          
+                        
+                      </ul> -->
+                  </div>
+              </div>
+          </nav>
+
+          <div class="full-page " filter-color="black">
+              
+              <div class="content register-page">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-md-4 col-sm-6 col-md-offset-2">
+                              <form action="/admin" method="get" novalidate="" class="ng-untouched ng-pristine ng-valid">
+                                  <div class="card card-login">
+                                      <div class="card-header text-center" data-background-color="red">
+                                          <h4 class="card-title">Registration</h4>
+                                        
+                                      </div>
+                                      
+                                      <div class="card-content">
+                                          
+                                              <!-- <form action="" class="form ng-untouched ng-pristine ng-valid" method="" novalidate=""> -->
+                                                  <div class="card-content">
+                                                      <div class="input-group">
+                                                          <span class="input-group-addon">
+                                                              <i class="material-icons notranslate">person</i>
+                                                          </span>
+                                                          <mat-form-field class="example-full-width">
+                                                            <mat-select placeholder="Register as" #registerAs required>
+                                                              <mat-option value="admin">
+                                                                Admin
+                                                              </mat-option>
+                                                              <mat-option value="company">
+                                                                Company
+                                                              </mat-option>
+                                                              <mat-option value="vendor">
+                                                                Vendor
+                                                              </mat-option>
+                                                            </mat-select>
+                                                          </mat-form-field>
+                                                      </div>
+
+                                                      <div class="input-group">
+                                                          <span class="input-group-addon">
+                                                              <i class="material-icons notranslate">account_box</i>
+                                                          </span>
+                                                          <mat-form-field class="example-full-width">
+                                                              <input matInput placeholder="Name" type="text" #name required>
+                                                          
+                                                              <!-- <mat-error *ngIf="name.hasError('required')">
+                                                                      Name is <strong>required</strong>
+                                                              </mat-error> -->
+                                                          </mat-form-field>
+                                                          
+                                                          <!-- <div class="form-group is-empty"><input class="form-control" placeholder="Company Name..." type="text"><span class="material-input"></span></div> -->
+                                                      </div>
+                                                  
+                                                      <div class="input-group">
+                                                          <span class="input-group-addon">
+                                                              <i class="material-icons notranslate">phone</i>
+                                                          </span>
+                                                          <mat-form-field class="example-full-width">
+                                                              <input matInput placeholder="Contact" type="text" #phone required>
+                                                          
+                                                          </mat-form-field>
+                                                          <!-- <div class="form-group is-empty"><input class="form-control" placeholder="Company Website..." type="text"><span class="material-input"></span></div> -->
+                                                      </div>
+                                                      <div class="input-group">
+                                                          <span class="input-group-addon">
+                                                              <i class="material-icons notranslate">email</i>
+                                                          </span>
+                                                          <mat-form-field class="example-full-width">
+                                                              <input matInput placeholder="Email" type="email" #email required>
+                                                          </mat-form-field>
+                                                      </div>
+                                                      <div class="input-group">
+                                                          <span class="input-group-addon">
+                                                              <i class="material-icons notranslate">lock_outline</i>
+                                                          </span>
+                                                          <mat-form-field class="example-full-width">
+                                                              <input matInput placeholder="Password" type="password" #password required>
+                                                          </mat-form-field>
+                                                          <!-- <div class="form-group is-empty"><input class="form-control" placeholder="Password..." type="password"><span class="material-input"></span></div> -->
+                                                      </div>
+
+                                                      <div class="input-group">
+                                                          <span class="input-group-addon">
+                                                              <i class="material-icons notranslate">lock_outline</i>
+                                                          </span>
+                                                          <mat-form-field class="example-full-width">
+                                                              <input matInput placeholder="Confirm Password" type="password" #confirmPassword required>
+                                                          </mat-form-field>
+                                                          <!-- <div class="form-group is-empty"><input class="form-control" placeholder="Confirm Password..." type="password"><span class="material-input"></span></div> -->
+                                                      </div>
+                                                      
+                                                      <div class="checkbox">
+                                                          <label>
+                                                              <input checked="" name="optionsCheckboxes" type="checkbox"><span class="checkbox-material"><span class="check"></span></span> I agree to the terms and conditions.
+                                                          </label>
+                                                      </div>
+                                                  </div>
+                                                  <div class="footer text-center">
+                                                      <button class="btn btn-primary btn-round register-btn" (click)="register(registerAs,name,phone,email,password,confirmPassword)">Register</button>
+                                                      <!-- <a class="btn btn-primary btn-round register-btn" routerLink="/company/dashboard">Register</a> -->
+                                                  </div>
+                                              <!-- </form> -->
+                                      </div>
+                                      
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+
+                      
+                  </div>
+              </div>
+              
+
+          </div>
+        </div>
+        
+        <company-footer></company-footer>
+    </div>
+
+   <!-- <div class="footer">
+      <div>
+           
+      </div>
+    </div> -->
+
+</div>
