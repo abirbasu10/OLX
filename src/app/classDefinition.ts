@@ -2,7 +2,7 @@ export class Category{
     id:number;
     name:string
 }
-
+ 
 export class SubCategory{
     id:number;
     name:string
@@ -14,6 +14,8 @@ export class Filter{
     name:string;
     description:string;
     type:string;
+    addType:string;
+    extraInfo:boolean;
 }
 
 export class SubCatFilterMap{

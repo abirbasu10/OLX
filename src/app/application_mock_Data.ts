@@ -37,12 +37,12 @@ export const SUBCATEGORIES: SubCategory[]=[
 ]
 
 export const FILTERS:Filter[]=[
-    {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},
-    {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},
-    {  id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown"},
-    {  id:4,name:"Fuel-Type",description:"sacdsfsfdf",type:"dropdown"},
-    {  id:5,name:"Milege",description:"sacdsfsfdf",type:""},
-    {  id:6,name:"Brand",description:"sacdsfsfdf",type:"dropdown"},      
+    {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},
+    {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},
+    {  id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},
+    {  id:4,name:"Fuel-Type",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},
+    {  id:5,name:"Milege",description:"sacdsfsfdf",type:"",addType:"numeric",extraInfo:false},
+    {  id:6,name:"Brand",description:"sacdsfsfdf",type:"dropdown",addType:"text",extraInfo:false},      
 
 ]
 
@@ -53,9 +53,9 @@ export const SUBCATFILTERMAP:SubCatFilterMap[]=[
         subCategoryDetails:{id:1,name:"ForSale",categoryDetails:{id:1,name:"Properties"}},
         filterDetails:
         [ 
-             {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},
-             {  id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown"},
-             {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},
+             {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},
+             {  id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},
+             {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},
         ],
         hasChild:1
     },
@@ -64,9 +64,9 @@ export const SUBCATFILTERMAP:SubCatFilterMap[]=[
         subCategoryDetails:{id:2,name:"ForRent",categoryDetails:{id:1,name:"Properties"}},
         filterDetails:
         [ 
-             {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},
-             {  id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown"},
-             {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},
+            {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},
+             {  id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},
+             {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},
         ],
         hasChild:1
     },
@@ -75,10 +75,10 @@ export const SUBCATFILTERMAP:SubCatFilterMap[]=[
         subCategoryDetails:{id:3,name:"Domestic Car",categoryDetails:{id:2,name:"Car"}},
         filterDetails:
         [ 
-             {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},
-             {  id:4,name:"Fuel-Type",description:"sacdsfsfdf",type:"dropdown"},
-             {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},
-             {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown"},
+             {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},
+             {  id:4,name:"Fuel-Type",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},
+             {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},
+             {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:false},
         ],
         hasChild:1
     },
@@ -87,10 +87,10 @@ export const SUBCATFILTERMAP:SubCatFilterMap[]=[
         subCategoryDetails:{id:4,name:"Commercial Car",categoryDetails:{id:2,name:"Car"}},
         filterDetails:
         [ 
-             {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},
-             {  id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown"},
-             {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},
-             {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown"},
+            {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},
+            {  id:4,name:"Fuel-Type",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},
+            {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},
+            {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:false},
         ],
         hasChild:1
     },
@@ -99,8 +99,9 @@ export const SUBCATFILTERMAP:SubCatFilterMap[]=[
         subCategoryDetails:{id:5,name:"AC",categoryDetails:{id:3,name:"Electronic"}},
         filterDetails:
         [ 
-             {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},             
-             {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},
+            {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},         
+          
+            {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:false},
              
         ],
         hasChild:1
@@ -110,8 +111,9 @@ export const SUBCATFILTERMAP:SubCatFilterMap[]=[
         subCategoryDetails:{id:6,name:"TV",categoryDetails:{id:3,name:"Electronic"}},
         filterDetails:
         [ 
-             {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},             
-             {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},
+            {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},        
+          
+            {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:false},
              
         ],
         hasChild:1
@@ -121,9 +123,9 @@ export const SUBCATFILTERMAP:SubCatFilterMap[]=[
         subCategoryDetails:{id:6,name:"Scooter",categoryDetails:{id:4,name:"Bike"}},
         filterDetails:
         [ 
-             {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},             
-             {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},
-             {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown"},
+             {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},             
+             {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},
+             {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:false},
              
         ],
         hasChild:1
@@ -133,9 +135,9 @@ export const SUBCATFILTERMAP:SubCatFilterMap[]=[
         subCategoryDetails:{id:7,name:"Motor Cycles",categoryDetails:{id:4,name:"Bike"}},
         filterDetails:
         [ 
-             {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},             
-             {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},
-             {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown"},
+            {  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},             
+            {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},
+            {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:false},
              
         ],
         hasChild:1
@@ -198,6 +200,11 @@ export const ADVERTISEMENTS: Advertisement[]=[
         subCategoryDetails: {id:8,name:"Motor Cycle", categoryDetails:{id:4,name:"Bike"}},
         portDetails: {id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},
     },
+    {
+        id:4,  productName:"2 years Old Flat",  productDescription:"", 
+        subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+        portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
+    },
 ]
 
 
@@ -211,9 +218,24 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
                          portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
         },
         filterValues:[
-            {id:1,filterDetails: {  id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown"},value:"2bhk"},
-            {id:2,filterDetails:{  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},value:"15,00,000"},
-            {id:3,filterDetails: {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},value:"3 months"},
+            {id:1,filterDetails: {  id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},value:"2bhk"},
+            {id:2,filterDetails:{  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"15,00,000"},
+            {id:3,filterDetails: {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"3 months"},
+            
+        ]
+    },
+    {
+        id:4,
+        advertisementDetails:
+        {
+                         id:1,  productName:"2 years Old Flat",  productDescription:"", 
+                         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+                         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
+        },
+        filterValues:[
+            {id:1,filterDetails: {  id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},value:"2bhk"},
+            {id:2,filterDetails:{  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"15,00,000"},
+            {id:3,filterDetails: {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"2 Years"},
             
         ]
     },
@@ -226,9 +248,9 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
         },
         filterValues:[
-            {id:1,filterDetails: {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown"},value:"13"},
-            {id:2,filterDetails:{  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},value:"1,50,00,000"},
-            {id:3,filterDetails: {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},value:"3 Years"},
+            {id:1,filterDetails: {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:false},value:"13"},
+            {id:2,filterDetails:{  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"1,50,00,000"},
+            {id:3,filterDetails: {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"3 Years"},
             
         ]
     },
@@ -241,9 +263,9 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             portDetails: {id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},
         },
         filterValues:[
-            {id:1,filterDetails: {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown"},value:"25"},
-            {id:2,filterDetails:{  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},value:"15,000"},
-            {id:3,filterDetails: {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},value:"8 Years"},
+            {id:1,filterDetails: {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:false},value:"25"},
+            {id:2,filterDetails:{  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"15,000"},
+            {id:3,filterDetails: {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"8 Years"},
             
         ]
     }
@@ -265,19 +287,19 @@ export const SUBCATFILTEROPTIONS: SubCategoryFilterOption[]=[
         filterSubCatMapId:2,
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         subCatFilterValues:[
-            {id:1,filterDetails: {id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown"},value:["1bhk","2bhk","3bhk"]},
-            {id:2,filterDetails: {id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},value:["10,00,000","20,00,000","30,00,000"]},
-            {id:3,filterDetails: {id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},value:["1year","2year","5year"]},
+            {id:1,filterDetails: {id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},value:["1bhk","2bhk","3bhk"]},
+            {id:2,filterDetails: {id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["10,00,000","20,00,000","30,00,000"]},
+            {id:3,filterDetails: {id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["1year","2year","5year"]},
         ]
     },
     {
         id:2,
         filterSubCatMapId:2,
-        subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+        subCategoryDetails: {id:1,name:"ForRent", categoryDetails:{id:1,name:"Properties"}},
         subCatFilterValues:[
-            {id:1,filterDetails: {id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown"},value:["1bhk","2bhk","3bhk"]},
-            {id:2,filterDetails: {id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},value:["10,00,000","20,00,000","30,00,000"]},
-            {id:3,filterDetails: {id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},value:["1year","2year","5year"]},
+            {id:1,filterDetails: {id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},value:["1bhk","2bhk","3bhk"]},
+            {id:2,filterDetails: {id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["10,00,000","20,00,000","30,00,000"]},
+            {id:3,filterDetails: {id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["1year","2year","5year"]},
         ]
     },
     {
@@ -285,10 +307,10 @@ export const SUBCATFILTEROPTIONS: SubCategoryFilterOption[]=[
         filterSubCatMapId:3,
         subCategoryDetails:{id:3,name:"Domestic Car",categoryDetails:{id:2,name:"Car"}},
         subCatFilterValues: [ 
-            {id:1,filterDetails: {id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown"},value:["5,00,000","7,00,000","15,00,000"]},
-            {id:2,filterDetails: {id:4,name:"Fuel-Type",description:"sacdsfsfdf",type:"dropdown"},value:["Petrol","Desel"]},
-            {id:3,filterDetails: {id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown"},value:["1year","2year","5year"]},
-            {id:4,filterDetails: {id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown"},value:["10","13","15"]},
+            {id:1,filterDetails: {id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["5,00,000","7,00,000","15,00,000"]},
+            {id:2,filterDetails: {id:4,name:"Fuel-Type",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},value:["Petrol","Desel"]},
+            {id:3,filterDetails: {id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["1year","2year","5year"]},
+            {id:4,filterDetails: {id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:false},value:["10","13","15"]},
             
             
        ]
