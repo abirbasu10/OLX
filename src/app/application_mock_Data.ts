@@ -232,7 +232,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             
         ]
     },
-    {
+    { 
         id:3,
         advertisementDetails:
         {

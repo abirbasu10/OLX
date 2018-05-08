@@ -27,9 +27,14 @@ import { EmployeeDetailsComponent } from './company/employee-details/employee-de
 
 import { CompanyProfileComponent } from './company/company-profile/company-profile.component';
 import { LandingComponent } from './landing/landing.component';
+<<<<<<< HEAD
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
+=======
+import { AdvertisementManagmentComponent } from './advertisement/advertisement-managment/advertisement-managment.component';
+import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
+>>>>>>> 43ca47cfabe0aa4a91c784f4a1d3319ffad10c99
 
 
 //import { AdminSubscriptionManagementComponent } from './admin/admin-subscription-management/admin-subscription-management.component';
@@ -59,6 +64,8 @@ const routes: Routes =[
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'index',          component: IndexComponent },
 
+    { path: 'advertisements',  component: AdvertisementManagmentComponent },
+    { path: 'advertisements/create',  component: CreateAdvertisementComponent },
      { path:'landing', component:LandingComponent},
      { path: '', redirectTo: 'landing', pathMatch: 'full' },
 
