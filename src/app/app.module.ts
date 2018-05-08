@@ -79,6 +79,9 @@ import { LandingComponent } from './landing/landing.component';
 
 import { LandingNavbarComponent } from './landing-navbar/landing-navbar.component';
 import { LandingSidebarComponent } from './landing-sidebar/landing-sidebar.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { PlaceAdComponent } from './place-ad/place-ad.component';
 
 @NgModule({
   declarations: [
@@ -133,6 +136,12 @@ CompanyComponent,
     LandingNavbarComponent,
 
     LandingSidebarComponent,
+
+    LoginComponent,
+
+    RegisterComponent,
+
+    PlaceAdComponent,
     //AdminSubscriptionManagementComponent
    
   ],

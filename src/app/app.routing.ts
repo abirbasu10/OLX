@@ -27,6 +27,8 @@ import { EmployeeDetailsComponent } from './company/employee-details/employee-de
 
 import { CompanyProfileComponent } from './company/company-profile/company-profile.component';
 import { LandingComponent } from './landing/landing.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -58,7 +60,11 @@ const routes: Routes =[
     { path: 'index',          component: IndexComponent },
 
      { path:'landing', component:LandingComponent},
-     { path: '', redirectTo: 'landing', pathMatch: 'full' }
+     { path: '', redirectTo: 'landing', pathMatch: 'full' },
+
+
+     { path:'login_register', component:LoginComponent},
+     { path:'register', component:RegisterComponent},
 
 ];
 
