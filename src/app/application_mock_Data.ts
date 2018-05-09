@@ -187,23 +187,27 @@ export const ADVERTISEMENTS: Advertisement[]=[
         id:1,  productName:"Sea Facing New Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+        name:"Amit Halder",contact:9038568379,date:new Date(),
     },
     
     {
         id:2,  productName:"Good Condition Audi",  productDescription:"", 
         subCategoryDetails: {id:4,name:"Commercial Car", categoryDetails:{id:2,name:"Car"}},
         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
+        name:"Bipraneel",contact:9038102961,date:new Date(),
     },
     
     {
         id:3,  productName:"No EMI Mototr Cycle",  productDescription:"", 
         subCategoryDetails: {id:8,name:"Motor Cycle", categoryDetails:{id:4,name:"Bike"}},
         portDetails: {id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},
+        name:"Abir Basu",contact:9943287632,date:new Date(),
     },
     {
         id:4,  productName:"2 years Old Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
+        name:"Spandan",contact:9903527889,date:new Date(),
     },
 ]
 
@@ -216,11 +220,12 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
                          id:1,  productName:"Sea Facing New Flat",  productDescription:"", 
                          subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
                          portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+                         name:"Amit Halder",contact:9038568379,date:new Date(),
         },
         filterValues:[
-            {id:1,filterDetails: {  id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},value:"2bhk"},
-            {id:2,filterDetails:{  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"15,00,000"},
-            {id:3,filterDetails: {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"3 months"},
+            {name:"Bedroom",value:"2bhk"},
+            {name:"Price-Range",value:"15,00,000"},
+            {name:"Year-Range",value:"3 months"},
             
         ]
     },
@@ -228,14 +233,15 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
         id:4,
         advertisementDetails:
         {
-                         id:1,  productName:"2 years Old Flat",  productDescription:"", 
+                         id:4,  productName:"2 years Old Flat",  productDescription:"", 
                          subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
                          portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
+                         name:"Spandan",contact:9903527889,date:new Date(),
         },
         filterValues:[
-            {id:1,filterDetails: {  id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},value:"2bhk"},
-            {id:2,filterDetails:{  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"15,00,000"},
-            {id:3,filterDetails: {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"2 Years"},
+            {name:"Bedroom",value:"2bhk"},
+            {name:"Price-Range",value:"15,00,000"},
+            {name:"Year-Range",value:"2 Years"},
             
         ]
     },
@@ -246,11 +252,12 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             id:2,  productName:"Good Condition Audi",  productDescription:"", 
             subCategoryDetails: {id:4,name:"Commercial Car", categoryDetails:{id:2,name:"Car"}},
             portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
+            name:"Bipraneel",contact:9038102961,date:new Date(),
         },
         filterValues:[
-            {id:1,filterDetails: {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:false},value:"13"},
-            {id:2,filterDetails:{  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"1,50,00,000"},
-            {id:3,filterDetails: {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"3 Years"},
+            {name:"Milege",value:"13"},
+            {name:"Price-Range",value:"1,50,00,000"},
+            {name:"Year-Range",value:"3 Years"},
             
         ]
     },
@@ -261,11 +268,12 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             id:3,  productName:"No EMI Mototr Cycle",  productDescription:"", 
             subCategoryDetails: {id:8,name:"Motor Cycle", categoryDetails:{id:4,name:"Bike"}},
             portDetails: {id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},
+            name:"Abir Basu",contact:9943287632,date:new Date(),
         },
         filterValues:[
-            {id:1,filterDetails: {  id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:false},value:"25"},
-            {id:2,filterDetails:{  id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"15,000"},
-            {id:3,filterDetails: {  id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:"8 Years"},
+            {name:"Milege",value:"25"},
+            {name:"Price-Range",value:"15,000"},
+            {name:"Year-Range",value:"8 Years"},
             
         ]
     }
@@ -308,7 +316,7 @@ export const SUBCATFILTEROPTIONS: SubCategoryFilterOption[]=[
         subCategoryDetails:{id:3,name:"Domestic Car",categoryDetails:{id:2,name:"Car"}},
         subCatFilterValues: [ 
             {id:1,filterDetails: {id:1,name:"Price-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["5,00,000","7,00,000","15,00,000"]},
-            {id:2,filterDetails: {id:4,name:"Fuel-Type",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},value:["Petrol","Desel"]},
+            {id:2,filterDetails: {id:4,name:"Fuel-Type",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},value:["Petrol","Diesel"]},
             {id:3,filterDetails: {id:2,name:"Year-Range",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["1year","2year","5year"]},
             {id:4,filterDetails: {id:5,name:"Milege",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:false},value:["10","13","15"]},
             

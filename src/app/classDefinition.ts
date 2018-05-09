@@ -57,6 +57,9 @@ export class Advertisement{
     productDescription:string;    
     subCategoryDetails:SubCategory;
     portDetails:Port;
+    name:string;
+    contact:number;
+    date:Date;
 }
 
 
@@ -68,8 +71,7 @@ export class ProductFilterValue{
 
 
 export class AdvertisementFilterValue{
-    id:number;   
-   filterDetails:Filter
+    name:string
    value:string
 }
 
