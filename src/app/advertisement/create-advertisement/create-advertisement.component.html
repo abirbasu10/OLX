@@ -36,19 +36,23 @@
 
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <mat-select placeholder="Enter Category" [(ngModel)]="adCategory" (change)="getSubCategory()">
-                                                            <mat-option *ngFor="let category of categories" value="{{category.name}}">
-                                                                {{category.name}}
-                                                            </mat-option>
-                                                        </mat-select>
+                                                        <mat-form-field>
+                                                            <mat-select placeholder="Enter Category" [(ngModel)]="adCategory" (change)="getSubCategory()">
+                                                                <mat-option *ngFor="let category of categories" value="{{category.name}}">
+                                                                    {{category.name}}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
                                                     </div>
 
                                                     <div class="col-md-6" *ngIf="adCategory">
-                                                        <mat-select placeholder="Enter Sub Category" [(ngModel)]="adSubCategory" (change)="getFilters()">
-                                                            <mat-option *ngFor="let subcategory of subcategories" value="{{subcategory.name}}">
-                                                                {{subcategory.name}}
-                                                            </mat-option>
-                                                        </mat-select>
+                                                        <mat-form-field>
+                                                            <mat-select placeholder="Enter Sub Category" [(ngModel)]="adSubCategory" (change)="getFilters()">
+                                                                <mat-option *ngFor="let subcategory of subcategories" value="{{subcategory.name}}">
+                                                                    {{subcategory.name}}
+                                                                </mat-option>
+                                                            </mat-select>   
+                                                        </mat-form-field>
                                                     </div>
                                                 </div>
 
@@ -57,21 +61,21 @@
                                                         <div class="row" *ngIf="filters.addType=='numeric'">
                                                             <div class="col-md-12">
                                                                 <mat-form-field class="example-full-width">
-                                                                    <input matInput type="number" placeholder="{{filters.name}}">
+                                                                    <input matInput type="number" #valOfField id="{{filters.name}}" placeholder="{{filters.name}}" (focusout)="enterValue(valOfField)">
                                                                 </mat-form-field>
                                                             </div>
                                                         </div>
                                                         <div class="row" *ngIf="filters.addType=='text'">
                                                             <div class="col-md-12">
                                                                 <mat-form-field class="example-full-width">
-                                                                    <input matInput placeholder="{{filters.name}}">
+                                                                    <input matInput #valOfField id="{{filters.name}}" placeholder="{{filters.name}}" (focusout)="enterValue(valOfField)">
                                                                 </mat-form-field>
                                                             </div>
                                                         </div>
                                                         <div class="row"  *ngIf="filters.addType=='dropdown'">
                                                             <div class="col-md-12"> 
                                                                 <mat-form-field>
-                                                                    <mat-select placeholder="{{filters.name}}">
+                                                                    <mat-select #valOfField id="{{filters.name}}" placeholder="{{filters.name}}" (change)="enterValue(valOfField)">
                                                                         <mat-option *ngFor="let val of filters.values" value="{{val}}">
                                                                             {{val}}
                                                                         </mat-option>
@@ -130,7 +134,7 @@
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <mat-form-field class="example-full-width">
-                                                                <textarea matInput placeholder="Description" [(ngModel)]="description"></textarea>
+                                                                <textarea matInput placeholder="Description" [(ngModel)]="adDescription"></textarea>
                                                             </mat-form-field>
                                                         </div>
                                                     </div>
@@ -153,28 +157,39 @@
 
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <mat-select placeholder="Country" [(ngModel)]="adCountry" (change)="getState()">
-                                                                <mat-option *ngFor="let country of countries" value="{{country.name}}">
-                                                                    {{country.name}}
-                                                                </mat-option>
-                                                            </mat-select>
+                                                            <mat-form-field>
+                                                                <mat-select placeholder="Country" [(ngModel)]="adCountry" (change)="getState()">
+                                                                    <mat-option *ngFor="let country of countries" value="{{country.name}}">
+                                                                        {{country.name}}
+                                                                    </mat-option>
+                                                                </mat-select>
+                                                            </mat-form-field>
                                                         </div>
 
                                                         <div class="col-md-4" *ngIf="states.length>0">
-                                                            <mat-select placeholder="State" [(ngModel)]="adState" (change)="getPort()">
-                                                                <mat-option *ngFor="let state of states" value="{{state.name}}">
-                                                                    {{state.name}}
-                                                                </mat-option>
-                                                            </mat-select>
+                                                            <mat-form-field>
+                                                                <mat-select placeholder="State" [(ngModel)]="adState" (change)="getPort()">
+                                                                    <mat-option *ngFor="let state of states" value="{{state.name}}">
+                                                                        {{state.name}}
+                                                                    </mat-option>
+                                                                </mat-select>
+                                                            </mat-form-field>
                                                         </div>
 
                                                         <div class="col-md-4" *ngIf="ports.length>0">
-                                                            <mat-select placeholder="Port" [(ngModel)]="adPort">
-                                                                <mat-option *ngFor="let port of ports" value="{{port.name}}">
-                                                                    {{port.name}}
-                                                                </mat-option>
-                                                            </mat-select>
+                                                            <mat-form-field>
+                                                                <mat-select placeholder="Port" [(ngModel)]="adPort">
+                                                                    <mat-option *ngFor="let port of ports" value="{{port.name}}">
+                                                                        {{port.name}}
+                                                                    </mat-option>
+                                                                </mat-select>
+                                                            </mat-form-field>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" *ngIf="adSubCategory">
+                                                    <div class="col-md-6 col-md-offset-3">
+                                                        <button class="btn btn-primary btn-round" (click)="postAd()">Post AD</button>
                                                     </div>
                                                 </div>
                                           </div>

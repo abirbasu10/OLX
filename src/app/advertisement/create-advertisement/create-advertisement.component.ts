@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Category, SubCategory, Filter, SubCatFilterMap, Country, State, Port, Advertisement, ProductFilterValue, SubCategoryFilterOption } from '../../classDefinition';
+import { Category, SubCategory, Filter, SubCatFilterMap, Country, State, Port, Advertisement,AdvertisementFilterValue, ProductFilterValue, SubCategoryFilterOption } from '../../classDefinition';
 import { CATEGORIES, SUBCATEGORIES, FILTERS, SUBCATFILTERMAP, COUNTRIES, STATES, PORTS, ADVERTISEMENTS, PRODUCTFILTERVALUES, SUBCATFILTEROPTIONS } from '../../application_mock_Data';
+
+import { Router } from '@angular/router';
+
+import swal from 'sweetalert2';
+
 @Component({
   selector: 'app-create-advertisement',
   templateUrl: './create-advertisement.component.html',
@@ -19,13 +24,21 @@ filters:Filter[]=[];
 adTitle:string;
 adCategory:string="";
 adSubCategory:string="";
+adDescription:string="";
 reqdfilters:any[]=[];
 filterSet:any[]=[];
 adCountry:string="";
 adState:string="";
 adPort:string="";
+name:string="";
+contact:number;
+date: Date=new Date();
+filterValueId:number=1;
 
-  constructor() { }
+advertisementDetails:Advertisement;
+filterValues:AdvertisementFilterValue[]=[];
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.checkLogInOrNot()
@@ -43,6 +56,9 @@ adPort:string="";
 
   getSubCategory()
   {
+    this.adSubCategory="";
+    this.filterValueId=1;
+    this.filterValues=[];
     this.subcategories=SUBCATEGORIES.filter(subc=>subc.categoryDetails.name.toLowerCase()==this.adCategory.toLowerCase())
   }
 
@@ -119,6 +135,61 @@ adPort:string="";
   getPort()
   {
     this.ports=PORTS.filter(prt=>prt.stateDetails.name==this.adState);
+  }
+
+
+  enterValue(valueOfField)
+  {
+    //alert("hi")
+    //alert(valueOfField.id+"   "+valueOfField.value);
+
+    //filter details for chosen subcategory
+    var filterData=FILTERS.find(fl=>fl.name==valueOfField.id)
+    var fltrValue=valueOfField.value
+    if(valueOfField.id=="Year-Range")
+    {
+      fltrValue=fltrValue+" Years"
+    }
+    var filterDetailsObject={name:valueOfField.id,value:fltrValue}
+    this.filterValues.push(filterDetailsObject)
+    this.filterValueId++;
+    /* console.log("filter values");
+    console.log(this.filterValues); */
+  }
+
+  postAd()
+  {
+    //basic details for ad
+
+    var adID=ADVERTISEMENTS[ADVERTISEMENTS.length-1].id+1;
+    var productName=this.adTitle;
+    var productDescription=this.adDescription;
+    var subCatDetails=SUBCATEGORIES.find(sub=>sub.name==this.adSubCategory);
+    var portDetails=PORTS.find(prt=>prt.name==this.adPort);
+  
+    var advertisementBasics={id:adID, productName:productName, productDescription:productDescription, 
+      subCategoryDetails:subCatDetails, portDetails:portDetails,name:this.name,contact:this.contact,date:this.date}
+
+
+    //pushing in an ad
+
+    ADVERTISEMENTS.push(advertisementBasics);
+
+    var id=PRODUCTFILTERVALUES[PRODUCTFILTERVALUES.length-1].id+1;
+
+    PRODUCTFILTERVALUES.push({id:id, advertisementDetails:advertisementBasics, filterValues:this.filterValues})
+    console.log("PRODUCTFILTERVALUES");
+    console.log(PRODUCTFILTERVALUES);
+
+    swal({
+      title: 'Posted!',
+      text: 'Ad Posted Successfully',
+      type: 'success',
+      confirmButtonText: 'Ok!!'
+    }).then((result)=>{
+      this.router.navigate(['/advertisements/search']);
+      })
+
   }
 
 }

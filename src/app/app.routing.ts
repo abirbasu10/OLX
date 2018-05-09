@@ -62,7 +62,7 @@ const routes: Routes =[
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'index',          component: IndexComponent },
 
-    { path: 'advertisements',  component: AdvertisementManagmentComponent },
+    { path: 'advertisements/search',  component: AdvertisementManagmentComponent },
     { path: 'advertisements/create',  component: CreateAdvertisementComponent },
      { path:'landing', component:LandingComponent},
      { path: '', redirectTo: 'landing', pathMatch: 'full' },
