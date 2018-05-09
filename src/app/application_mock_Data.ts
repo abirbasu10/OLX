@@ -225,7 +225,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
             {name:"Price-Range",value:"15,00,000"},
-            {name:"Year-Range",value:"3 months"},
+            {name:"Year-Range",value:"3 years"},
             
         ]
     },

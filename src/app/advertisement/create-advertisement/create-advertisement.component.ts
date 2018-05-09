@@ -140,21 +140,20 @@ filterValues:AdvertisementFilterValue[]=[];
 
   enterValue(valueOfField)
   {
-    //alert("hi")
-    //alert(valueOfField.id+"   "+valueOfField.value);
-
-    //filter details for chosen subcategory
-    var filterData=FILTERS.find(fl=>fl.name==valueOfField.id)
+   
     var fltrValue=valueOfField.value
     if(valueOfField.id=="Year-Range")
     {
       fltrValue=fltrValue+" Years"
     }
-    var filterDetailsObject={name:valueOfField.id,value:fltrValue}
-    this.filterValues.push(filterDetailsObject)
-    this.filterValueId++;
-    /* console.log("filter values");
-    console.log(this.filterValues); */
+    var existingFilter=this.filterValues.find(userfilter=>userfilter.name==valueOfField.id)
+    if(existingFilter){
+      existingFilter.value=fltrValue
+    }else{
+      this.filterValues.push({name:valueOfField.id,value:fltrValue})
+    }
+    //this.filterValueId++;
+   
   }
 
   postAd()

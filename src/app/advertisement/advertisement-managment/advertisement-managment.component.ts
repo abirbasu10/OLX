@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Category,SubCategory,Advertisement } from '../../classDefinition'
-import { CATEGORIES,SUBCATEGORIES,ADVERTISEMENTS } from '../../application_mock_Data'
+import { Category,SubCategory,Advertisement,ProductFilterValue,AdvertisementFilterValue } from '../../classDefinition'
+import { CATEGORIES,SUBCATEGORIES,ADVERTISEMENTS,SUBCATFILTERMAP,SUBCATFILTEROPTIONS,PRODUCTFILTERVALUES } from '../../application_mock_Data'
 
 @Component({ 
   selector: 'app-advertisement-managment',
@@ -8,13 +8,18 @@ import { CATEGORIES,SUBCATEGORIES,ADVERTISEMENTS } from '../../application_mock_
   styleUrls: ['./advertisement-managment.component.css']
 })
 export class AdvertisementManagmentComponent implements OnInit {
-  locations:string[]=[]
-  categories:Category[]=CATEGORIES
+
+locations:string[]=[]
+categories:Category[]=CATEGORIES
 subCatgories:SubCategory[]=[]
 advertisements:Advertisement[]=[]
-currentLocation:string=""
+currentLocation:string="Kolkata Port,WB,India"
 currentCategory:Category={id:null,name:""}
 currentSubCat:SubCategory={id:null,name:"",categoryDetails:{id:null,name:""}}
+searchTerm:string=""
+mappedFilters:any[]=[]
+
+userFilterValues:AdvertisementFilterValue[]=[]
   constructor() { }
 
   ngOnInit() {
@@ -27,7 +32,12 @@ currentSubCat:SubCategory={id:null,name:"",categoryDetails:{id:null,name:""}}
 
       
     }
-
+changeLocation(){
+  if(this.searchTerm)
+    this.loadAdvertisementsBySearchTerm()
+  else
+  this.loadAdvertisementBySubCategory()
+}
   
   generateSubCategory(cat:Category,catId:number){
     this.currentCategory=cat
@@ -42,7 +52,7 @@ currentSubCat:SubCategory={id:null,name:"",categoryDetails:{id:null,name:""}}
 
   setCurrentSubCategory(subCat:SubCategory){
     this.currentSubCat=subCat
- 
+ this.getFilters()
     this.loadAdvertisementBySubCategory()
   }
 
@@ -57,49 +67,132 @@ currentSubCat:SubCategory={id:null,name:"",categoryDetails:{id:null,name:""}}
       
       if(this.currentLocation.toLowerCase()==tempLocation.toLowerCase()){
        
+        if((ad.productName.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)||(ad.subCategoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1) || (ad.subCategoryDetails.categoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)){        
+         
           this.advertisements.push(ad)
+      }
           
       }
       }
     }
     
   }
-
-  loadAdvertisementsBySearchTerm(event){
+  
+  loadAdvertisementsBySearchTerm(){
     this.advertisements=[]
    var tempLocation=""
 
-   if(this.currentLocation.length){
+   
      
-    for (let ad of ADVERTISEMENTS){
-      tempLocation=ad.portDetails.name+","+ad.portDetails.stateDetails.name+","+ad.portDetails.stateDetails.countryDetails.name
+    for (let ad of PRODUCTFILTERVALUES){
+      tempLocation=ad.advertisementDetails.portDetails.name+","+ad.advertisementDetails.portDetails.stateDetails.name+","+ad.advertisementDetails.portDetails.stateDetails.countryDetails.name
       
       if(this.currentLocation.toLowerCase()==tempLocation.toLowerCase()){
           
-          if((ad.productName.toLowerCase().indexOf(event.target.value.toLowerCase())!= -1)||(ad.subCategoryDetails.name.toLowerCase().indexOf(event.target.value.toLowerCase())!= -1) || (ad.subCategoryDetails.categoryDetails.name.toLowerCase().indexOf(event.target.value.toLowerCase())!= -1)){        
-            this.advertisements.push(ad)
+          if((ad.advertisementDetails.productName.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)||(ad.advertisementDetails.subCategoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1) || (ad.advertisementDetails.subCategoryDetails.categoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)){        
+            if(this.userFilterValues.length >0){
+            for(let adFiltervalue of ad.filterValues){
+              
+                for(let userFilterValue of this.userFilterValues){
+                  if((adFiltervalue.name.toLowerCase()==userFilterValue.name.toLowerCase()) && (adFiltervalue.value.toLowerCase()==userFilterValue.value.toLowerCase()) ){
+                  //  alert("filterValue Matched")
+                  //  alert("Ad filter:"+adFiltervalue.name+"  Ad filter Value"+adFiltervalue.value)
+                  //  alert("User filter:"+userFilterValue.name+" User filter Value"+userFilterValue.value)
+                    this.advertisements.push(ad.advertisementDetails)
+                  }
+                }
+              }
+              
+
+            }else{
+              this.advertisements.push(ad.advertisementDetails)
+            }
+            
         }
         }
        
     }   
-  }else{
-    for (let ad of ADVERTISEMENTS){
-        
-          if((ad.productName.toLowerCase().indexOf(event.target.value.toLowerCase())!= -1)||(ad.subCategoryDetails.name.toLowerCase().indexOf(event.target.value.toLowerCase())!= -1) || (ad.subCategoryDetails.categoryDetails.name.toLowerCase().indexOf(event.target.value.toLowerCase())!= -1)){        
-            this.advertisements.push(ad)
-        }
-        
-      
-    }
-  }
+  
     
 
-if(event.target.value.length==0){
-  
-  this.advertisements=[]
-}
-
+/* if(this.searchTerm.length==0){  
+  this.loadAdvertisementBySubCategory()
+} */
+console.log(this.advertisements)
   }
 
+
+  getFilters()
+  {
+
+    this.mappedFilters=[];
+    
+    var subcatFilterMap =null
+    subcatFilterMap=SUBCATFILTERMAP.find(subc=>subc.subCategoryDetails.name.toLowerCase()==this.currentSubCat.name.toLocaleLowerCase());
+    
+    this.mappedFilters=subcatFilterMap.filterDetails;
+   
+    var filterValues;
+    var subcatFilterOptions=SUBCATFILTEROPTIONS.find(subc=>subc.subCategoryDetails.name.toLowerCase()==this.currentSubCat.name.toLocaleLowerCase())
+    if(subcatFilterOptions)
+    {
+      for(let f of this.mappedFilters)
+      {
+
+        filterValues=subcatFilterOptions.subCatFilterValues.find(flt=>flt.filterDetails.name==f.name)
+        
+        if(filterValues)
+        {
+         
+          f.values=filterValues.value
+          
+        }
+      
+      }
+    
+    }
+    
+    
+  }
+
+/*   showAdvertisements(){
+    this.advertisements=[]
+    var tempLocation=""
+    for (let ad of ADVERTISEMENTS){
+      tempLocation=ad.portDetails.name+","+ad.portDetails.stateDetails.name+","+ad.portDetails.stateDetails.countryDetails.name
+      if(ad.subCategoryDetails.id==this.currentSubCat.id){             
+      
+          if(this.currentLocation.toLowerCase()==tempLocation.toLowerCase()){
+          
+            if((ad.productName.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)||(ad.subCategoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1) || (ad.subCategoryDetails.categoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)){        
+              
+              this.advertisements.push(ad)
+            }
+              
+          }
+      }
+    }
+
+
+  } */
+
+  submitFilterValues(valueOfField){
+    
+
+    var fltrValue=valueOfField.value
+    if(valueOfField.id=="Year-Range")
+    {
+      fltrValue=fltrValue+" Years"
+    }
+    var existingFilter=this.userFilterValues.find(userfilter=>userfilter.name==valueOfField.id)
+    if(existingFilter){
+      existingFilter.value=fltrValue
+    }else{
+      this.userFilterValues.push({name:valueOfField.id,value:fltrValue})
+    }
+    
+console.log(this.userFilterValues)
+    this.loadAdvertisementsBySearchTerm()
+  }
 
 }
