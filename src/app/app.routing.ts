@@ -65,7 +65,7 @@ const routes: Routes =[
     { path: 'advertisements/search',  component: AdvertisementManagmentComponent },
     { path: 'advertisements/create',  component: CreateAdvertisementComponent },
      { path:'landing', component:LandingComponent},
-     { path: '', redirectTo: 'advertisements/search ', pathMatch: 'full' },
+     { path: '', redirectTo: 'advertisements/search', pathMatch: 'full' },
 
 
      { path:'login_register', component:LoginComponent},
