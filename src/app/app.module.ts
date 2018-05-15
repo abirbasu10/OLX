@@ -89,6 +89,7 @@ import { AdvertisementSidebarComponent } from './advertisement/advertisement-sid
 import { AdvertisementFooterComponent } from './advertisement/advertisement-footer/advertisement-footer.component';
 import { AdvertisementManagmentComponent } from './advertisement/advertisement-managment/advertisement-managment.component';
 import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
+import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
 
 
 @NgModule({
@@ -163,6 +164,8 @@ CompanyComponent,
     AdvertisementManagmentComponent,
 
     CreateAdvertisementComponent,
+
+    AdvertisementDetailsComponent,
 
     //AdminSubscriptionManagementComponent
    

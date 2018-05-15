@@ -32,6 +32,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdvertisementManagmentComponent } from './advertisement/advertisement-managment/advertisement-managment.component';
 import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
+import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
 
 
 
@@ -64,7 +65,8 @@ const routes: Routes =[
 
     { path: 'advertisements/search',  component: AdvertisementManagmentComponent },
     { path: 'advertisements/create',  component: CreateAdvertisementComponent },
-     { path:'landing', component:LandingComponent},
+    { path: 'advertisement/:adName', component: AdvertisementDetailsComponent},
+    { path:'landing', component:LandingComponent},
      { path: '', redirectTo: 'advertisements/search', pathMatch: 'full' },
 
 

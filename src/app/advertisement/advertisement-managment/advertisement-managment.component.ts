@@ -18,7 +18,7 @@ currentCategory:Category={id:null,name:""}
 currentSubCat:SubCategory={id:null,name:"",categoryDetails:{id:null,name:""}}
 searchTerm:string=""
 mappedFilters:any[]=[]
-
+tempAd:Advertisement[]=[]
 userFilterValues:AdvertisementFilterValue[]=[]
   constructor() { }
 
@@ -155,26 +155,62 @@ console.log(this.advertisements)
     
   }
 
-/*   showAdvertisements(){
-    this.advertisements=[]
-    var tempLocation=""
-    for (let ad of ADVERTISEMENTS){
-      tempLocation=ad.portDetails.name+","+ad.portDetails.stateDetails.name+","+ad.portDetails.stateDetails.countryDetails.name
-      if(ad.subCategoryDetails.id==this.currentSubCat.id){             
-      
-          if(this.currentLocation.toLowerCase()==tempLocation.toLowerCase()){
-          
-            if((ad.productName.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)||(ad.subCategoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1) || (ad.subCategoryDetails.categoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)){        
-              
+ getAdvertisementsBySubCategory(){
+  alert("getAdvertisementsBySubCategory")
+
+   if(this.advertisements.length){
+        this.tempAd=this.advertisements
+        this.advertisements=[]
+          for(let ad of this.tempAd){
+            if(ad.subCategoryDetails.id==this.currentSubCat.id){
               this.advertisements.push(ad)
             }
-              
           }
-      }
+   }else{
+          for(let ad of ADVERTISEMENTS){
+            if(ad.subCategoryDetails.id==this.currentSubCat.id){
+              this.advertisements.push(ad)
+            }
+          }
+
+   }
+
+   console.log(this.advertisements)
+ }
+
+ getAdvertisementsBySearchTerm(){
+   alert("getAdvertisementsBySearchTerm")
+  if(this.advertisements.length){
+       this.tempAd=this.advertisements
+       this.advertisements=[]
+         for(let ad of this.tempAd){
+
+          if((ad.productName.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)||(ad.subCategoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1) || (ad.subCategoryDetails.categoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)){        
+             this.advertisements.push(ad)
+           }
+         }
+  }else{
+         for(let ad of ADVERTISEMENTS){
+          if((ad.productName.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)||(ad.subCategoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1) || (ad.subCategoryDetails.categoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)){        
+             this.advertisements.push(ad)
+           }
+         }
+
+  }
+
+  console.log(this.advertisements)
+}
+
+/* getAdvertiseMentsByFilter(){
+  if(this.advertisements.length){
+    this.tempAd=this.advertisements
+    this.advertisements=[]
+    for(let mockAd of PRODUCTFILTERVALUES ){
+      
     }
-
-
-  } */
+  }
+}
+ */
 
   submitFilterValues(valueOfField){
     
