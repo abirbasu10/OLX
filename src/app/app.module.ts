@@ -96,6 +96,18 @@ import { LogisticsFirmProfileComponent } from './company/logistics-firm-profile/
 import { LogisticsCompanyDetailsComponent } from './logistics/logistics-company-details/logistics-company-details.component';
 import { LogisticsProfileComponent } from './logistics/logistics-profile/logistics-profile.component';
 
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.component';
+import { LogisticsDashboardComponent } from './logistics/logistics-dashboard/logistics-dashboard.component';
+import { LogisticsSidebarComponent } from './logistics/logistics-sidebar/logistics-sidebar.component';
+
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { LogisticsLoginComponent } from './logistics/logistics-login/logistics-login.component';
+import { LogisticsRegisterComponent } from './logistics/logistics-register/logistics-register.component';
+import { LogisticsChangePasswordComponent } from './logistics/logistics-change-password/logistics-change-password.component';
+import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
+
+
 /* import { ImageUploadModule } from "angular2-image-upload";
 import { VendorComponent } from './vendor/vendor.component';
 import { VendorProfileComponent } from './vendor/vendor-profile/vendor-profile.component'; */
@@ -184,11 +196,33 @@ CompanyComponent,
 
     LogisticsComponent,
 
+<<<<<<< HEAD
     LogisticsFirmProfileComponent,
 
     LogisticsCompanyDetailsComponent,
 
     LogisticsProfileComponent,
+=======
+
+    AdminDashboardComponent,
+
+    AdminSidebarComponent,
+
+    LogisticsDashboardComponent,
+
+    LogisticsSidebarComponent,
+
+    AdminLoginComponent,
+
+    LogisticsLoginComponent,
+
+    LogisticsRegisterComponent,
+
+    LogisticsChangePasswordComponent,
+
+    AdminChangePasswordComponent,
+
+>>>>>>> cdd64aeb7f9a6fbbecdc016dfe1d3df3a8058177
 
     //AdminSubscriptionManagementComponent
 

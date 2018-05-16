@@ -34,11 +34,22 @@ import { AdvertisementManagmentComponent } from './advertisement/advertisement-m
 import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
 /* import { VendorProfileComponent } from './vendor/vendor-profile/vendor-profile.component'; */
 import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
+<<<<<<< HEAD
 import { LogisticsFirmProfileComponent } from './company/logistics-firm-profile/logistics-firm-profile.component';
 import { LogisticsCompanyDetailsComponent } from './logistics/logistics-company-details/logistics-company-details.component';
 import { LogisticsProfileComponent } from './logistics/logistics-profile/logistics-profile.component';
+=======
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminComponent } from './admin/admin.component';
+import { LogisticsComponent } from './logistics/logistics.component';
+import { LogisticsDashboardComponent } from './logistics/logistics-dashboard/logistics-dashboard.component';
+>>>>>>> cdd64aeb7f9a6fbbecdc016dfe1d3df3a8058177
 
-
+import { AdminLoginComponent} from './admin/admin-login/admin-login.component'
+import {AdminChangePasswordComponent} from './admin/admin-change-password/admin-change-password.component'
+import { LogisticsRegisterComponent } from './logistics/logistics-register/logistics-register.component'
+import { LogisticsLoginComponent } from './logistics/logistics-login/logistics-login.component'
+import {LogisticsChangePasswordComponent} from './logistics/logistics-change-password/logistics-change-password.component'
 
 
 //import { AdminSubscriptionManagementComponent } from './admin/admin-subscription-management/admin-subscription-management.component';
@@ -51,20 +62,25 @@ import { LogisticsProfileComponent } from './logistics/logistics-profile/logisti
 const routes: Routes =[
     
     { path: 'company/dashboard',      component: CompanyDashboardComponent },
-	  { path: 'company',      component:CompanyDashboardComponent  },   
-
-    
-    { path: 'company/profile', component: CompanyProfileComponent},
-    
-    
+	  { path: 'company',      component:CompanyDashboardComponent  },      
+    { path: 'company/profile', component: CompanyProfileComponent}, 
     { path: 'company/employeeManagement', component: CompanyEmployeeManagementComponent},
-    { path: 'company/employeeDetails/:id', component: EmployeeDetailsComponent},
-    
+    { path: 'company/employeeDetails/:id', component: EmployeeDetailsComponent},    
     { path: 'company/login', component:CompanyLoginComponent},
     { path: 'company/changePassword', component:CompanyChangePasswordComponent},
     { path: 'company/register', component: CompanyRegisterComponent},
+<<<<<<< HEAD
     { path: 'company/logisticsFirmProfile', component: LogisticsFirmProfileComponent},
     //{ path: 'company/purchaseOrder/:id', component: CompanyPurchaseOrderComponent},
+=======
+
+    {path: 'admin', component:AdminComponent},
+    {path: 'admin/dashboard', component:AdminDashboardComponent },
+
+    {path: 'logistics', component: LogisticsComponent},
+    {path: 'logistics/dashboard', component:LogisticsDashboardComponent},
+    
+>>>>>>> cdd64aeb7f9a6fbbecdc016dfe1d3df3a8058177
 
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'index',          component: IndexComponent },
@@ -74,8 +90,11 @@ const routes: Routes =[
 
     { path: '', redirectTo: 'advertisements/search', pathMatch: 'full' },
     { path: 'advertisement/:adName', component: AdvertisementDetailsComponent},
+<<<<<<< HEAD
     { path: 'logistics/logisticsCompanyDetails', component: LogisticsCompanyDetailsComponent},
     { path: 'logistics/profile', component: LogisticsProfileComponent},
+=======
+>>>>>>> cdd64aeb7f9a6fbbecdc016dfe1d3df3a8058177
 
     { path:'landing', component:LandingComponent},
 
@@ -85,6 +104,11 @@ const routes: Routes =[
 
     /* { path:'vendor_profile', component:VendorProfileComponent} */
 
+     { path:'admin/login', component:AdminLoginComponent},
+     { path:'admin/changePassword', component:AdminChangePasswordComponent},
+     { path:'logistics/login', component:LogisticsLoginComponent},
+     { path:'logistics/register', component:LogisticsRegisterComponent},
+     { path:'logistics/changePassword', component:LogisticsChangePasswordComponent},
 ];
 
 @NgModule({
