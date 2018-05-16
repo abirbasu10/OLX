@@ -33,6 +33,10 @@ import { RegisterComponent } from './register/register.component';
 import { AdvertisementManagmentComponent } from './advertisement/advertisement-managment/advertisement-managment.component';
 import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
 import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminComponent } from './admin/admin.component';
+import { LogisticsComponent } from './logistics/logistics.component';
+import { LogisticsDashboardComponent } from './logistics/logistics-dashboard/logistics-dashboard.component';
 
 
 
@@ -46,19 +50,20 @@ import { AdvertisementDetailsComponent } from './advertisement/advertisement-det
 const routes: Routes =[
     
     { path: 'company/dashboard',      component: CompanyDashboardComponent },
-	  { path: 'company',      component:CompanyDashboardComponent  },   
-
-    
-    { path: 'company/profile', component: CompanyProfileComponent},
-    
-    
+	  { path: 'company',      component:CompanyDashboardComponent  },      
+    { path: 'company/profile', component: CompanyProfileComponent}, 
     { path: 'company/employeeManagement', component: CompanyEmployeeManagementComponent},
-    { path: 'company/employeeDetails/:id', component: EmployeeDetailsComponent},
-    
+    { path: 'company/employeeDetails/:id', component: EmployeeDetailsComponent},    
     { path: 'company/login', component:CompanyLoginComponent},
     { path: 'company/changePassword', component:CompanyChangePasswordComponent},
     { path: 'company/register', component: CompanyRegisterComponent},
-    //{ path: 'company/purchaseOrder/:id', component: CompanyPurchaseOrderComponent},
+
+    {path: 'admin', component:AdminComponent},
+    {path: 'admin/dashboard', component:AdminDashboardComponent },
+
+    {path: 'logistics', component: LogisticsComponent},
+    {path: 'logistics/dashboard', component:LogisticsDashboardComponent},
+    
 
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'index',          component: IndexComponent },
@@ -66,6 +71,7 @@ const routes: Routes =[
     { path: 'advertisements/search',  component: AdvertisementManagmentComponent },
     { path: 'advertisements/create',  component: CreateAdvertisementComponent },
     { path: 'advertisement/:adName', component: AdvertisementDetailsComponent},
+
     { path:'landing', component:LandingComponent},
      { path: '', redirectTo: 'advertisements/search', pathMatch: 'full' },
 

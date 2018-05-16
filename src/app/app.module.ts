@@ -92,6 +92,10 @@ import { CreateAdvertisementComponent } from './advertisement/create-advertiseme
 import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
 import { AdminComponent } from './admin/admin.component';
 import { LogisticsComponent } from './logistics/logistics.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.component';
+import { LogisticsDashboardComponent } from './logistics/logistics-dashboard/logistics-dashboard.component';
+import { LogisticsSidebarComponent } from './logistics/logistics-sidebar/logistics-sidebar.component';
 
 
 @NgModule({
@@ -172,6 +176,14 @@ CompanyComponent,
     AdminComponent,
 
     LogisticsComponent,
+
+    AdminDashboardComponent,
+
+    AdminSidebarComponent,
+
+    LogisticsDashboardComponent,
+
+    LogisticsSidebarComponent,
 
     //AdminSubscriptionManagementComponent
    
