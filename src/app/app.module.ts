@@ -92,6 +92,11 @@ import { CreateAdvertisementComponent } from './advertisement/create-advertiseme
 import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
 import { AdminComponent } from './admin/admin.component';
 import { LogisticsComponent } from './logistics/logistics.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { LogisticsLoginComponent } from './logistics/logistics-login/logistics-login.component';
+import { LogisticsRegisterComponent } from './logistics/logistics-register/logistics-register.component';
+import { LogisticsChangePasswordComponent } from './logistics/logistics-change-password/logistics-change-password.component';
+import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
 
 
 @NgModule({
@@ -172,6 +177,16 @@ CompanyComponent,
     AdminComponent,
 
     LogisticsComponent,
+
+    AdminLoginComponent,
+
+    LogisticsLoginComponent,
+
+    LogisticsRegisterComponent,
+
+    LogisticsChangePasswordComponent,
+
+    AdminChangePasswordComponent,
 
     //AdminSubscriptionManagementComponent
    

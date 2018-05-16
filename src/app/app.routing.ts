@@ -34,7 +34,11 @@ import { AdvertisementManagmentComponent } from './advertisement/advertisement-m
 import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
 import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
 
-
+import { AdminLoginComponent} from './admin/admin-login/admin-login.component'
+import {AdminChangePasswordComponent} from './admin/admin-change-password/admin-change-password.component'
+import { LogisticsRegisterComponent } from './logistics/logistics-register/logistics-register.component'
+import { LogisticsLoginComponent } from './logistics/logistics-login/logistics-login.component'
+import {LogisticsChangePasswordComponent} from './logistics/logistics-change-password/logistics-change-password.component'
 
 //import { AdminSubscriptionManagementComponent } from './admin/admin-subscription-management/admin-subscription-management.component';
 
@@ -73,6 +77,11 @@ const routes: Routes =[
      { path:'login_register', component:LoginComponent},
      { path:'register', component:RegisterComponent},
 
+     { path:'admin/login', component:AdminLoginComponent},
+     { path:'admin/changePassword', component:AdminChangePasswordComponent},
+     { path:'logistics/login', component:LogisticsLoginComponent},
+     { path:'logistics/register', component:LogisticsRegisterComponent},
+     { path:'logistics/changePassword', component:LogisticsChangePasswordComponent},
 ];
 
 @NgModule({
