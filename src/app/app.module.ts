@@ -90,6 +90,8 @@ import { AdvertisementFooterComponent } from './advertisement/advertisement-foot
 import { AdvertisementManagmentComponent } from './advertisement/advertisement-managment/advertisement-managment.component';
 import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
 import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
+import { AdminComponent } from './admin/admin.component';
+import { LogisticsComponent } from './logistics/logistics.component';
 
 
 @NgModule({
@@ -166,6 +168,10 @@ CompanyComponent,
     CreateAdvertisementComponent,
 
     AdvertisementDetailsComponent,
+
+    AdminComponent,
+
+    LogisticsComponent,
 
     //AdminSubscriptionManagementComponent
    
