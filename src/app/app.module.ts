@@ -170,19 +170,17 @@ CompanyComponent,
 
     CreateAdvertisementComponent,
 
-<<<<<<< HEAD
+
     /* VendorComponent,
 
     VendorProfileComponent,
  */
-=======
     AdvertisementDetailsComponent,
 
     AdminComponent,
 
     LogisticsComponent,
 
->>>>>>> d91361c4a800d8110a52f0d451b544d90020a941
     //AdminSubscriptionManagementComponent
 
     

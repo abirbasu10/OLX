@@ -32,11 +32,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdvertisementManagmentComponent } from './advertisement/advertisement-managment/advertisement-managment.component';
 import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
-<<<<<<< HEAD
 /* import { VendorProfileComponent } from './vendor/vendor-profile/vendor-profile.component'; */
-=======
 import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
->>>>>>> d91361c4a800d8110a52f0d451b544d90020a941
+
 
 
 
@@ -69,14 +67,10 @@ const routes: Routes =[
 
     { path: 'advertisements/search',  component: AdvertisementManagmentComponent },
     { path: 'advertisements/create',  component: CreateAdvertisementComponent },
-<<<<<<< HEAD
-    { path:'landing', component:LandingComponent},
+
     { path: '', redirectTo: 'advertisements/search', pathMatch: 'full' },
-=======
     { path: 'advertisement/:adName', component: AdvertisementDetailsComponent},
     { path:'landing', component:LandingComponent},
-     { path: '', redirectTo: 'advertisements/search', pathMatch: 'full' },
->>>>>>> d91361c4a800d8110a52f0d451b544d90020a941
 
 
     { path:'login_register', component:LoginComponent},
