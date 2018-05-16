@@ -196,13 +196,11 @@ CompanyComponent,
 
     LogisticsComponent,
 
-<<<<<<< HEAD
     LogisticsFirmProfileComponent,
 
     LogisticsCompanyDetailsComponent,
 
     LogisticsProfileComponent,
-=======
 
     AdminDashboardComponent,
 
@@ -222,7 +220,6 @@ CompanyComponent,
 
     AdminChangePasswordComponent,
 
->>>>>>> cdd64aeb7f9a6fbbecdc016dfe1d3df3a8058177
 
     //AdminSubscriptionManagementComponent
 
