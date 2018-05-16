@@ -32,6 +32,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdvertisementManagmentComponent } from './advertisement/advertisement-managment/advertisement-managment.component';
 import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
+/* import { VendorProfileComponent } from './vendor/vendor-profile/vendor-profile.component'; */
 
 
 
@@ -64,12 +65,14 @@ const routes: Routes =[
 
     { path: 'advertisements/search',  component: AdvertisementManagmentComponent },
     { path: 'advertisements/create',  component: CreateAdvertisementComponent },
-     { path:'landing', component:LandingComponent},
-     { path: '', redirectTo: 'advertisements/search ', pathMatch: 'full' },
+    { path:'landing', component:LandingComponent},
+    { path: '', redirectTo: 'advertisements/search', pathMatch: 'full' },
 
 
-     { path:'login_register', component:LoginComponent},
-     { path:'register', component:RegisterComponent},
+    { path:'login_register', component:LoginComponent},
+    { path:'register', component:RegisterComponent},
+
+    /* { path:'vendor_profile', component:VendorProfileComponent} */
 
 ];
 

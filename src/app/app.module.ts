@@ -90,6 +90,9 @@ import { AdvertisementFooterComponent } from './advertisement/advertisement-foot
 import { AdvertisementManagmentComponent } from './advertisement/advertisement-managment/advertisement-managment.component';
 import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
 
+/* import { ImageUploadModule } from "angular2-image-upload";
+import { VendorComponent } from './vendor/vendor.component';
+import { VendorProfileComponent } from './vendor/vendor-profile/vendor-profile.component'; */
 
 @NgModule({
   declarations: [
@@ -164,7 +167,13 @@ CompanyComponent,
 
     CreateAdvertisementComponent,
 
+    /* VendorComponent,
+
+    VendorProfileComponent,
+ */
     //AdminSubscriptionManagementComponent
+
+    
    
   ],
   imports: [
@@ -208,6 +217,7 @@ CompanyComponent,
     MatTableModule,
     MatSlideToggleModule,
 
+    /* ImageUploadModule.forRoot(), */
 /*     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA_h565MUlULgemvbsLJeizADz-wQ3FUp8'
     }), */
