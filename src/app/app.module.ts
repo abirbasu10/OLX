@@ -98,6 +98,9 @@ import { LogisticsRegisterComponent } from './logistics/logistics-register/logis
 import { LogisticsChangePasswordComponent } from './logistics/logistics-change-password/logistics-change-password.component';
 import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
 
+/* import { ImageUploadModule } from "angular2-image-upload";
+import { VendorComponent } from './vendor/vendor.component';
+import { VendorProfileComponent } from './vendor/vendor-profile/vendor-profile.component'; */
 
 @NgModule({
   declarations: [
@@ -172,6 +175,11 @@ CompanyComponent,
 
     CreateAdvertisementComponent,
 
+
+    /* VendorComponent,
+
+    VendorProfileComponent,
+ */
     AdvertisementDetailsComponent,
 
     AdminComponent,
@@ -189,6 +197,8 @@ CompanyComponent,
     AdminChangePasswordComponent,
 
     //AdminSubscriptionManagementComponent
+
+    
    
   ],
   imports: [
@@ -232,6 +242,7 @@ CompanyComponent,
     MatTableModule,
     MatSlideToggleModule,
 
+    /* ImageUploadModule.forRoot(), */
 /*     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA_h565MUlULgemvbsLJeizADz-wQ3FUp8'
     }), */

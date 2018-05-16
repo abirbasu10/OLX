@@ -1,4 +1,5 @@
-import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap } from "./classDefinition";
+
+import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, VendorList } from "./classDefinition";
 
 
 export const CATEGORIES: Category[]=[
@@ -360,6 +361,14 @@ export const SUBCATOPTIONS: SubCategoryOption[]=[
     }
 ]
 
+export const VENDORS: VendorList[]=[
+    {id:1, name:'Mariners Bay', contact:'9903458227', email:'mbay@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},profile_state:true},
+    {id:2, name:'Sea Farer', contact:'9903422127', email:'seafarer@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},profile_state:true},
+    {id:3, name:'Blue Shark', contact:'9903422127', email:'blueshark@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},profile_state:true},
+    {id:4, name:'Maharashtra Greats', contact:'990345823', email:'theindian@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},profile_state:true},
+    {id:5, name:'The Indian', contact:'990345789', email:'sg@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},profile_state:false},    
+];
 
+export const DefaultVendor:VendorList=VENDORS[VENDORS.length-1];
 
        
