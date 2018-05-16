@@ -18,7 +18,7 @@ currentCategory:Category={id:null,name:""}
 currentSubCat:SubCategory={id:null,name:"",categoryDetails:{id:null,name:""}}
 searchTerm:string=""
 mappedFilters:any[]=[]
-
+tempAd:Advertisement[]=[]
 userFilterValues:AdvertisementFilterValue[]=[]
   constructor() { }
 
@@ -34,9 +34,11 @@ userFilterValues:AdvertisementFilterValue[]=[]
     }
 changeLocation(){
   if(this.searchTerm)
-    this.loadAdvertisementsBySearchTerm()
+    //this.loadAdvertisementsBySearchTerm()
+    this.getAdvertisementsBySearchTerm()
   else
-  this.loadAdvertisementBySubCategory()
+  //this.loadAdvertisementBySubCategory()
+  this.getAdvertisementsBySubCategory()
 }
   
   generateSubCategory(cat:Category,catId:number){
@@ -53,10 +55,11 @@ changeLocation(){
   setCurrentSubCategory(subCat:SubCategory){
     this.currentSubCat=subCat
  this.getFilters()
-    this.loadAdvertisementBySubCategory()
+  //  this.loadAdvertisementBySubCategory()
+    this.getAdvertisementsBySubCategory()
   }
 
-  loadAdvertisementBySubCategory(){
+/*   loadAdvertisementBySubCategory(){
     
     this.advertisements=[]
     var tempLocation=""
@@ -76,9 +79,9 @@ changeLocation(){
       }
     }
     
-  }
+  } */
   
-  loadAdvertisementsBySearchTerm(){
+/*   loadAdvertisementsBySearchTerm(){
     this.advertisements=[]
    var tempLocation=""
 
@@ -113,13 +116,9 @@ changeLocation(){
        
     }   
   
-    
 
-/* if(this.searchTerm.length==0){  
-  this.loadAdvertisementBySubCategory()
-} */
 console.log(this.advertisements)
-  }
+  } */
 
 
   getFilters()
@@ -155,26 +154,119 @@ console.log(this.advertisements)
     
   }
 
-/*   showAdvertisements(){
+ getAdvertisementsBySubCategory(){
+  //alert("getAdvertisementsBySubCategory")
+var tempLocation
+   if(this.advertisements.length){
+        this.tempAd=this.advertisements
+        this.advertisements=[]
+          for(let ad of this.tempAd){
+tempLocation=""
+            tempLocation=ad.portDetails.name+","+ad.portDetails.stateDetails.name+","+ad.portDetails.stateDetails.countryDetails.name
+            if( this.currentLocation.toLowerCase()==tempLocation.toLowerCase()){            
+              if(ad.subCategoryDetails.id==this.currentSubCat.id){                
+              this.advertisements.push(ad)
+              }
+              
+            }
+          }
+   }else{
+          for(let ad of ADVERTISEMENTS){
+            tempLocation=""
+            tempLocation=ad.portDetails.name+","+ad.portDetails.stateDetails.name+","+ad.portDetails.stateDetails.countryDetails.name
+            if( this.currentLocation.toLowerCase()==tempLocation.toLowerCase() ){
+              if(ad.subCategoryDetails.id==this.currentSubCat.id){                
+              this.advertisements.push(ad)
+              }
+              
+            }
+          }
+
+   }
+
+   console.log(this.advertisements)
+ }
+
+ getAdvertisementsBySearchTerm(){
+  // alert("getAdvertisementsBySearchTerm")
+   var tempLocation=''
+  if(this.advertisements.length){
+       this.tempAd=this.advertisements
+       this.advertisements=[]
+         for(let ad of this.tempAd){
+          tempLocation=''
+          tempLocation=ad.portDetails.name+","+ad.portDetails.stateDetails.name+","+ad.portDetails.stateDetails.countryDetails.name
+          if( this.currentLocation.toLowerCase()==tempLocation.toLowerCase() ){
+          
+          if((ad.productName.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)||(ad.subCategoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1) || (ad.subCategoryDetails.categoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)){        
+            
+            this.advertisements.push(ad)
+           }
+         }
+        }
+  }else{
+         for(let ad of ADVERTISEMENTS){
+          tempLocation=''
+          tempLocation=ad.portDetails.name+","+ad.portDetails.stateDetails.name+","+ad.portDetails.stateDetails.countryDetails.name
+          if( this.currentLocation.toLowerCase()==tempLocation.toLowerCase() ){
+          
+          if((ad.productName.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)||(ad.subCategoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1) || (ad.subCategoryDetails.categoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)){        
+            
+            this.advertisements.push(ad)
+           }
+         }
+        }
+
+  }
+
+  if(this.searchTerm.length==0){  
+    this.getAdvertisementsBySubCategory()
+  }
+  console.log(this.advertisements)
+}
+
+ getAdvertiseMentsByFilter(){
+
+ // alert("Get Filters called")
+  
+    this.tempAd=this.advertisements
     this.advertisements=[]
     var tempLocation=""
-    for (let ad of ADVERTISEMENTS){
-      tempLocation=ad.portDetails.name+","+ad.portDetails.stateDetails.name+","+ad.portDetails.stateDetails.countryDetails.name
-      if(ad.subCategoryDetails.id==this.currentSubCat.id){             
+    for(let mockAd of PRODUCTFILTERVALUES ){
+      tempLocation=mockAd.advertisementDetails.portDetails.name+","+mockAd.advertisementDetails.portDetails.stateDetails.name+","+mockAd.advertisementDetails.portDetails.stateDetails.countryDetails.name
       
-          if(this.currentLocation.toLowerCase()==tempLocation.toLowerCase()){
+      if(mockAd.advertisementDetails.subCategoryDetails.name.toLowerCase()==this.currentSubCat.name.toLowerCase()){
+        if(this.currentLocation==tempLocation){
           
-            if((ad.productName.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)||(ad.subCategoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1) || (ad.subCategoryDetails.categoryDetails.name.toLowerCase().indexOf(this.searchTerm.toLowerCase())!= -1)){        
-              
-              this.advertisements.push(ad)
-            }
-              
-          }
+          for(let adFiltervalue of mockAd.filterValues){
+         
+                for(let userFilterValue of this.userFilterValues){
+          
+                  if((adFiltervalue.name.toLowerCase()==userFilterValue.name.toLowerCase()) && (adFiltervalue.value.toLowerCase()==userFilterValue.value.toLowerCase()) ){
+             //       alert("filterValue Matched")
+                      
+    
+                       
+                    this.advertisements.push(mockAd.advertisementDetails)
+                  }
+                }
+              }
+        }
       }
-    }
+     // for(let ad of this.tempAd){
+       // if(mockAd.advertisementDetails.name.toLowerCase()==ad.name.toLowerCase()){
+      
+          
+      //  }
+     // }
+          
 
+    }  
+  
+}
 
-  } */
+      
+    
 
   submitFilterValues(valueOfField){
     
@@ -192,7 +284,8 @@ console.log(this.advertisements)
     }
     
 console.log(this.userFilterValues)
-    this.loadAdvertisementsBySearchTerm()
+    //this.loadAdvertisementsBySearchTerm()
+    this.getAdvertiseMentsByFilter()
   }
 
 }

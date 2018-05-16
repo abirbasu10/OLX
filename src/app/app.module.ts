@@ -89,6 +89,9 @@ import { AdvertisementSidebarComponent } from './advertisement/advertisement-sid
 import { AdvertisementFooterComponent } from './advertisement/advertisement-footer/advertisement-footer.component';
 import { AdvertisementManagmentComponent } from './advertisement/advertisement-managment/advertisement-managment.component';
 import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
+import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
+import { AdminComponent } from './admin/admin.component';
+import { LogisticsComponent } from './logistics/logistics.component';
 
 /* import { ImageUploadModule } from "angular2-image-upload";
 import { VendorComponent } from './vendor/vendor.component';
@@ -167,10 +170,19 @@ CompanyComponent,
 
     CreateAdvertisementComponent,
 
+<<<<<<< HEAD
     /* VendorComponent,
 
     VendorProfileComponent,
  */
+=======
+    AdvertisementDetailsComponent,
+
+    AdminComponent,
+
+    LogisticsComponent,
+
+>>>>>>> d91361c4a800d8110a52f0d451b544d90020a941
     //AdminSubscriptionManagementComponent
 
     

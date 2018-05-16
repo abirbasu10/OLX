@@ -20,7 +20,9 @@
                                     <div class="card">
                                         <div class="card-header" data-background-color="orange">
                                             <h4 class="title"><i class="material-icons notranslate">dashboard</i> Advertisements</h4>
-                                            <!-- <p class="category">Here is a subtitle for this table</p>                       -->
+                                          <!--   <button class="btn btn-success" (click)="getAdvertisementsBySubCategory()" >Load by Subcat</button>
+                                            <button class="btn btn-danger" (click)="getAdvertisementsBySearchTerm()">Load by Search Term</butto -->n>
+
                                         </div>
                                         
                                         <div class="card-content table-responsive">
@@ -84,7 +86,7 @@
                                                         
                                                         <mat-form-field class="example-full-width">
                                                             <mat-icon matSuffix>search</mat-icon>
-                                                                <input type="text" matInput  [(ngModel)]="searchTerm" (input)="loadAdvertisementsBySearchTerm()" placeholder="Search for a specific product">
+                                                                <input type="text" matInput  [(ngModel)]="searchTerm" (input)="getAdvertisementsBySearchTerm()" placeholder="Search for a specific product">
                                                                 
                                                             </mat-form-field>
                                                     </div>
@@ -137,9 +139,12 @@
                                                                 <th class="col-md-4">Location</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody  >
-                                                            <tr class="row" *ngFor="let ad of advertisements" >
-                                                                <td class="col-md-2 notranslate"> {{ad.productName}}</td>
+                                                        <tbody *ngFor="let ad of advertisements">
+                                                         
+                                                              <tr class="row" >
+                                                                <a  routerLink="/advertisement/{{ad.productName}}"> 
+                                                                 <td class="col-md-2 notranslate"> {{ad.productName}}</td>
+                                                                </a> 
                                                                 <td  class="col-md-4">{{ad.productDescription}}</td>
                                                                 <td  class="col-md-4">{{ad.subCategoryDetails.categoryDetails.name}}</td>
                                                                 <td class="col-md-2">{{ad.subCategoryDetails.name}} </td>
@@ -147,6 +152,7 @@
                                                                    
                                                                
                                                             </tr>
+                                                        
                                                         </tbody>
                                                 </table> 
 

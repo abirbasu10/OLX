@@ -88,7 +88,12 @@ export class ImageAdvertisementMap{
    advertisementId:number;
 }
 
-
+export class CatSubcatImageMap{
+    id:number;
+   imageId:number;
+   catId:number;
+   subCatId:number
+}
 
 export class SubCategoryFilterOption{
     id:number;

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption, VendorList } from "./classDefinition";
+=======
+import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap } from "./classDefinition";
+>>>>>>> d91361c4a800d8110a52f0d451b544d90020a941
 
 
 export const CATEGORIES: Category[]=[
@@ -154,9 +158,19 @@ export const IMAGES:Image[]=[
     {id:5,name:"2Bhk Flat Image",path:"",extension:"",description:""},
     {id:6,name:"2Bhk Flat Image2",path:"",extension:"",description:""},
     {id:7,name:"Audi Car Image2",path:"",extension:"",description:""},
-    {id:8,name:"Active Scooter Image",path:"",extension:"",description:""},    
-]
+    {id:8,name:"Active Scooter Image",path:"",extension:"",description:""},
 
+    {id:9,name:"Property Image",path:"",extension:"",description:""},    
+    {id:10,name:"Electronics Image",path:"",extension:"",description:""},    
+    {id:11,name:"Bike Image",path:"",extension:"",description:""},  
+    {id:12,name:"Car Image",path:"",extension:"",description:""},
+
+    {id:13,name:"ForSale Image",path:"",extension:"",description:""},    
+    {id:14,name:"AC Image",path:"",extension:"",description:""},    
+    {id:15,name:"Scooter Image",path:"",extension:"",description:""}, 
+    {id:15,name:"Domestic Car Image",path:"",extension:"",description:""},        
+]
+ 
 
 export const COUNTRIES:Country[]=[    
         {id:1,name:"India"}, 
@@ -287,6 +301,22 @@ export const IMAGEADVERTISEMENTMAP:ImageAdvertisementMap[]=[
     {id:3,imageId:1,advertisementId:2},
     {id:4,imageId:7,advertisementId:2},
     {id:4,imageId:2,advertisementId:3},
+]
+
+
+
+
+export const CATSUBCATIMAGEMAP:CatSubcatImageMap[]=[
+    {id:1,imageId:9,catId:1,subCatId:null},
+    {id:2,imageId:10,catId:3,subCatId:null},
+    {id:3,imageId:11,catId:4,subCatId:null},
+    {id:4,imageId:12,catId:2,subCatId:null},
+
+    {id:1,imageId:9,catId:1,subCatId:1},
+    {id:2,imageId:10,catId:3,subCatId:5},
+    {id:3,imageId:11,catId:4,subCatId:7},
+    {id:4,imageId:12,catId:2,subCatId:3},
+   
 ]
 
 export const SUBCATFILTEROPTIONS: SubCategoryFilterOption[]=[
