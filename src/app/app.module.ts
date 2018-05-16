@@ -92,11 +92,22 @@ import { CreateAdvertisementComponent } from './advertisement/create-advertiseme
 import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
 import { AdminComponent } from './admin/admin.component';
 import { LogisticsComponent } from './logistics/logistics.component';
+
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.component';
 import { LogisticsDashboardComponent } from './logistics/logistics-dashboard/logistics-dashboard.component';
 import { LogisticsSidebarComponent } from './logistics/logistics-sidebar/logistics-sidebar.component';
 
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { LogisticsLoginComponent } from './logistics/logistics-login/logistics-login.component';
+import { LogisticsRegisterComponent } from './logistics/logistics-register/logistics-register.component';
+import { LogisticsChangePasswordComponent } from './logistics/logistics-change-password/logistics-change-password.component';
+import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
+
+
+/* import { ImageUploadModule } from "angular2-image-upload";
+import { VendorComponent } from './vendor/vendor.component';
+import { VendorProfileComponent } from './vendor/vendor-profile/vendor-profile.component'; */
 
 @NgModule({
   declarations: [
@@ -171,11 +182,17 @@ CompanyComponent,
 
     CreateAdvertisementComponent,
 
+
+    /* VendorComponent,
+
+    VendorProfileComponent,
+ */
     AdvertisementDetailsComponent,
 
     AdminComponent,
 
     LogisticsComponent,
+
 
     AdminDashboardComponent,
 
@@ -185,7 +202,20 @@ CompanyComponent,
 
     LogisticsSidebarComponent,
 
+    AdminLoginComponent,
+
+    LogisticsLoginComponent,
+
+    LogisticsRegisterComponent,
+
+    LogisticsChangePasswordComponent,
+
+    AdminChangePasswordComponent,
+
+
     //AdminSubscriptionManagementComponent
+
+    
    
   ],
   imports: [
@@ -229,6 +259,7 @@ CompanyComponent,
     MatTableModule,
     MatSlideToggleModule,
 
+    /* ImageUploadModule.forRoot(), */
 /*     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA_h565MUlULgemvbsLJeizADz-wQ3FUp8'
     }), */

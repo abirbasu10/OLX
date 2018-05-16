@@ -32,12 +32,18 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdvertisementManagmentComponent } from './advertisement/advertisement-managment/advertisement-managment.component';
 import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
+/* import { VendorProfileComponent } from './vendor/vendor-profile/vendor-profile.component'; */
 import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { LogisticsComponent } from './logistics/logistics.component';
 import { LogisticsDashboardComponent } from './logistics/logistics-dashboard/logistics-dashboard.component';
 
+import { AdminLoginComponent} from './admin/admin-login/admin-login.component'
+import {AdminChangePasswordComponent} from './admin/admin-change-password/admin-change-password.component'
+import { LogisticsRegisterComponent } from './logistics/logistics-register/logistics-register.component'
+import { LogisticsLoginComponent } from './logistics/logistics-login/logistics-login.component'
+import {LogisticsChangePasswordComponent} from './logistics/logistics-change-password/logistics-change-password.component'
 
 
 //import { AdminSubscriptionManagementComponent } from './admin/admin-subscription-management/admin-subscription-management.component';
@@ -70,15 +76,23 @@ const routes: Routes =[
 
     { path: 'advertisements/search',  component: AdvertisementManagmentComponent },
     { path: 'advertisements/create',  component: CreateAdvertisementComponent },
+
+    { path: '', redirectTo: 'advertisements/search', pathMatch: 'full' },
     { path: 'advertisement/:adName', component: AdvertisementDetailsComponent},
 
     { path:'landing', component:LandingComponent},
-     { path: '', redirectTo: 'advertisements/search', pathMatch: 'full' },
 
 
-     { path:'login_register', component:LoginComponent},
-     { path:'register', component:RegisterComponent},
+    { path:'login_register', component:LoginComponent},
+    { path:'register', component:RegisterComponent},
 
+    /* { path:'vendor_profile', component:VendorProfileComponent} */
+
+     { path:'admin/login', component:AdminLoginComponent},
+     { path:'admin/changePassword', component:AdminChangePasswordComponent},
+     { path:'logistics/login', component:LogisticsLoginComponent},
+     { path:'logistics/register', component:LogisticsRegisterComponent},
+     { path:'logistics/changePassword', component:LogisticsChangePasswordComponent},
 ];
 
 @NgModule({

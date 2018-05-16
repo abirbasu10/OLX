@@ -107,3 +107,13 @@ export class SubCategoryOption{
     subCategoryDetails:SubCategory;
     options:string[]
 }
+
+export class VendorList
+{
+    id:number;
+    name: string;
+    contact: string;
+    email: string;
+    port: Port; 
+    profile_state: boolean; 
+}

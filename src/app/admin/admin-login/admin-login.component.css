@@ -1,0 +1,41 @@
+.wrapper
+{
+    overflow:hidden;
+}
+
+.wrapper-full-page
+{
+    height:535px;
+}
+
+.forgotPasswordLink
+{
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+.modal-header
+{
+    background-color: #e8504d;
+    color: #f9fafb;
+}
+
+.modal-header button
+{
+    color: #f9fafb;
+}
+.submit-btn
+{
+    background-color: #e8504d !important;
+}
+.login-btn{
+    background-color: #e8504d;
+}
+
+.login-page{
+    margin-top: 5%;
+}
+a{
+    color: white;
+}

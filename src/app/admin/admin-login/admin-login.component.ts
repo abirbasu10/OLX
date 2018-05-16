@@ -5,11 +5,11 @@ import swal from 'sweetalert2';
 declare const $: any;
 
 @Component({
-  selector: 'app-company-login',
-  templateUrl: './company-login.component.html',
-  styleUrls: ['./company-login.component.css']
+  selector: 'app-admin-login',
+  templateUrl: './admin-login.component.html',
+  styleUrls: ['./admin-login.component.css']
 })
-export class CompanyLoginComponent implements OnInit {
+export class AdminLoginComponent implements OnInit {
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -70,4 +70,5 @@ if(this.userPassword.length>0){
       )
     $('#forgotPasswordModal').modal("hide");
   }
+
 }
