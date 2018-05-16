@@ -34,6 +34,9 @@ import { AdvertisementManagmentComponent } from './advertisement/advertisement-m
 import { CreateAdvertisementComponent } from './advertisement/create-advertisement/create-advertisement.component';
 /* import { VendorProfileComponent } from './vendor/vendor-profile/vendor-profile.component'; */
 import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
+import { LogisticsFirmProfileComponent } from './company/logistics-firm-profile/logistics-firm-profile.component';
+import { LogisticsCompanyDetailsComponent } from './logistics/logistics-company-details/logistics-company-details.component';
+import { LogisticsProfileComponent } from './logistics/logistics-profile/logistics-profile.component';
 
 
 
@@ -60,6 +63,7 @@ const routes: Routes =[
     { path: 'company/login', component:CompanyLoginComponent},
     { path: 'company/changePassword', component:CompanyChangePasswordComponent},
     { path: 'company/register', component: CompanyRegisterComponent},
+    { path: 'company/logisticsFirmProfile', component: LogisticsFirmProfileComponent},
     //{ path: 'company/purchaseOrder/:id', component: CompanyPurchaseOrderComponent},
 
     { path: 'notifications',  component: NotificationsComponent },
@@ -70,6 +74,9 @@ const routes: Routes =[
 
     { path: '', redirectTo: 'advertisements/search', pathMatch: 'full' },
     { path: 'advertisement/:adName', component: AdvertisementDetailsComponent},
+    { path: 'logistics/logisticsCompanyDetails', component: LogisticsCompanyDetailsComponent},
+    { path: 'logistics/profile', component: LogisticsProfileComponent},
+
     { path:'landing', component:LandingComponent},
 
 

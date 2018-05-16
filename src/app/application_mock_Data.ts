@@ -1,5 +1,5 @@
 
-import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, VendorList } from "./classDefinition";
+import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList, CompanyList } from "./classDefinition";
 
 
 export const CATEGORIES: Category[]=[
@@ -361,14 +361,21 @@ export const SUBCATOPTIONS: SubCategoryOption[]=[
     }
 ]
 
-export const VENDORS: VendorList[]=[
-    {id:1, name:'Mariners Bay', contact:'9903458227', email:'mbay@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},profile_state:true},
-    {id:2, name:'Sea Farer', contact:'9903422127', email:'seafarer@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},profile_state:true},
-    {id:3, name:'Blue Shark', contact:'9903422127', email:'blueshark@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},profile_state:true},
-    {id:4, name:'Maharashtra Greats', contact:'990345823', email:'theindian@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},profile_state:true},
-    {id:5, name:'The Indian', contact:'990345789', email:'sg@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},profile_state:false},    
+export const LOGISTICFIRMS: LogisticFirmList[]=[
+    {id:1, name:'Mariners Bay', contact:'9903458227', email:'mbay@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4.5,profile_state:true},
+    {id:2, name:'Sea Farer', contact:'9903422127', email:'seafarer@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4,profile_state:true},
+    {id:3, name:'Blue Shark', contact:'9903422127', email:'blueshark@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:3.5,profile_state:true},
+    {id:4, name:'Maharashtra Greats', contact:'990345823', email:'theindian@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4.5,profile_state:true},
+    {id:5, name:'The Indian', contact:'990345789', email:'sg@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4,profile_state:false},    
 ];
 
-export const DefaultVendor:VendorList=VENDORS[VENDORS.length-1];
+export const DefaultLogisticFirm:LogisticFirmList=LOGISTICFIRMS[LOGISTICFIRMS.length-1];
 
-       
+export const COMPANYLIST: CompanyList[]=[
+    {id:1, name:'Marine Affiliates', contact:'9903458227', email:'maff@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4.5,profile_completion_percent:50},
+    {id:2, name:'Deep Oceans', contact:'9903422127', email:'deepoceans@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4,profile_completion_percent:70},
+    {id:3, name:'Great Eastern', contact:'9903422127', email:'geships@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:3.5,profile_completion_percent:65},
+    {id:4, name:'MC Ships', contact:'990345823', email:'mcships@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4.5,profile_completion_percent:90},
+];    
+
+export const DefaultCompany:CompanyList=COMPANYLIST[COMPANYLIST.length-1];

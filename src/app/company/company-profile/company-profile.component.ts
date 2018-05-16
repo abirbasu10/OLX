@@ -1,18 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { VendorList } from '../../company/company_vendor_list'
-/* import { DefaultVendor } from '../../vendor/vendor_mock_data'
-import { Company } from "../../admin/admin_company";
-import { COMPANY } from "../../admin/admin_mock_data";
- */
-class CompanyReview{
+import { CompanyList, Review } from '../../classDefinition';
+import { DefaultCompany } from '../../application_mock_Data';
 
-  id : string
-  name : string
-  image : string
-  rating : string
-  comment : string
-
-}
+import swal from 'sweetalert2';
+declare const $: any;
 
 @Component({
   selector: 'app-company-profile',
@@ -21,30 +12,19 @@ class CompanyReview{
 })
 export class CompanyProfileComponent implements OnInit {
 
-  defaultVendor:VendorList;
+  defaultCompany:CompanyList=DefaultCompany;
   profileImgPath : string = "../assets/img/vendor/profile.jpg"
 
-  companyId;
- // currentCompany:Company={id:null, name:"", logo:"", email:"",contact:"", website:"", address:"",registrationDate:null,numberOfShip:null,numberOfOrder:null,paymentStatus:'',expiryDate:null};
+  companyWeb : string = "www.mcships.com"
 
-  /* vendorName : string = "Youseeme Kennedy"
 
-  vendorRate : string = "8.2/10"
-
-  vendorEmail : string = "youseeme@gmail.com"
-
-  vendorPhn : string = "9876543214"
-
-  vendorLoc : string ="Newyork" */
-
-  vendorWeb : string = "www.theindian.com"
-
-  portsVendorServe :  String [] = ["Singapore","Japan","London","China","Mumbai"]
-
-  reviews : CompanyReview[] = [{id:"1",name:"XYZ",image:"../assets/img/vendor/NoImage.jpg",rating:"8.2/10",comment:"Great Company. Highly professional. Great PR"},
-    {id:"2",name:"Abc",image:"../assets/img/vendor/NoImage.jpg",rating:"7.2/10",comment:"Good to work with them"}
-  ]
+  portsCompanyServe :  String [] = ["Singapore","Japan","London","China","Mumbai"]
   
+  reviews : Review[] = [
+    {id:"1",name:"XYZ",image:"../assets/img/vendor/NoImage.jpg",rating:"4.1/5",comment:"Good Company. Trust Worthy"},
+    {id:"2",name:"Abc",image:"../assets/img/vendor/NoImage.jpg",rating:"3.8/5",comment:"Average Company"}
+  ]
+
   constructor() { }
 
   ngOnInit() {

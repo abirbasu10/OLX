@@ -3,6 +3,10 @@ import { Category, SubCategory, Filter, SubCatFilterMap, Country, State, Port, A
 import { CATEGORIES, SUBCATEGORIES, FILTERS, SUBCATFILTERMAP, COUNTRIES, STATES, PORTS, ADVERTISEMENTS, PRODUCTFILTERVALUES, SUBCATFILTEROPTIONS } from '../../application_mock_Data';
 
 import { Router } from '@angular/router';
+//import { ImageUploadModule } from "angular2-image-upload";
+
+import { HttpClient } from '@angular/common/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 import swal from 'sweetalert2';
 
@@ -19,7 +23,7 @@ countries:Country[]=[];
 states:State[]=[];
 ports:Port[]=[];
 filters:Filter[]=[];
-
+url:any;
 
 adTitle:string;
 adCategory:string="";
@@ -27,6 +31,7 @@ adSubCategory:string="";
 adDescription:string="";
 reqdfilters:any[]=[];
 filterSet:any[]=[];
+featured:string="";
 adCountry:string="";
 adState:string="";
 adPort:string="";
@@ -38,7 +43,7 @@ filterValueId:number=1;
 advertisementDetails:Advertisement;
 filterValues:AdvertisementFilterValue[]=[];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private http: Http) { }
 
   ngOnInit() {
     this.checkLogInOrNot()
@@ -158,8 +163,9 @@ filterValues:AdvertisementFilterValue[]=[];
 
   postAd()
   {
+    var x=this.checkIfFeatured()
     //basic details for ad
-
+    
     var adID=ADVERTISEMENTS[ADVERTISEMENTS.length-1].id+1;
     var productName=this.adTitle;
     var productDescription=this.adDescription;
@@ -190,5 +196,69 @@ filterValues:AdvertisementFilterValue[]=[];
       })
 
   }
+
+  checkIfFeatured()
+  {
+    if(this.featured)
+    {
+      this.openCheckout()
+      
+    }
+  }
+
+  openCheckout()
+  {
+      var amt=0;
+      if(this.featured=="1")
+      {
+        amt=70000
+      }
+      else if(this.featured=="2")
+      {
+        amt=250000
+      }
+
+      var handler = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_oi0sKPJYLGjdvOXOM8tE8cMa',
+      locale: 'auto',
+      token: function (token: any) {
+        // You can access the token ID with `token.id`.
+        // Get the token ID to your server-side code for use.
+      }
+    });
+
+    handler.open({
+      name: 'Featured Ad Payment',
+      //description: 'Annual subscription',
+      amount: amt
+    });
+  }
+
+  /* onUploadFinished(event)
+  {
+    console.log(event.file);
+     this.http.post('http://localhost:4200/assets', event.file)
+          .subscribe(res => {
+            console.log(res);
+          }); 
+
+          var reader = new FileReader();
+
+          reader.onload = (event:any) => {
+            this.url = event.file;
+            alert()
+          }
+          reader.readAsDataURL(event.file);
+  }
+
+  onRemoved(event)
+  {
+
+  }
+
+  onUploadStateChanged(event)
+  {
+
+  } */
 
 }

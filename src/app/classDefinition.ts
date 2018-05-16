@@ -108,12 +108,34 @@ export class SubCategoryOption{
     options:string[]
 }
 
-export class VendorList
+export class LogisticFirmList
 {
     id:number;
     name: string;
     contact: string;
     email: string;
     port: Port; 
+    avg_rating: number;
     profile_state: boolean; 
 }
+
+export class CompanyList
+{
+    id:number;
+    name: string;
+    contact: string;
+    email: string;
+    port: Port; 
+    avg_rating: number;
+    profile_completion_percent: number;
+}
+
+export class Review{
+
+    id : string
+    name : string
+    image : string
+    rating : string
+    comment : string
+   
+  }

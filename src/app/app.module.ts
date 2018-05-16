@@ -92,6 +92,9 @@ import { CreateAdvertisementComponent } from './advertisement/create-advertiseme
 import { AdvertisementDetailsComponent } from './advertisement/advertisement-details/advertisement-details.component';
 import { AdminComponent } from './admin/admin.component';
 import { LogisticsComponent } from './logistics/logistics.component';
+import { LogisticsFirmProfileComponent } from './company/logistics-firm-profile/logistics-firm-profile.component';
+import { LogisticsCompanyDetailsComponent } from './logistics/logistics-company-details/logistics-company-details.component';
+import { LogisticsProfileComponent } from './logistics/logistics-profile/logistics-profile.component';
 
 /* import { ImageUploadModule } from "angular2-image-upload";
 import { VendorComponent } from './vendor/vendor.component';
@@ -180,6 +183,12 @@ CompanyComponent,
     AdminComponent,
 
     LogisticsComponent,
+
+    LogisticsFirmProfileComponent,
+
+    LogisticsCompanyDetailsComponent,
+
+    LogisticsProfileComponent,
 
     //AdminSubscriptionManagementComponent
 
