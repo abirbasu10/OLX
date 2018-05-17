@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CompanyList, Review } from '../../classDefinition';
+import { CompanyDetails, Review } from '../../classDefinition';
 import { DefaultCompany } from '../../application_mock_Data';
 
 import swal from 'sweetalert2';
@@ -11,7 +11,7 @@ declare const $: any;
   styleUrls: ['./logistics-company-details.component.css']
 })
 export class LogisticsCompanyDetailsComponent implements OnInit {
-  defaultCompany:CompanyList=DefaultCompany;
+  defaultCompany:CompanyDetails=DefaultCompany;
   profileImgPath : string = "../assets/img/vendor/profile.jpg"
 
   companyWeb : string = "www.mcships.com"
