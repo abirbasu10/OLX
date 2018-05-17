@@ -112,6 +112,50 @@
                                 
                         </div>
                     
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="panel panel-info" >
+                                    <div class="panel-heading">
+                                      <a routerLink="/company/profile">
+                                       <div class="row">
+                                           <div class="col-md-12">
+                                                <h3>Profile Completion</h3>
+                                            </div> 
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-md-2" *ngFor="let field of defaultCompany.profileFields">{{field.fieldName}}
+                                                    <span *ngIf="field.verifyStatus; else elseBlock">
+                                                        <i class="material-icons" style="color:green;font-size:20px;font-weight:900;">
+                                                            check
+                                                            </i>
+                                                    </span>
+                                                    <ng-template #elseBlock>
+
+                                                            <i class="material-icons" style="color:red;font-size:20px;font-weight:900;">
+                                                                    close
+                                                                    </i>
+
+                                                    </ng-template>
+                                                
+                                                </label>
+                                            </div> 
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5><strong>{{value | number : '1.0-0' }}% Completed </strong></h5>
+                                            <mat-progress-bar
+                                                class="example-margin"
+                                                [color]="color"
+                                                [mode]="mode"
+                                                [value]="value" >
+                                            </mat-progress-bar>
+                                        </div>    
+                                    </div>       
+
+                                 </a>
+                                </div>    
+                                </div>    
+                            </div>        
+                        </div>
                       
                         <div class="row">
         

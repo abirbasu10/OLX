@@ -3,6 +3,8 @@ import * as Chartist from 'chartist';
 import { CompanyVesselCount } from '../company_vessel_count'
 import { CompanyCrewNationality } from '../company_crew_nationality'
 import { ORDERS,VESSELCOUNT,COMPANY_CREW_NATIONALITIES, CREW_NATIONALITY } from '../comany_mock_data';
+import { CompanyDetails,ProfileFields, Review } from '../../classDefinition';
+import { DefaultCompany } from '../../application_mock_Data';
 
 @Component({
   selector: 'app-company-dashboard',
@@ -12,6 +14,14 @@ import { ORDERS,VESSELCOUNT,COMPANY_CREW_NATIONALITIES, CREW_NATIONALITY } from 
 
 export class CompanyDashboardComponent implements OnInit {
 
+  defaultCompany:CompanyDetails=DefaultCompany;
+  profileFieldLength : number = this.defaultCompany.profileFields.length
+
+  color = 'primary';
+  mode = 'determinate';
+  value = this.checkProfileStrength()
+  //bufferValue = 75;
+
   orders:any[];
   vesselcount:CompanyVesselCount;
   totalVessel:number;
@@ -20,6 +30,25 @@ export class CompanyDashboardComponent implements OnInit {
   
 
   constructor() { }
+
+  
+  checkProfileStrength(){
+    var strength = 0
+    var count=0
+    for(let i = 0; i<this.profileFieldLength; ++i)
+    {
+      if(this.defaultCompany.profileFields[i].verifyStatus)
+      {
+        count++
+      }
+       
+    }
+    strength = (count/this.profileFieldLength)*100
+    
+    return strength
+
+  }
+
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
