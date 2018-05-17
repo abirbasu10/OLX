@@ -272,7 +272,7 @@ tempLocation=""
     
 
     var fltrValue=valueOfField.value
-    if(valueOfField.id=="Year-Range")
+    if(valueOfField.id=="Year")
     {
       fltrValue=fltrValue+" Years"
     }
