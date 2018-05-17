@@ -119,7 +119,7 @@ export class LogisticFirmList
     profile_state: boolean; 
 }
 
-export class CompanyList
+export class CompanyDetails
 {
     id:number;
     name: string;
@@ -128,6 +128,13 @@ export class CompanyList
     port: Port; 
     avg_rating: number;
     profile_completion_percent: number;
+    profileFields:ProfileFields[];
+}
+
+export class ProfileFields{
+    id:number;
+    fieldName:string;
+    verifyStatus:boolean;
 }
 
 export class Review{

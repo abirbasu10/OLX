@@ -1,5 +1,5 @@
 
-import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList, CompanyList } from "./classDefinition";
+import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList,CompanyDetails,ProfileFields } from "./classDefinition";
 
 
 export const CATEGORIES: Category[]=[
@@ -371,11 +371,11 @@ export const LOGISTICFIRMS: LogisticFirmList[]=[
 
 export const DefaultLogisticFirm:LogisticFirmList=LOGISTICFIRMS[LOGISTICFIRMS.length-1];
 
-export const COMPANYLIST: CompanyList[]=[
-    {id:1, name:'Marine Affiliates', contact:'9903458227', email:'maff@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4.5,profile_completion_percent:50},
-    {id:2, name:'Deep Oceans', contact:'9903422127', email:'deepoceans@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4,profile_completion_percent:70},
-    {id:3, name:'Great Eastern', contact:'9903422127', email:'geships@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:3.5,profile_completion_percent:65},
-    {id:4, name:'MC Ships', contact:'990345823', email:'mcships@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4.5,profile_completion_percent:90},
+export const COMPANYLIST: CompanyDetails[]=[
+    {id:1, name:'Marine Affiliates', contact:'9903458227', email:'maff@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4.5,profile_completion_percent:50,profileFields:[{id:1,fieldName:"contactNumber",verifyStatus:true},{id:2,fieldName:"contactEmail",verifyStatus:true},{id:3,fieldName:"document",verifyStatus:false}]},
+    {id:2, name:'Deep Oceans', contact:'9903422127', email:'deepoceans@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4,profile_completion_percent:70,profileFields:[{id:1,fieldName:"contactNumber",verifyStatus:true},{id:2,fieldName:"contactEmail",verifyStatus:true},{id:3,fieldName:"document",verifyStatus:true}]},
+    {id:3, name:'Great Eastern', contact:'9903422127', email:'geships@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:3.5,profile_completion_percent:65,profileFields:[{id:1,fieldName:"contactNumber",verifyStatus:true},{id:2,fieldName:"contactEmail",verifyStatus:false},{id:3,fieldName:"document",verifyStatus:false}]},
+    {id:4, name:'MC Ships', contact:'990345823', email:'mcships@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4.5,profile_completion_percent:90,profileFields:[{id:1,fieldName:"contactNumber",verifyStatus:false},{id:2,fieldName:"contactEmail",verifyStatus:false},{id:3,fieldName:"document",verifyStatus:false}]},
 ];    
 
-export const DefaultCompany:CompanyList=COMPANYLIST[COMPANYLIST.length-1];
+export const DefaultCompany:CompanyDetails=COMPANYLIST[COMPANYLIST.length-1];
