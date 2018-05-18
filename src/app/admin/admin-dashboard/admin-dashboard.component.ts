@@ -12,7 +12,7 @@ export class AdminDashboardComponent implements OnInit {
 
   constructor() { }
   documentsReceived : boolean = false
-  listOfDocRec = []
+  listOfDocRec = VERIFYCOMPANYDOCUMENT
   isDocumentReceived(){
     if(VERIFYCOMPANYDOCUMENT.length >= 1)
     {
@@ -34,6 +34,22 @@ export class AdminDashboardComponent implements OnInit {
     return docArr;
   }
 
+  acceptDocument(doc){
+    doc.status = true
+    for( let doc of VERIFYCOMPANYDOCUMENT)
+    {
+     doc.status= true
+    }
+    
+  }
+  rejectDocument(doc){
+    doc.status = false
+    for( let doc of VERIFYCOMPANYDOCUMENT)
+    {
+     doc.status= false
+    }
+    VERIFYCOMPANYDOCUMENT.pop()
+  }
   ngOnInit() {
 
     this.isDocumentReceived();
