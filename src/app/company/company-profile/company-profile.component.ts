@@ -36,9 +36,17 @@ docVerificationStatus : boolean = false
       {
         count++
       }
+      if(doc.status==null)
+      this.docVerificationStatus = null;
+
+      if(doc.status==false)
+      this.docVerificationStatus = false;
     }
-    if(lengthOfDoc == count)
+    
+    if(lengthOfDoc == count){
+      
     this.docVerificationStatus = true;
+    }
   }
 
   setFieldName(fieldName:string){
@@ -68,21 +76,21 @@ docVerificationStatus : boolean = false
 
     $('#verificationModal').modal('hide');
 
-
+    //alert(fieldName)
     if(fieldName.toLowerCase().indexOf('document') > -1)
     {
       VERIFYCOMPANYDOCUMENT.push({id:1,name:"Passport",status:null})
+      this.checkDocVerificationStatus();
 
     }
-    else
-    {  
+      
         for(let field of this.defaultCompany.profileFields)
         {
           if (field.fieldName.toLowerCase().indexOf(fieldName.toLowerCase()) > -1)
             field.verifyStatus = true;
           
         }
-    }
+    
   
 }
   
@@ -90,6 +98,8 @@ docVerificationStatus : boolean = false
   ngOnInit() {
    // this.defaultVendor=DefaultVendor;
    // this.currentCompany=COMPANY[COMPANY.length-1];
+    if(VERIFYCOMPANYDOCUMENT.length == 1)
+    this.checkDocVerificationStatus()
   }
 
 }

@@ -3,8 +3,8 @@ import * as Chartist from 'chartist';
 import { CompanyVesselCount } from '../company_vessel_count'
 import { CompanyCrewNationality } from '../company_crew_nationality'
 import { ORDERS,VESSELCOUNT,COMPANY_CREW_NATIONALITIES, CREW_NATIONALITY } from '../comany_mock_data';
-import { CompanyDetails,ProfileFields, Review } from '../../classDefinition';
-import { DefaultCompany } from '../../application_mock_Data';
+import { CompanyDetails,ProfileFields, Review,VerifyCompanyDocument } from '../../classDefinition';
+import { DefaultCompany,VERIFYCOMPANYDOCUMENT } from '../../application_mock_Data';
 
 @Component({
   selector: 'app-company-dashboard',
@@ -29,7 +29,30 @@ export class CompanyDashboardComponent implements OnInit {
   totalCrew:number;
   
 
+  docVerificationStatus : boolean = false
   constructor() { }
+
+  checkDocVerificationStatus(){
+    var count = 0
+    var lengthOfDoc = VERIFYCOMPANYDOCUMENT.length
+    for(let doc of VERIFYCOMPANYDOCUMENT)
+    {
+      if(doc.status)
+      {
+        count++
+      }
+      if(doc.status==null)
+      this.docVerificationStatus = null;
+
+      if(doc.status==false)
+      this.docVerificationStatus = false;
+    }
+    
+    if(lengthOfDoc == count){
+      
+    this.docVerificationStatus = true;
+    }
+  }
 
   
   checkProfileStrength(){
@@ -37,9 +60,20 @@ export class CompanyDashboardComponent implements OnInit {
     var count=0
     for(let i = 0; i<this.profileFieldLength; ++i)
     {
-      if(this.defaultCompany.profileFields[i].verifyStatus)
+      if(this.defaultCompany.profileFields[i].fieldName.toLowerCase().indexOf('document') == -1)
+      {    
+        if(this.defaultCompany.profileFields[i].verifyStatus)
+            {
+              count++
+            }
+      }      
+      else
       {
-        count++
+        for(let doc of VERIFYCOMPANYDOCUMENT)
+        {
+          if(doc.status)
+          count++
+        }
       }
        
     }
@@ -108,6 +142,11 @@ export class CompanyDashboardComponent implements OnInit {
 
   
   ngOnInit() {
+
+    if(VERIFYCOMPANYDOCUMENT.length == 1)
+      this.checkDocVerificationStatus()
+  
+
       
       this.orders=ORDERS;
       this.vesselcount=VESSELCOUNT[0];

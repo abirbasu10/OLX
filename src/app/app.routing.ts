@@ -48,6 +48,7 @@ import { LogisticsRegisterComponent } from './logistics/logistics-register/logis
 import { LogisticsLoginComponent } from './logistics/logistics-login/logistics-login.component'
 import {LogisticsChangePasswordComponent} from './logistics/logistics-change-password/logistics-change-password.component'
 
+import {AdminCategoryManagementComponent} from './admin/admin-category-management/admin-category-management.component'
 
 //import { AdminSubscriptionManagementComponent } from './admin/admin-subscription-management/admin-subscription-management.component';
 
@@ -102,6 +103,8 @@ const routes: Routes =[
      { path:'logistics/login', component:LogisticsLoginComponent},
      { path:'logistics/register', component:LogisticsRegisterComponent},
      { path:'logistics/changePassword', component:LogisticsChangePasswordComponent},
+     { path:'admin/categoryManagement', component:AdminCategoryManagementComponent},
+     
 ];
 
 @NgModule({

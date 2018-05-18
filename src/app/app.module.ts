@@ -109,6 +109,7 @@ import { AdminChangePasswordComponent } from './admin/admin-change-password/admi
 
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { AdminCategoryManagementComponent } from './admin/admin-category-management/admin-category-management.component';
 
 /* import { ImageUploadModule } from "angular2-image-upload";
 import { VendorComponent } from './vendor/vendor.component';
@@ -221,6 +222,8 @@ CompanyComponent,
     LogisticsChangePasswordComponent,
 
     AdminChangePasswordComponent,
+
+    AdminCategoryManagementComponent,
 
 
     //AdminSubscriptionManagementComponent

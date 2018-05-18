@@ -383,6 +383,6 @@ export const DefaultCompany:CompanyDetails=COMPANYDETAILS[COMPANYDETAILS.length-
 //Admin Section
 
 export const VERIFYCOMPANYDOCUMENT : VerifyCompanyDocument[]=[
-{id:1, name:'voterId',status:true}
+
 
 ];
