@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
-
+import { VerifyCompanyDocument } from '../../classDefinition';
+import { VERIFYCOMPANYDOCUMENT } from '../../application_mock_Data';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -10,10 +11,33 @@ import * as Chartist from 'chartist';
 export class AdminDashboardComponent implements OnInit {
 
   constructor() { }
+  documentsReceived : boolean = false
+  listOfDocRec = []
+  isDocumentReceived(){
+    if(VERIFYCOMPANYDOCUMENT.length >= 1)
+    {
+      this.documentsReceived = true
+    }
+
+    //return this.documentsReceived
+  }
+
+  getDocumentReceived(){
+    var docArr=[]
+    if(this.documentsReceived)
+    {
+      for( let doc of VERIFYCOMPANYDOCUMENT)
+      {
+        docArr.push({name:doc.name,status:doc.status})
+      }
+    }
+    return docArr;
+  }
 
   ngOnInit() {
 
-
+    this.isDocumentReceived();
+    this.listOfDocRec = this.getDocumentReceived();
     const dataDailySalesChart: any = {
       labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
       series: [

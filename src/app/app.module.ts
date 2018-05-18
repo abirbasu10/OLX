@@ -112,6 +112,8 @@ import { LogisticsMessageListComponent } from './logistics/logistics-message-lis
 import { LogisticsMessageDetailsComponent } from './logistics/logistics-message-details/logistics-message-details.component';
 
 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 /* import { ImageUploadModule } from "angular2-image-upload";
 import { VendorComponent } from './vendor/vendor.component';
 import { VendorProfileComponent } from './vendor/vendor-profile/vendor-profile.component'; */
@@ -285,7 +287,7 @@ CompanyComponent,
     }), */
 
     
-    
+    MatProgressBarModule,
 
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],

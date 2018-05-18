@@ -61,13 +61,47 @@
                                     <mat-tab-group>
                                         <mat-tab>
                                           <ng-template mat-tab-label>
-                                              <mat-icon class="notranslate">accessibility</mat-icon> Overview
+                                              <mat-icon class="notranslate">accessibility</mat-icon> Profile
                                           </ng-template>
-                                          <h1>Overview</h1>
-                                          <p> Hi there. </p> 
-                                          <p>We are a marine company and have been part of this industry for the past 5 decades. Ratings that we have received
-                                             speak a lot about us.
-                                          </p>
+                                          <h2>Complete Your Profile</h2>
+
+                                            <h5 *ngFor="let field of defaultCompany.profileFields">
+                                                {{field.fieldName}}
+                                                <span *ngIf="field.fieldName.toLowerCase().indexOf('document') == -1; else docBlock">
+                                                    <span *ngIf="field.verifyStatus; else elseBlock">
+                                                      <i class="material-icons" style="color:green;font-size:30px;font-weight:900;">
+                                                            check
+                                                            </i>
+                                                     
+                                                    </span>
+                                                    <ng-template #elseBlock>
+                                                        
+                                                            <!-- 
+                                                                <i class="material-icons" style="color:red;font-size:30px;font-weight:900;">
+                                                                    close
+                                                                    </i>
+                                                      -->
+                                                        <button class="btn btn-danger" (click)="setFieldName(field.fieldName)" data-toggle="modal" data-target="#verificationModal">Verify</button>           
+                                                    </ng-template>
+                                                </span>
+                                                <ng-template #docBlock>
+                                                    <span *ngIf="docVerificationStatus; else docElseBlock">
+                                                            <i class="material-icons" style="color:green;font-size:30px;font-weight:900;">
+                                                                    check
+                                                                    </i>
+                                                    </span>
+                                                </ng-template>
+
+                                                <ng-template #docElseBlock>
+                                                        
+                                                                <i class="material-icons" style="color:red;font-size:30px;font-weight:900;">
+                                                                        help
+                                                                        </i>
+                                                        
+                                                    </ng-template>
+
+                                            </h5>     
+
                                           
                                         </mat-tab>
       
@@ -197,4 +231,45 @@
         </div>
       </div>
       
-      
+      <!-- Verification Modal -->
+      <div id="verificationModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-sm">
+          
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Verification</h4>
+                </div>
+                <div *ngIf="currentField" class="modal-body">
+                    <p *ngIf="currentField.toLowerCase().indexOf('phone') > -1">
+                            <label>Phone - No</label>
+                        <input type="number" placeholder="Enter Phone No" minlength="10" maxlength="10" required/>
+                    </p>
+                    <p *ngIf="currentField.toLowerCase().indexOf('email') > -1">
+                            <label>Email - Id</label>
+                            <input type="email" placeholder="Enter Email Id" required/>
+                    </p>
+                    <p *ngIf="currentField.toLowerCase().indexOf('otp') > -1">
+                            <label>An OTP is sent.</label>
+                            <input type="number" placeholder="Enter OTP" minlength="4" maxlength="4"/>
+                </p>
+                    <p *ngIf="currentField.toLowerCase().indexOf('document') > -1">
+                                <label>Upload Documents</label>
+                                <input type="file" required/>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+                  
+                  <button type="button" *ngIf="currentField.toLowerCase().indexOf('document') > -1;  else elseBlck" class="btn btn-success btn-sm" (click)="sendConfirmation('document')">Send</button>
+                  
+
+                  <ng-template #elseBlck> 
+                        <button type="button" class="btn btn-sm btn-success"  (click)="setFieldName('otp')">Send</button>
+                    </ng-template>
+                </div>
+              </div>
+          
+            </div>
+          </div>

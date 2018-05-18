@@ -1,6 +1,6 @@
 
-import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList,CompanyDetails,ProfileFields } from "./classDefinition";
 import { MessageList, MessageDetails, MessageThread} from "./classDefinition";
+import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList,CompanyDetails,ProfileFields, VerifyCompanyDocument } from "./classDefinition";
 
 
 export const CATEGORIES: Category[]=[
@@ -221,6 +221,18 @@ export const ADVERTISEMENTS: Advertisement[]=[
         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
         name:"Spandan",contact:9903527889,date:new Date(),
     },
+    {
+        id:5,  productName:"New Flat",  productDescription:"", 
+        subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+        portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+        name:"Amit Halder",contact:9038568379,date:new Date(),
+    },
+    {
+        id:6,  productName:" Flat",  productDescription:"", 
+        subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+        portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+        name:"Amit Halder",contact:9038568379,date:new Date(),
+    }
 ]
 
 
@@ -236,7 +248,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
         },
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
-            {name:"Price",value:"15,00,000"},
+            {name:"Price",value:"1500000"},
             {name:"Year",value:"3 years"},
             
         ]
@@ -252,7 +264,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
         },
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
-            {name:"Price",value:"15,00,000"},
+            {name:"Price",value:"1500000"},
             {name:"Year",value:"2 Years"},
             
         ]
@@ -286,6 +298,38 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             {name:"Milege",value:"25"},
             {name:"Price",value:"15,000"},
             {name:"Year",value:"8 Years"},
+            
+        ]
+    },
+    {
+        id:5,
+        advertisementDetails:
+        {
+                         id:5,  productName:"New Flat",  productDescription:"", 
+                         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+                         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+                         name:"Amit Halder",contact:9038568379,date:new Date(),
+        },
+        filterValues:[
+            {name:"Bedroom",value:"2bhk"},
+            {name:"Price-Range",value:"3400000"},
+            {name:"Year-Range",value:"3 years"},
+            
+        ]
+    },
+    {
+        id:6,
+        advertisementDetails:
+        {
+                         id:6,  productName:" Flat",  productDescription:"", 
+                         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+                         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+                         name:"Amit Halder",contact:9038568379,date:new Date(),
+        },
+        filterValues:[
+            {name:"Bedroom",value:"3bhk"},
+            {name:"Price-Range",value:"2000000"},
+            {name:"Year-Range",value:"3 years"},
             
         ]
     }
@@ -324,7 +368,7 @@ export const SUBCATFILTEROPTIONS: SubCategoryFilterOption[]=[
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         subCatFilterValues:[
             {id:1,filterDetails: {id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},value:["1bhk","2bhk","3bhk"]},
-            {id:2,filterDetails: {id:1,name:"Price",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["10,00,000","20,00,000","30,00,000"]},
+            {id:2,filterDetails: {id:1,name:"Price",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["1000000","2000000","3000000"]},
             {id:3,filterDetails: {id:2,name:"Year",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["1year","2year","5year"]},
         ]
     },
@@ -373,10 +417,10 @@ export const LOGISTICFIRMS: LogisticFirmList[]=[
 export const DefaultLogisticFirm:LogisticFirmList=LOGISTICFIRMS[LOGISTICFIRMS.length-1];
 
 export const COMPANYDETAILS: CompanyDetails[]=[
-    {id:1, name:'Marine Affiliates', contact:'9903458227', email:'maff@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4.5,profile_completion_percent:50,profileFields:[{id:1,fieldName:"contactNumber",verifyStatus:true},{id:2,fieldName:"contactEmail",verifyStatus:true},{id:3,fieldName:"document",verifyStatus:false}]},
-    {id:2, name:'Deep Oceans', contact:'9903422127', email:'deepoceans@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4,profile_completion_percent:70,profileFields:[{id:1,fieldName:"contactNumber",verifyStatus:true},{id:2,fieldName:"contactEmail",verifyStatus:true},{id:3,fieldName:"document",verifyStatus:true}]},
-    {id:3, name:'Great Eastern', contact:'9903422127', email:'geships@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:3.5,profile_completion_percent:65,profileFields:[{id:1,fieldName:"contactNumber",verifyStatus:true},{id:2,fieldName:"contactEmail",verifyStatus:false},{id:3,fieldName:"document",verifyStatus:false}]},
-    {id:4, name:'MC Ships', contact:'990345823', email:'mcships@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4.5,profile_completion_percent:90,profileFields:[{id:1,fieldName:"contactNumber",verifyStatus:false},{id:2,fieldName:"contactEmail",verifyStatus:false},{id:3,fieldName:"document",verifyStatus:false}]},
+    {id:1, name:'Marine Affiliates', contact:'9903458227', email:'maff@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4.5,profile_completion_percent:50,profileFields:[{id:1,fieldName:"Phone No",verifyStatus:true},{id:2,fieldName:"Email",verifyStatus:true},{id:3,fieldName:"Document",verifyStatus:false}]},
+    {id:2, name:'Deep Oceans', contact:'9903422127', email:'deepoceans@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4,profile_completion_percent:70,profileFields:[{id:1,fieldName:"Phone No",verifyStatus:true},{id:2,fieldName:"Email",verifyStatus:true},{id:3,fieldName:"Document",verifyStatus:true}]},
+    {id:3, name:'Great Eastern', contact:'9903422127', email:'geships@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:3.5,profile_completion_percent:65,profileFields:[{id:1,fieldName:"Phone No",verifyStatus:true},{id:2,fieldName:"Email",verifyStatus:false},{id:3,fieldName:"Document",verifyStatus:false}]},
+    {id:4, name:'MC Ships', contact:'990345823', email:'mcships@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4.5,profile_completion_percent:90,profileFields:[{id:1,fieldName:"Phone No",verifyStatus:false},{id:2,fieldName:"Email",verifyStatus:false},{id:3,fieldName:"Document",verifyStatus:false}]},
 ];    
 
 export const DefaultCompany:CompanyDetails=COMPANYDETAILS[COMPANYDETAILS.length-1];
@@ -389,4 +433,10 @@ export const MESSAGELIST: MessageList[]=[
 export const MESSAGEDETAILS: MessageDetails[]=[
     {messageId:1, msgThread:[{msg:"hi how are you?",senderId:4, receiverId: 2}, {msg:"Am Fine?",senderId:2, receiverId: 1}]},
     {messageId:2, msgThread:[{msg:"Ki haal?",senderId:4, receiverId: 5}, {msg:"Ami bhalo..tui kemn?",senderId:5, receiverId: 1}]}
+];
+//Admin Section
+
+export const VERIFYCOMPANYDOCUMENT : VerifyCompanyDocument[]=[
+{id:1, name:'voterId',status:true}
+
 ];

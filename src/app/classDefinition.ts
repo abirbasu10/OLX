@@ -71,6 +71,7 @@ export class ProductFilterValue{
 
 
 export class AdvertisementFilterValue{
+    group?:string;
     name:string
    value:string
 }
@@ -167,3 +168,10 @@ export class MessageThread
     senderId:number;
     receiverId:number;
 }
+  //Admin Section 
+
+  export class VerifyCompanyDocument{
+      id:number
+      name:string
+      status: boolean
+  }
