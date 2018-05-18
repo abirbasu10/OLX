@@ -247,7 +247,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
         },
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
-            {name:"Price",value:"15,00,000"},
+            {name:"Price",value:"1500000"},
             {name:"Year",value:"3 years"},
             
         ]
@@ -263,7 +263,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
         },
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
-            {name:"Price",value:"15,00,000"},
+            {name:"Price",value:"1500000"},
             {name:"Year",value:"2 Years"},
             
         ]
@@ -311,7 +311,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
         },
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
-            {name:"Price-Range",value:"34,00,000"},
+            {name:"Price-Range",value:"3400000"},
             {name:"Year-Range",value:"3 years"},
             
         ]
@@ -327,7 +327,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
         },
         filterValues:[
             {name:"Bedroom",value:"3bhk"},
-            {name:"Price-Range",value:"20,00,000"},
+            {name:"Price-Range",value:"2000000"},
             {name:"Year-Range",value:"3 years"},
             
         ]
@@ -367,7 +367,7 @@ export const SUBCATFILTEROPTIONS: SubCategoryFilterOption[]=[
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         subCatFilterValues:[
             {id:1,filterDetails: {id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},value:["1bhk","2bhk","3bhk"]},
-            {id:2,filterDetails: {id:1,name:"Price",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["10,00,000","20,00,000","30,00,000"]},
+            {id:2,filterDetails: {id:1,name:"Price",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["1000000","2000000","3000000"]},
             {id:3,filterDetails: {id:2,name:"Year",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["1year","2year","5year"]},
         ]
     },
