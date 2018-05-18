@@ -71,6 +71,7 @@ export class ProductFilterValue{
 
 
 export class AdvertisementFilterValue{
+    group?:string;
     name:string
    value:string
 }

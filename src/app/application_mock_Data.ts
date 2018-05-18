@@ -220,6 +220,18 @@ export const ADVERTISEMENTS: Advertisement[]=[
         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
         name:"Spandan",contact:9903527889,date:new Date(),
     },
+    {
+        id:5,  productName:"New Flat",  productDescription:"", 
+        subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+        portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+        name:"Amit Halder",contact:9038568379,date:new Date(),
+    },
+    {
+        id:6,  productName:" Flat",  productDescription:"", 
+        subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+        portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+        name:"Amit Halder",contact:9038568379,date:new Date(),
+    }
 ]
 
 
@@ -285,6 +297,38 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             {name:"Milege",value:"25"},
             {name:"Price-Range",value:"15,000"},
             {name:"Year-Range",value:"8 Years"},
+            
+        ]
+    },
+    {
+        id:5,
+        advertisementDetails:
+        {
+                         id:5,  productName:"New Flat",  productDescription:"", 
+                         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+                         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+                         name:"Amit Halder",contact:9038568379,date:new Date(),
+        },
+        filterValues:[
+            {name:"Bedroom",value:"2bhk"},
+            {name:"Price-Range",value:"34,00,000"},
+            {name:"Year-Range",value:"3 years"},
+            
+        ]
+    },
+    {
+        id:6,
+        advertisementDetails:
+        {
+                         id:6,  productName:" Flat",  productDescription:"", 
+                         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+                         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+                         name:"Amit Halder",contact:9038568379,date:new Date(),
+        },
+        filterValues:[
+            {name:"Bedroom",value:"3bhk"},
+            {name:"Price-Range",value:"20,00,000"},
+            {name:"Year-Range",value:"3 years"},
             
         ]
     }
