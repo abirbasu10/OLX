@@ -1,5 +1,6 @@
 
 import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList,CompanyDetails,ProfileFields } from "./classDefinition";
+import { MessageList, MessageDetails, MessageThread} from "./classDefinition";
 
 
 export const CATEGORIES: Category[]=[
@@ -379,3 +380,13 @@ export const COMPANYDETAILS: CompanyDetails[]=[
 ];    
 
 export const DefaultCompany:CompanyDetails=COMPANYDETAILS[COMPANYDETAILS.length-1];
+
+export const MESSAGELIST: MessageList[]=[
+    {messageId:1, adId: 1, senderId:4, receiverId: 2},
+    {messageId:2, adId: 2, senderId:4, receiverId: 5},
+];
+
+export const MESSAGEDETAILS: MessageDetails[]=[
+    {messageId:1, msgThread:[{msg:"hi how are you?",senderId:4, receiverId: 2}, {msg:"Am Fine?",senderId:2, receiverId: 1}]},
+    {messageId:2, msgThread:[{msg:"Ki haal?",senderId:4, receiverId: 5}, {msg:"Ami bhalo..tui kemn?",senderId:5, receiverId: 1}]}
+];
