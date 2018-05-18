@@ -147,3 +147,11 @@ export class Review{
     comment : string
    
   }
+
+  //Admin Section 
+
+  export class VerifyCompanyDocument{
+      id:number
+      name:string
+      status: boolean
+  }

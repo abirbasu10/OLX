@@ -108,6 +108,8 @@ import { LogisticsChangePasswordComponent } from './logistics/logistics-change-p
 import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
 
 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 /* import { ImageUploadModule } from "angular2-image-upload";
 import { VendorComponent } from './vendor/vendor.component';
 import { VendorProfileComponent } from './vendor/vendor-profile/vendor-profile.component'; */
@@ -273,7 +275,7 @@ CompanyComponent,
     }), */
 
     
-    
+    MatProgressBarModule,
 
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],

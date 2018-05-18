@@ -300,9 +300,7 @@ tempLocation=""
     
 
   submitFilterValues(valueOfField){
-  
-    //alert(valueOfField.data-dropdown)
-   //alert(valueOfField.id+"    "+valueOfField.value)
+
     var existingFilter=this.userFilterValues.find(userfilter=>userfilter.name==valueOfField.id)
     if(existingFilter){
       existingFilter.value=valueOfField.value
