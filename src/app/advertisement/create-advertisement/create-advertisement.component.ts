@@ -39,7 +39,7 @@ name:string="";
 contact:number;
 date: Date=new Date();
 filterValueId:number=1;
-
+sellLogistic:boolean=false
 advertisementDetails:Advertisement;
 filterValues:AdvertisementFilterValue[]=[];
 
@@ -143,6 +143,12 @@ filterValues:AdvertisementFilterValue[]=[];
   }
 
 
+  needLogisticSupport(event){
+   // alert(event.checked)
+    this.sellLogistic=event.checked
+  
+  }
+
   enterValue(valueOfField)
   {
    
@@ -173,7 +179,7 @@ filterValues:AdvertisementFilterValue[]=[];
     var portDetails=PORTS.find(prt=>prt.name==this.adPort);
   
     var advertisementBasics={id:adID, productName:productName, productDescription:productDescription, 
-      subCategoryDetails:subCatDetails, portDetails:portDetails,name:this.name,contact:this.contact,date:this.date}
+      subCategoryDetails:subCatDetails, portDetails:portDetails,name:this.name,contact:this.contact,date:this.date,sellerLogisticSupport:this.sellLogistic}
 
 
     //pushing in an ad

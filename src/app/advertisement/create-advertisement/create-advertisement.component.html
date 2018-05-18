@@ -35,7 +35,7 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <mat-form-field>
                                                             <mat-select placeholder="Enter Category" [(ngModel)]="adCategory" (change)="getSubCategory()">
                                                                 <mat-option *ngFor="let category of categories" value="{{category.name}}">
@@ -45,7 +45,7 @@
                                                         </mat-form-field>
                                                     </div>
 
-                                                    <div class="col-md-6" *ngIf="adCategory">
+                                                    <div class="col-md-4" *ngIf="adCategory">
                                                         <mat-form-field>
                                                             <mat-select placeholder="Enter Sub Category" [(ngModel)]="adSubCategory" (change)="getFilters()">
                                                                 <mat-option *ngFor="let subcategory of subcategories" value="{{subcategory.name}}">
@@ -53,6 +53,12 @@
                                                                 </mat-option>
                                                             </mat-select>   
                                                         </mat-form-field>
+                                                    </div>
+
+                                                    
+                                                    <div class="col-md-4">
+                                                        <mat-checkbox (change)="needLogisticSupport($event)">Need Logistics Support</mat-checkbox>
+
                                                     </div>
                                                 </div>
 

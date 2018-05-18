@@ -13,6 +13,7 @@ import { CATEGORIES,SUBCATEGORIES,ADVERTISEMENTS,SUBCATFILTERMAP,SUBCATFILTEROPT
 })
 export class AdvertisementDetailsComponent implements OnInit {
 currentProductName:string=""
+buyerLogistic:boolean=false
 currentAdvertisementDetails:ProductFilterValue={
   id:null,
   advertisementDetails:{
@@ -44,4 +45,18 @@ currentAdvertisementDetails:ProductFilterValue={
   }
    
   }
+
+
+  
+  needLogisticSupport(event){
+    
+    this.buyerLogistic=event.checked
+   
+    PRODUCTFILTERVALUES.find(pv=>pv.id==this.currentAdvertisementDetails.id).advertisementDetails.buyerLogsisticSupport=this.buyerLogistic
+ 
+    ADVERTISEMENTS.find(ad=>ad.id==this.currentAdvertisementDetails.advertisementDetails.id).buyerLogsisticSupport=this.buyerLogistic
+ 
+  }
+
+
 }

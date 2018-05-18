@@ -60,6 +60,8 @@ export class Advertisement{
     name:string;
     contact:number;
     date:Date;
+    sellerLogisticSupport?:boolean;
+    buyerLogsisticSupport?:boolean;
 }
 
 

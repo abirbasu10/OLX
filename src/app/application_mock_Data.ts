@@ -198,39 +198,39 @@ export const ADVERTISEMENTS: Advertisement[]=[
         id:1,  productName:"Sea Facing New Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-        name:"Amit Halder",contact:9038568379,date:new Date(),
+        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true
     },
     
     {
         id:2,  productName:"Good Condition Audi",  productDescription:"", 
         subCategoryDetails: {id:4,name:"Commercial Car", categoryDetails:{id:2,name:"Car"}},
         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-        name:"Bipraneel",contact:9038102961,date:new Date(),
+        name:"Bipraneel",contact:9038102961,date:new Date(),sellerLogisticSupport:true
     },
     
     {
         id:3,  productName:"No EMI Mototr Cycle",  productDescription:"", 
         subCategoryDetails: {id:8,name:"Motor Cycle", categoryDetails:{id:4,name:"Bike"}},
         portDetails: {id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},
-        name:"Abir Basu",contact:9943287632,date:new Date(),
+        name:"Abir Basu",contact:9943287632,date:new Date(),sellerLogisticSupport:true
     },
     {
         id:4,  productName:"2 years Old Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-        name:"Spandan",contact:9903527889,date:new Date(),
+        name:"Spandan",contact:9903527889,date:new Date(),sellerLogisticSupport:true
     },
     {
         id:5,  productName:"New Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-        name:"Amit Halder",contact:9038568379,date:new Date(),
+        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true
     },
     {
         id:6,  productName:" Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-        name:"Amit Halder",contact:9038568379,date:new Date(),
+        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:false
     }
 ]
 
@@ -243,7 +243,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
                          id:1,  productName:"Sea Facing New Flat",  productDescription:"", 
                          subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
                          portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-                         name:"Amit Halder",contact:9038568379,date:new Date(),
+                         name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true
         },
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
@@ -259,7 +259,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
                          id:4,  productName:"2 years Old Flat",  productDescription:"", 
                          subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
                          portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-                         name:"Spandan",contact:9903527889,date:new Date(),
+                         name:"Spandan",contact:9903527889,date:new Date(),sellerLogisticSupport:true
         },
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
@@ -275,7 +275,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             id:2,  productName:"Good Condition Audi",  productDescription:"", 
             subCategoryDetails: {id:4,name:"Commercial Car", categoryDetails:{id:2,name:"Car"}},
             portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-            name:"Bipraneel",contact:9038102961,date:new Date(),
+            name:"Bipraneel",contact:9038102961,date:new Date(),sellerLogisticSupport:true
         },
         filterValues:[
             {name:"Milege",value:"13"},
@@ -291,7 +291,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             id:3,  productName:"No EMI Mototr Cycle",  productDescription:"", 
             subCategoryDetails: {id:8,name:"Motor Cycle", categoryDetails:{id:4,name:"Bike"}},
             portDetails: {id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},
-            name:"Abir Basu",contact:9943287632,date:new Date(),
+            name:"Abir Basu",contact:9943287632,date:new Date(),sellerLogisticSupport:true
         },
         filterValues:[
             {name:"Milege",value:"25"},
@@ -307,7 +307,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
                          id:5,  productName:"New Flat",  productDescription:"", 
                          subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
                          portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-                         name:"Amit Halder",contact:9038568379,date:new Date(),
+                         name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true
         },
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
@@ -323,7 +323,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
                          id:6,  productName:" Flat",  productDescription:"", 
                          subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
                          portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-                         name:"Amit Halder",contact:9038568379,date:new Date(),
+                         name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:false
         },
         filterValues:[
             {name:"Bedroom",value:"3bhk"},
@@ -430,3 +430,4 @@ export const VERIFYCOMPANYDOCUMENT : VerifyCompanyDocument[]=[
 {id:1, name:'voterId',status:true}
 
 ];
+

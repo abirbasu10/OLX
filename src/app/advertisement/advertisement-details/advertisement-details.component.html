@@ -27,8 +27,21 @@
                                       <div class="card-content table-responsive">
                                       
                                         <div class="row">
-                                          <div class="col-md-offset-1" id="productName">
+                                          <div class="col-md-offset-1 col-md-4" >
                                             <h3>{{currentAdvertisementDetails.advertisementDetails.productName}}</h3>
+                                          </div>
+
+                                          <div class="col-md-offset-1 col-md-6" >
+                                                  <div class="col-md-5">
+                                                    <h5>Seller Logistic Support</h5>
+                                                  </div>
+                                                  <div class="col-md-1">
+                                                    <i style="color:green" class="material-icons" *ngIf="currentAdvertisementDetails.advertisementDetails.sellerLogisticSupport; else elseblock">check</i>
+                                                    <ng-template #elseblock>
+                                                      <i style="color:red" class="material-icons" >clear</i>
+                                                    </ng-template>
+                                                  </div>
+                                           
                                           </div>
                                         </div>
                                           <div class="row" id="location">
@@ -46,7 +59,13 @@
 
                                               <div class="col-md-3">
                                                  <h6>{{currentAdvertisementDetails.advertisementDetails.date |date:'d-MM-yyyy'}}</h6>
-                                                </div>
+                                              </div>
+                                              
+                                              
+                                                <div class="col-md-3">
+                                                  <mat-checkbox (change)="needLogisticSupport($event)">Need Logistics Support</mat-checkbox>
+
+                                              </div>
                                           </div>
                                         
 
