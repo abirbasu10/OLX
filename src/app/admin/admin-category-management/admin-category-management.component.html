@@ -1,0 +1,203 @@
+
+<div class="wrapper">
+            
+  <div class="sidebar" data-color='purple' data-image="" style="z-index:2032">
+      <admin-sidebar></admin-sidebar>
+      <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+  </div>
+
+  
+
+  <div class="main-panel">
+     
+          <!-- <router-outlet></router-outlet> -->
+          <div class="main-content">
+
+                  <div class="container-fluid">
+
+                    <div class="row">
+                      <div class="col-md-12">
+                         
+                        <div class="card">
+                              <div class="card-header" data-background-color="purple">
+                                  <h2>
+                                    <i class="material-icons notranslate" style="font-size:40px;">store</i>
+                                    <span>Category Management</span>
+                                  </h2>
+                              </div>
+                              <div class="card-content">
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                              <p class="category" >No of Categories</p>
+                                              <h3 class="card-title">{{totalNoOfCategories}}</h3>
+                                             </div>
+                                             <div class="col-md-6">
+                                               <button class="btn btn-large btn-primary" (click)="addCat()">Add Category</button>
+                                             </div> 
+                                        </div>      
+                                    </div> 
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                              <p class="category" >No of Sub-Categories</p>
+                                              <h3 class="card-title">{{totalNoOfSubCategories}}</h3>
+                                             </div>
+                                             <div class="col-md-6">
+                                                <button class="btn btn-large btn-primary">Add Sub-Category</button>
+                                             </div>
+                                         </div>     
+                                      </div> 
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                          <mat-tab-group>
+                                            <mat-tab> 
+                                                <ng-template mat-tab-label>
+                                                    Category
+                                                  </ng-template>
+                                            <div  class="table-responsive">
+                                                <table class="table table-hover">
+  
+                                                    <mat-table #table1 [dataSource]="catDataSource" style="text-align:center;" >
+                                
+                              
+                                                        
+                      
+                                                    <ng-container matColumnDef="Category-Name" >
+                                                            <mat-header-cell *matHeaderCellDef> Category-Name </mat-header-cell>
+                                                            <mat-cell *matCellDef="let element" class="abc" style="padding-right: 15px;">
+                                                              {{element.catName}}  
+                                                        
+                                                            </mat-cell>
+                                                    </ng-container>
+                      
+                                                    <ng-container matColumnDef="Edit">
+                                                            <mat-header-cell *matHeaderCellDef > Edit</mat-header-cell>
+                                                            <mat-cell *matCellDef="let element" style="padding-right: 15px;">
+                                                                <i class="material-icons" title="Edit" (click)="editCat(element)" style="color:blue;cursor:pointer;">
+                                                                    edit
+                                                                    </i>
+                                                            </mat-cell>
+                                                    </ng-container>
+                      
+                      
+                                                    <ng-container matColumnDef="Delete" >
+                                                      <mat-header-cell *matHeaderCellDef >Delete</mat-header-cell>
+                                                      <mat-cell *matCellDef="let element" style="padding-right: 15px;"> 
+                                                        
+                                                          <i class="material-icons" title="Delete" (click)="delCat(element.catId)" style="color:red;cursor:pointer;">
+                                                              delete
+                                                              </i>
+                                                        
+                                                      </mat-cell>
+                                                    </ng-container> 
+  
+  
+                                <mat-header-row *matHeaderRowDef="displayedCatColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedCatColumns;let ind = index;"></mat-row>
+                                                    
+                                                  </mat-table>
+  
+  
+                                                  </table>
+                                             </div>     
+                                          </mat-tab>
+                                          <mat-tab> 
+                                              <ng-template mat-tab-label>
+                                                  Sub-Category
+                                                </ng-template>
+                                            <div  class="table-responsive">
+                                              <table class="table table-hover">
+
+                                                  <mat-table #table [dataSource]="subCatDataSource" style="text-align:center;" >
+                              
+                            
+                                                      <ng-container matColumnDef="Sub-Category" >
+                                                          <mat-header-cell *matHeaderCellDef> Sub-category </mat-header-cell>
+                                                          <mat-cell *matCellDef="let element" style="padding-right: 15px;">
+                                                             {{element.subCatName}} 
+                                                            </mat-cell>
+                                                  </ng-container>
+                    
+                                                  <ng-container matColumnDef="Category" >
+                                                          <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+                                                          <mat-cell *matCellDef="let element" style="padding-right: 15px;">
+                                                            {{element.catName}}   
+                                                          </mat-cell>
+                                                  </ng-container>
+                    
+                                                  <ng-container matColumnDef="Edit">
+                                                          <mat-header-cell *matHeaderCellDef > Edit</mat-header-cell>
+                                                          <mat-cell *matCellDef="let element" style="padding-right: 15px;">
+                                                              <i class="material-icons" title="Edit" (click)="editCatSubCat(element.catId,element.subCatId)" style="color:blue;cursor:pointer;">
+                                                                  edit
+                                                                  </i>
+                                                          </mat-cell>
+                                                  </ng-container>
+                    
+                    
+                                                  <ng-container matColumnDef="Delete" >
+                                                    <mat-header-cell *matHeaderCellDef >Delete</mat-header-cell>
+                                                    <mat-cell *matCellDef="let element" style="padding-right: 15px;"> 
+                                                      
+                                                        <i class="material-icons" title="Delete" (click)="delCatSubCat(element.catId,element.subCatId)" style="color:red;cursor:pointer;">
+                                                            delete
+                                                            </i>
+                                                      
+                                                    </mat-cell>
+                                                  </ng-container> 
+
+
+                              <mat-header-row *matHeaderRowDef="displayedSubCatColumns"></mat-header-row>
+                              <mat-row *matRowDef="let row; columns: displayedSubCatColumns;let ind = index;"></mat-row>
+                                                  
+                                                </mat-table>
+
+
+                                                </table>
+                                           </div>     
+                                          </mat-tab>
+                                      </mat-tab-group>
+
+                                        </div> 
+                                  </div> 
+                              </div>
+                              <div class="card-footer">
+                                  <div class="stats">
+                                      <i class="material-icons notranslate">local_offer</i> Updated
+                                  </div>
+                              </div>
+                          </div>
+
+                    </div>
+                  </div>
+                         
+                     
+              </div>
+         
+  </div>
+</div>
+
+<div id="catEditModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Category</h4>
+        </div>
+        <div class="modal-body">
+          <input class="form-control" placeholder="Category Name" type="text" value="" id="catEdit" autofocus/>
+        </div>
+        <div class="modal-footer">
+          <button  type="button" class="btn btn-success btn-sm" data-dismiss="modal" (click)="saveCategory(currentCategory)">Save</button>
+    
+          <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
