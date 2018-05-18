@@ -1,0 +1,77 @@
+<company-navbar></company-navbar>
+
+
+<div class="wrapper">
+  <div class="sidebar" data-color='red' data-image=""  style="z-index:2032">
+      <company-sidebar></company-sidebar>
+      <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+  </div>
+
+  <div class="main-panel">
+          
+    <!-- <router-outlet></router-outlet> -->
+    <div class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <div class="card">
+                <div class="card-header" data-background-color="red">
+                    <h4 class="title"><i class="material-icons notranslate">supervisor_account</i> {{currentAd.advertisementDetails.productName}}</h4>
+                    <!-- <p class="category">Here is a subtitle for this table</p>                       -->
+                </div>
+                <div class="card-content">
+                  <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" *ngIf="messageDetails; else startConversation">
+                      <div class="row" *ngFor="let message of messageDetails.msgThread">
+                        <div class="sentByMe col-md-6 col-sm-6 col-md-offset-6 col-sm-offset-6" *ngIf="message.senderId==defaultCompany.id">
+                          <p class="myName">You</p>
+                          <p>{{message.msg}}</p>
+                        </div>
+
+                        <div class="receivedByMe col-md-6 col-sm-6" *ngIf="message.senderId==defaultLogistics.id">
+                            <p class="senderName">{{defaultLogistics.name}}</p>
+                            <p>{{message.msg}}</p>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <ng-template #startConversation>
+                        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" style="text-align:center">
+                          <h2 style="color:#919496">Start a Conversation</h2>
+                        </div>
+                    </ng-template>
+                  </div>
+                
+
+                  <div class="row sendMsg">
+                        <div class="row">
+                            <div class="col-md-10 col-md offset-1 col-sm-10 col-sm-offset-1">
+                              <mat-form-field class="col-md-10 col-sm-10 pull-left">
+                                <textarea matInput placeholder="Send Message" matTextareaAutosize matAutosizeMinRows="2"
+                                          matAutosizeMaxRows="5" 
+                                          [(ngModel)]="messageTyped"
+                                          ></textarea>
+                              </mat-form-field>
+
+                              <div class="col-md-2 col-sm-2">
+                                <button class="btn btn-round btn-success" (click)="sendMessage()"> 
+                                  <i class="material-icons no-translate">
+                                    send
+                                    </i> 
+                                </button>
+                              </div>
+                            </div>
+                        </div>
+                        
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <company-footer></company-footer>
+  </div>
+</div>

@@ -71,6 +71,7 @@ export class ProductFilterValue{
 
 
 export class AdvertisementFilterValue{
+    group?:string;
     name:string
    value:string
 }
@@ -147,6 +148,26 @@ export class Review{
    
   }
 
+export class MessageList
+{
+    messageId:number;
+    adId:number;
+    senderId:number;
+    receiverId:number;
+}
+
+export class MessageDetails
+{
+    messageId:number;
+    msgThread:MessageThread[]
+}
+
+export class MessageThread
+{
+    msg:string;
+    senderId:number;
+    receiverId:number;
+}
   //Admin Section 
 
   export class VerifyCompanyDocument{

@@ -47,6 +47,10 @@ import {AdminChangePasswordComponent} from './admin/admin-change-password/admin-
 import { LogisticsRegisterComponent } from './logistics/logistics-register/logistics-register.component'
 import { LogisticsLoginComponent } from './logistics/logistics-login/logistics-login.component'
 import {LogisticsChangePasswordComponent} from './logistics/logistics-change-password/logistics-change-password.component'
+import { CompanyMessageDetailsComponent } from './company/company-message-details/company-message-details.component';
+import { CompanyMessageListComponent } from './company/company-message-list/company-message-list.component';
+import { LogisticsMessageListComponent } from './logistics/logistics-message-list/logistics-message-list.component';
+import { LogisticsMessageDetailsComponent } from './logistics/logistics-message-details/logistics-message-details.component';
 
 import {AdminCategoryManagementComponent} from './admin/admin-category-management/admin-category-management.component'
 
@@ -67,6 +71,8 @@ const routes: Routes =[
     { path: 'company/login', component:CompanyLoginComponent},
     { path: 'company/changePassword', component:CompanyChangePasswordComponent},
     { path: 'company/register', component: CompanyRegisterComponent},
+    { path: 'company/messageList', component:CompanyMessageListComponent},
+    { path: 'company/messageDetails/:adId', component:CompanyMessageDetailsComponent},
 
     { path: 'company/logisticsFirmProfile', component: LogisticsFirmProfileComponent},
     //{ path: 'company/purchaseOrder/:id', component: CompanyPurchaseOrderComponent},
@@ -89,6 +95,8 @@ const routes: Routes =[
     { path: 'advertisement/:adName', component: AdvertisementDetailsComponent},
     { path: 'logistics/logisticsCompanyDetails', component: LogisticsCompanyDetailsComponent},
     { path: 'logistics/profile', component: LogisticsProfileComponent},
+    { path: 'logistics/messageList', component:LogisticsMessageListComponent},
+    { path: 'logistics/messageDetails/:adId', component:LogisticsMessageDetailsComponent},
 
     { path:'landing', component:LandingComponent},
 

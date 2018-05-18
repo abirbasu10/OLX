@@ -44,4 +44,9 @@ currentAdvertisementDetails:ProductFilterValue={
   }
    
   }
+
+  goToChat()
+  {
+    this.router.navigate(['/company/messageDetails/'+this.currentAdvertisementDetails.id]);
+  }
 }

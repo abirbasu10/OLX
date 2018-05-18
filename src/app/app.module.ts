@@ -106,6 +106,10 @@ import { LogisticsLoginComponent } from './logistics/logistics-login/logistics-l
 import { LogisticsRegisterComponent } from './logistics/logistics-register/logistics-register.component';
 import { LogisticsChangePasswordComponent } from './logistics/logistics-change-password/logistics-change-password.component';
 import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
+import { CompanyMessageDetailsComponent } from './company/company-message-details/company-message-details.component';
+import { CompanyMessageListComponent } from './company/company-message-list/company-message-list.component';
+import { LogisticsMessageListComponent } from './logistics/logistics-message-list/logistics-message-list.component';
+import { LogisticsMessageDetailsComponent } from './logistics/logistics-message-details/logistics-message-details.component';
 
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -224,6 +228,13 @@ CompanyComponent,
     AdminChangePasswordComponent,
 
     AdminCategoryManagementComponent,
+    CompanyMessageDetailsComponent,
+
+    CompanyMessageListComponent,
+
+    LogisticsMessageListComponent,
+
+    LogisticsMessageDetailsComponent,
 
 
     //AdminSubscriptionManagementComponent
