@@ -466,8 +466,12 @@ export const MESSAGEDETAILS: MessageDetails[]=[
 
 export const AD_LOGISTICS_MAPPING: AdLogisticsMapping[]=[
     {id:1,adId:1, logisticIds:[2,3,5]},
-    {id:2,adId:2, logisticIds:[1,3,5]}
-]
+    {id:2,adId:2, logisticIds:[1,3,5]},
+    {id:3,adId:3, logisticIds:[1,2]},
+    {id:4,adId:4, logisticIds:[1,2]},
+    {id:5,adId:5, logisticIds:[2,3,5]},
+    {id:6,adId:6, logisticIds:[2,3,5]},
+];
 
 export const LOGISTICS_QUOTE_REQUEST:LogisticsQuoteRequest[]=[
     /* {id:1,adId:1, companyId: 4, logisticIdsStatus:[{id:5,buyerStatus:"Sent", logisticsStatus:"Received"},{id:3,buyerStatus:"Sent", logisticsStatus:"Received"}]} */
