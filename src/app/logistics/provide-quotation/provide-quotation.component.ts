@@ -44,7 +44,7 @@ export class ProvideQuotationComponent implements OnInit {
         this.currentLogistics.id).logisticsStatus
       
       //console.log("currentQuoteReq",this.currentQuoteReq)
-      alert(currentQuoteLogisticStatus)
+      //alert(currentQuoteLogisticStatus)
       if(currentQuoteLogisticStatus=="sent")
       {
         this.quotedPrice=QUOTATION.find(qt=>qt.companyId==this.currentCompany.id && 
