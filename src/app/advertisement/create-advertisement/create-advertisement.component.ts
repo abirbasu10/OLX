@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Category, SubCategory, Filter, SubCatFilterMap, Country, State, Port, Advertisement,AdvertisementFilterValue, ProductFilterValue, SubCategoryFilterOption } from '../../classDefinition';
-import { CATEGORIES, SUBCATEGORIES, FILTERS, SUBCATFILTERMAP, COUNTRIES, STATES, PORTS, ADVERTISEMENTS, PRODUCTFILTERVALUES, SUBCATFILTEROPTIONS } from '../../application_mock_Data';
+import { Category, SubCategory, Filter, SubCatFilterMap, Country, State, Port, Advertisement,AdvertisementFilterValue, ProductFilterValue, SubCategoryFilterOption, FeaturedPlan, FeaturedAdvertisementMap } from '../../classDefinition';
+import { CATEGORIES, SUBCATEGORIES, FILTERS, SUBCATFILTERMAP, COUNTRIES, STATES, PORTS, ADVERTISEMENTS, PRODUCTFILTERVALUES, SUBCATFILTEROPTIONS, FEATUREDPLANS, FEATURED_ADVERTISEMENT_MAP } from '../../application_mock_Data';
 
 import { Router } from '@angular/router';
-//import { ImageUploadModule } from "angular2-image-upload";
+import { ImageUploadModule } from "angular2-image-upload";
 
 import { HttpClient } from '@angular/common/http';
 import { Http, Headers, RequestOptions } from '@angular/http';
 
 import swal from 'sweetalert2';
+//import { HexBase64BinaryEncoding } from 'crypto';
 
 @Component({
   selector: 'app-create-advertisement',
@@ -23,6 +24,8 @@ countries:Country[]=[];
 states:State[]=[];
 ports:Port[]=[];
 filters:Filter[]=[];
+featuredPlans:FeaturedPlan[]=[];
+featuredAdMapping:FeaturedAdvertisementMap[]=[];
 url:any;
 
 adTitle:string;
@@ -31,7 +34,8 @@ adSubCategory:string="";
 adDescription:string="";
 reqdfilters:any[]=[];
 filterSet:any[]=[];
-featured:string="";
+featuredId:number=null;
+chosenPlan:FeaturedPlan=null;
 adCountry:string="";
 adState:string="";
 adPort:string="";
@@ -43,12 +47,18 @@ filterValueId:number=1;
 advertisementDetails:Advertisement;
 filterValues:AdvertisementFilterValue[]=[];
 
+//image
+URL = window.URL;
+
+//image:HexBase64BinaryEncoding;
   constructor(private router: Router,private http: Http) { }
 
   ngOnInit() {
     this.checkLogInOrNot()
     this.categories=CATEGORIES;
     this.countries=COUNTRIES;
+    this.featuredPlans=FEATUREDPLANS;
+    this.featuredAdMapping=FEATURED_ADVERTISEMENT_MAP;
 
   }
    
@@ -163,7 +173,7 @@ filterValues:AdvertisementFilterValue[]=[];
 
   postAd()
   {
-    var x=this.checkIfFeatured()
+    this.checkIfFeatured()
     //basic details for ad
     
     var adID=ADVERTISEMENTS[ADVERTISEMENTS.length-1].id+1;
@@ -171,11 +181,22 @@ filterValues:AdvertisementFilterValue[]=[];
     var productDescription=this.adDescription;
     var subCatDetails=SUBCATEGORIES.find(sub=>sub.name==this.adSubCategory);
     var portDetails=PORTS.find(prt=>prt.name==this.adPort);
-  
+    var isFeatured=false;
+    
+
+    if(this.featuredId)
+    {
+      console.log("this.chosenPlan")
+      console.log(this.chosenPlan)
+      isFeatured=true;
+      var featuredMapId=FEATURED_ADVERTISEMENT_MAP[FEATURED_ADVERTISEMENT_MAP.length-1].id+1;
+      //var endDate=getPlanEndDate();
+      FEATURED_ADVERTISEMENT_MAP.push({id:featuredMapId,adId:adID,planDetails:this.chosenPlan,
+        startDate:new Date(), endDate:new Date("5/21/2019")})
+    }
     var advertisementBasics={id:adID, productName:productName, productDescription:productDescription, 
-      subCategoryDetails:subCatDetails, portDetails:portDetails,name:this.name,contact:this.contact,date:this.date}
-
-
+      subCategoryDetails:subCatDetails, portDetails:portDetails,name:this.name,contact:this.contact,date:this.date, 
+      isFeatured:isFeatured}
     //pushing in an ad
 
     ADVERTISEMENTS.push(advertisementBasics);
@@ -185,6 +206,9 @@ filterValues:AdvertisementFilterValue[]=[];
     PRODUCTFILTERVALUES.push({id:id, advertisementDetails:advertisementBasics, filterValues:this.filterValues})
     console.log("PRODUCTFILTERVALUES");
     console.log(PRODUCTFILTERVALUES);
+
+    console.log("FEATURED_ADVERTISEMENT_MAP");
+    console.log(FEATURED_ADVERTISEMENT_MAP);
 
     swal({
       title: 'Posted!',
@@ -199,8 +223,9 @@ filterValues:AdvertisementFilterValue[]=[];
 
   checkIfFeatured()
   {
-    if(this.featured)
+    if(this.featuredId)
     {
+      this.chosenPlan=FEATUREDPLANS.find(plan=>plan.id==this.featuredId)
       this.openCheckout()
       
     }
@@ -208,15 +233,16 @@ filterValues:AdvertisementFilterValue[]=[];
 
   openCheckout()
   {
-      var amt=0;
-      if(this.featured=="1")
+      var amt=this.chosenPlan.amount*100;
+
+      /* if(this.featured==1)
       {
         amt=70000
       }
-      else if(this.featured=="2")
+      else if(this.featured==2)
       {
         amt=250000
-      }
+      } */
 
       var handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_oi0sKPJYLGjdvOXOM8tE8cMa',
@@ -234,10 +260,31 @@ filterValues:AdvertisementFilterValue[]=[];
     });
   }
 
-  /* onUploadFinished(event)
+  /* getPlanEndDate()
+  {
+    var startDate=new Date();
+
+  } */
+
+  onUploadFinished(event)
   {
     console.log(event.file);
-     this.http.post('http://localhost:4200/assets', event.file)
+    var p;
+    var canvas = document.createElement("canvas");
+    var img1=document.createElement("img"); 
+
+    p=event.file;
+    img1.setAttribute('src', p); 
+    canvas.width = img1.width; 
+    canvas.height = img1.height; 
+    var ctx = canvas.getContext("2d"); 
+    ctx.drawImage(img1, 0, 0); 
+    var dataURL = canvas.toDataURL("image/png");
+    console.log(dataURL)
+    alert("from getbase64 function"+dataURL );    
+    return dataURL;
+
+     /* this.http.post('http://localhost:4200/assets', event.file)
           .subscribe(res => {
             console.log(res);
           }); 
@@ -248,7 +295,7 @@ filterValues:AdvertisementFilterValue[]=[];
             this.url = event.file;
             alert()
           }
-          reader.readAsDataURL(event.file);
+          reader.readAsDataURL(event.file); */
   }
 
   onRemoved(event)
@@ -259,6 +306,85 @@ filterValues:AdvertisementFilterValue[]=[];
   onUploadStateChanged(event)
   {
 
-  } */
+  }
 
+  uploadImg()
+  {
+    // fileInput is an HTMLInputElement: <input type="file" id="myfileinput" multiple>
+    //var fileInput = document.getElementById("adImg");
+
+    // files is a FileList object (similar to NodeList)
+    var files = (<HTMLInputElement> document.getElementById("adImg")).files[0];
+    
+    // object for allowed media types
+    var accept = {
+      binary : ["image/png", "image/jpeg"],
+      text   : ["text/plain", "text/css", "application/xml", "text/html"]
+    };
+
+    var file;
+    var r=new FileReader();
+
+    var data=r.readAsArrayBuffer(files);
+    console.log(r.readAsArrayBuffer(files))
+    /* for (var i = 0; i < files.length; i++) {
+      file = files[i];
+      console.log(file)
+      // if file type could be detected
+      if (file !== null) {
+        if (accept.binary.indexOf(file.type) > -1) {
+          alert("as img")
+          // file is a binary, which we accept
+          //var data = file.getAsBinary();
+          var data=r.readAsArrayBuffer(file);
+          console.log(r.readAsArrayBuffer(file))
+        } else if (accept.text.indexOf(file.type) > -1) {
+          alert("as text")
+          // file is of type text, which we accept
+          //var data = file.getAsText();
+          var data=r.readAsArrayBuffer(file);
+          console.log(data)
+          // modify data with string methods
+        }
+      }
+    } */
+    
+    
+    /* var p;
+    var canvas = document.createElement("canvas");
+    var img1=document.createElement("img"); 
+
+    
+    p=(<HTMLInputElement> document.getElementById("adImg")).value;
+    img1.setAttribute('src', p); 
+    canvas.width = img1.width; 
+    canvas.height = img1.height; 
+    var ctx = canvas.getContext("2d"); 
+    ctx.drawImage(img1, 0, 0); 
+    var dataURL = canvas.toDataURL("image/png");
+    console.log(dataURL)
+    alert("from getbase64 function"+dataURL );    
+    return dataURL; */
+  }
+
+
+
+  onChangeImg(event)
+  {
+    var file, img;
+    if ((file = event.target.files[0])) 
+    {
+      console.log("File", file)
+      img = new Image();
+      img.onload = function () {
+          alert(this.width + " " + this.height);
+      };
+
+      var bannerImg = (<HTMLInputElement>document.getElementById('imgBlock'));
+
+      localStorage.setItem("imgURL", this.URL.createObjectURL(file));
+      bannerImg.src = localStorage.getItem('imgURL');
+      //(<HTMLInputElement>document.getElementById('showImage')).style.display = 'block';
+    }
+  }
 }

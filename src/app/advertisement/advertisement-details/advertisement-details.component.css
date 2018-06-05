@@ -1,0 +1,14 @@
+.firmSelectSpan
+{
+    position: relative;
+    top: 18px;
+    font-size: 18px;
+}
+
+mat-chip
+{
+    background-color: rgba(255,255,255,0)! important;
+    border:solid black 1px;
+    position: relative;
+    top:5px;
+}

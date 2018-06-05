@@ -1,6 +1,6 @@
-
+import { AdLogisticsMapping, LogisticsQuoteRequest, Quotation, LogisticsOrderList } from './classDefinition'
 import { MessageList, MessageDetails, MessageThread} from "./classDefinition";
-import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList,CompanyDetails,ProfileFields, VerifyCompanyDocument } from "./classDefinition";
+import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList,CompanyDetails,ProfileFields, VerifyCompanyDocument, FeaturedPlan, FeaturedAdvertisementMap } from "./classDefinition";
 
 
 export const CATEGORIES: Category[]=[
@@ -199,39 +199,39 @@ export const ADVERTISEMENTS: Advertisement[]=[
         id:1,  productName:"Sea Facing New Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-        name:"Amit Halder",contact:9038568379,date:new Date(),
+        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:true
     },
     
     {
         id:2,  productName:"Good Condition Audi",  productDescription:"", 
         subCategoryDetails: {id:4,name:"Commercial Car", categoryDetails:{id:2,name:"Car"}},
         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-        name:"Bipraneel",contact:9038102961,date:new Date(),
+        name:"Bipraneel",contact:9038102961,date:new Date(),sellerLogisticSupport:true,isFeatured:true
     },
     
     {
         id:3,  productName:"No EMI Mototr Cycle",  productDescription:"", 
         subCategoryDetails: {id:8,name:"Motor Cycle", categoryDetails:{id:4,name:"Bike"}},
         portDetails: {id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},
-        name:"Abir Basu",contact:9943287632,date:new Date(),
+        name:"Abir Basu",contact:9943287632,date:new Date(),sellerLogisticSupport:true,isFeatured:true
     },
     {
         id:4,  productName:"2 years Old Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-        name:"Spandan",contact:9903527889,date:new Date(),
+        name:"Spandan",contact:9903527889,date:new Date(),sellerLogisticSupport:true,isFeatured:false
     },
     {
         id:5,  productName:"New Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-        name:"Amit Halder",contact:9038568379,date:new Date(),
+        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:false
     },
     {
         id:6,  productName:" Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-        name:"Amit Halder",contact:9038568379,date:new Date(),
+        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:false,isFeatured:true
     }
 ]
 
@@ -244,7 +244,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
                          id:1,  productName:"Sea Facing New Flat",  productDescription:"", 
                          subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
                          portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-                         name:"Amit Halder",contact:9038568379,date:new Date(),
+                         name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:true
         },
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
@@ -260,7 +260,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
                          id:4,  productName:"2 years Old Flat",  productDescription:"", 
                          subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
                          portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-                         name:"Spandan",contact:9903527889,date:new Date(),
+                         name:"Spandan",contact:9903527889,date:new Date(),sellerLogisticSupport:true,isFeatured:false,
         },
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
@@ -276,11 +276,11 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             id:2,  productName:"Good Condition Audi",  productDescription:"", 
             subCategoryDetails: {id:4,name:"Commercial Car", categoryDetails:{id:2,name:"Car"}},
             portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-            name:"Bipraneel",contact:9038102961,date:new Date(),
+            name:"Bipraneel",contact:9038102961,date:new Date(),sellerLogisticSupport:true,isFeatured:true
         },
         filterValues:[
             {name:"Milege",value:"13"},
-            {name:"Price",value:"1,50,00,000"},
+            {name:"Price",value:"15000000"},
             {name:"Year",value:"3 Years"},
             
         ]
@@ -292,11 +292,11 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             id:3,  productName:"No EMI Mototr Cycle",  productDescription:"", 
             subCategoryDetails: {id:8,name:"Motor Cycle", categoryDetails:{id:4,name:"Bike"}},
             portDetails: {id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},
-            name:"Abir Basu",contact:9943287632,date:new Date(),
+            name:"Abir Basu",contact:9943287632,date:new Date(),sellerLogisticSupport:true,isFeatured:true
         },
         filterValues:[
             {name:"Milege",value:"25"},
-            {name:"Price",value:"15,000"},
+            {name:"Price",value:"15000"},
             {name:"Year",value:"8 Years"},
             
         ]
@@ -308,11 +308,11 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
                          id:5,  productName:"New Flat",  productDescription:"", 
                          subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
                          portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-                         name:"Amit Halder",contact:9038568379,date:new Date(),
+                         name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:false
         },
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
-            {name:"Price-Range",value:"3400000"},
+            {name:"Price",value:"3400000"},
             {name:"Year-Range",value:"3 years"},
             
         ]
@@ -324,16 +324,45 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
                          id:6,  productName:" Flat",  productDescription:"", 
                          subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
                          portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-                         name:"Amit Halder",contact:9038568379,date:new Date(),
+                         name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:false,isFeatured:true
         },
         filterValues:[
             {name:"Bedroom",value:"3bhk"},
-            {name:"Price-Range",value:"2000000"},
+            {name:"Price",value:"2000000"},
             {name:"Year-Range",value:"3 years"},
             
         ]
     }
 
+]
+
+export const FEATUREDPLANS:FeaturedPlan[]=[
+    {id:1,planName:"7 days topper",duration:7,periodType:"days",amount:700,isActive:true},
+    {id:2,planName:"1 year topper",duration:1,periodType:"year",amount:5000,isActive:true}
+]
+
+export const FEATURED_ADVERTISEMENT_MAP:FeaturedAdvertisementMap[]=[
+    {
+        id:1,
+        adId:1,
+        planDetails:{id:1,planName:"7 days topper",duration:7,periodType:"days",amount:700,isActive:true},
+        startDate:new Date(5-21-2018),
+        endDate:new Date(5-28-2018)
+    },
+    {
+        id:2,
+        adId:2,
+        planDetails:{id:1,planName:"7 days topper",duration:7,periodType:"days",amount:700,isActive:true},
+        startDate:new Date(5-23-2018),
+        endDate:new Date(5-23-2018)
+    },
+    {
+        id:3,
+        adId:3,
+        planDetails:{id:2,planName:"1 year topper",duration:1,periodType:"year",amount:5000,isActive:true},
+        startDate:new Date(5-21-2018),
+        endDate:new Date(5-21-2019)
+    }
 ]
 
 
@@ -434,6 +463,24 @@ export const MESSAGEDETAILS: MessageDetails[]=[
     {messageId:1, msgThread:[{msg:"hi how are you?",senderId:4, receiverId: 2}, {msg:"Am Fine?",senderId:2, receiverId: 1}]},
     {messageId:2, msgThread:[{msg:"Ki haal?",senderId:4, receiverId: 5}, {msg:"Ami bhalo..tui kemn?",senderId:5, receiverId: 1}]}
 ];
+
+export const AD_LOGISTICS_MAPPING: AdLogisticsMapping[]=[
+    {id:1,adId:1, logisticIds:[2,3,5]},
+    {id:2,adId:2, logisticIds:[1,3,5]}
+]
+
+export const LOGISTICS_QUOTE_REQUEST:LogisticsQuoteRequest[]=[
+    /* {id:1,adId:1, companyId: 4, logisticIdsStatus:[{id:5,buyerStatus:"Sent", logisticsStatus:"Received"},{id:3,buyerStatus:"Sent", logisticsStatus:"Received"}]} */
+]
+
+export const QUOTATION: Quotation[]=[
+    /* {id:3,quoteReqId:2,companyId:4,companyName:"MC Ships",logisticsId:5,logisticsName:"The Indian",price:1200, adId:1},
+    {id:4,quoteReqId:2,companyId:4,companyName:"MC Ships",logisticsId:3,logisticsName:"Blue Shark",price:1000, adId:1} */
+]
+
+/* List of logistics request received by firm and their status */
+export const LOGISTICS_ORDER_LIST:LogisticsOrderList[]=[];
+
 //Admin Section
 
 export const VERIFYCOMPANYDOCUMENT : VerifyCompanyDocument[]=[

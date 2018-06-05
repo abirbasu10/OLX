@@ -4,8 +4,8 @@
     </button> -->
 
 <div class="wrapper">
-        <div class="sidebar" data-color='orange' data-image=""  style="z-index:2032">
-            <advertisement-sidebar></advertisement-sidebar>
+        <div class="sidebar" data-color='red' data-image=""  style="z-index:2032">
+            <company-sidebar></company-sidebar>
             <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
         </div>
         <div class="main-panel">
@@ -21,7 +21,7 @@
                                         <div class="card-header" data-background-color="orange">
                                             <h4 class="title"><i class="material-icons notranslate">dashboard</i> Advertisements</h4>
                                           <!--   <button class="btn btn-success" (click)="getAdvertisementsBySubCategory()" >Load by Subcat</button>
-                                            <button class="btn btn-danger" (click)="getAdvertisementsBySearchTerm()">Load by Search Term</butto -->n>
+                                            <button class="btn btn-danger" (click)="getAdvertisementsBySearchTerm()">Load by Search Term</butto -->
 
                                         </div>
                                         
@@ -157,23 +157,25 @@
                                                 <table class="table table-hover table-responsive" >
                                                         <thead class="text-danger notranslate" style="text-align:center">
                                                             <tr class="row"  >
-                                                                <th class="col-md-2" >Product Name </th>
-                                                                <th class="col-md-2">Description</th>
-                                                                <th class="col-md-4">Category</th>
-                                                                <th class="col-md-4">SubCategory</th>
-                                                                <th class="col-md-4">Location</th>
+                                                                <th class="" >Image </th>
+                                                                <th class="" >Product Name </th>
+                                                                <th class="" >Featured </th>
+                                                                <th class="">Description</th>
+                                                                <th class="">Category</th>
+                                                                <th class="">SubCategory</th>
+                                                                <th class="">Location</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody *ngFor="let ad of advertisements">
                                                          
                                                               <tr class="row" >
-                                                                
-                                                                 <td class="col-md-2 notranslate"><a  routerLink="/advertisement/{{ad.productName}}">  {{ad.productName}}  </a> </td>
-                                                               
-                                                                <td  class="col-md-4">{{ad.productDescription}}</td>
-                                                                <td  class="col-md-4">{{ad.subCategoryDetails.categoryDetails.name}}</td>
-                                                                <td class="col-md-2">{{ad.subCategoryDetails.name}} </td>
-                                                                <td class="col-md-2">{{ad.portDetails.name}},{{ad.portDetails.stateDetails.name}},{{ad.portDetails.stateDetails.countryDetails.name}} </td>
+                                                                <td><img src="" class="imgBlock"  style="height:200px;width:300px;"></td>
+                                                                <td class=" notranslate"><a  routerLink="/advertisement/{{ad.productName}}">  {{ad.productName}}  </a> </td>
+                                                                <td class="">{{ad.isFeatured}}</td>
+                                                                <td  class="">{{ad.productDescription}}</td>
+                                                                <td  class="">{{ad.subCategoryDetails.categoryDetails.name}}</td>
+                                                                <td class="">{{ad.subCategoryDetails.name}} </td>
+                                                                <td class="">{{ad.portDetails.name}},{{ad.portDetails.stateDetails.name}},{{ad.portDetails.stateDetails.countryDetails.name}} </td>
                                                                    
                                                                
                                                             </tr>
@@ -193,7 +195,7 @@
                         </div>
                     </div>
                 
-                    <advertisement-footer></advertisement-footer>
+                    <company-footer></company-footer>
                 
             </div>
 </div>

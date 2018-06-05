@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Category,SubCategory,Advertisement,ProductFilterValue,AdvertisementFilterValue } from '../../classDefinition'
 import { CATEGORIES,SUBCATEGORIES,ADVERTISEMENTS,SUBCATFILTERMAP,SUBCATFILTEROPTIONS,PRODUCTFILTERVALUES } from '../../application_mock_Data'
 
+declare const $;
+
 @Component({ 
   selector: 'app-advertisement-managment',
   templateUrl: './advertisement-managment.component.html',
@@ -34,7 +36,21 @@ userFiters:any[]=[]
       }
 
       
+    //this.imageUpload()
     }
+
+  /* imageUpload()
+  {
+    //upload image from local storage and show when searching for ad
+
+    console.log("localStorage",localStorage)
+    var bannerImg = document.getElementsByClassName('imgBlock');
+    bannerImg.src = localStorage.getItem('imgURL');
+    
+    
+    
+  } */
+
 changeLocation(){
   if(this.searchTerm)
     //this.loadAdvertisementsBySearchTerm()
@@ -62,7 +78,8 @@ changeLocation(){
     this.getAdvertisementsBySubCategory()
   }
 
-/*   loadAdvertisementBySubCategory(){
+/*   loadAdvertisementBySubCategory()
+  {
     
     this.advertisements=[]
     var tempLocation=""
@@ -186,7 +203,8 @@ tempLocation=""
           }
 
    }
-
+   this.showFeaturedAdOnTop();
+   //this.imageUpload();
    console.log(this.advertisements)
  }
 
@@ -225,6 +243,11 @@ tempLocation=""
   if(this.searchTerm.length==0){  
     this.getAdvertisementsBySubCategory()
   }
+  else
+  {
+    this.showFeaturedAdOnTop();
+  }
+  //this.imageUpload();
   console.log(this.advertisements)
 }
 
@@ -327,7 +350,8 @@ var apartFromRangeFlag:boolean=false
   this.advertisements=this.finalAd;
   console.log("FINAL...........")
   console.log(this.finalAd)
-  
+  this.showFeaturedAdOnTop();
+  //this.imageUpload();
 }
 
       
@@ -345,6 +369,29 @@ var apartFromRangeFlag:boolean=false
     console.log(this.userFilterValues)
     //this.loadAdvertisementsBySearchTerm()
     this.getAdvertiseMentsByFilter()
+    //this.imageUpload();
+  }
+
+
+ showFeaturedAdOnTop()
+ {
+   /* sorts array elements: here sorts the ads based on isFeatured. Featured ads are shown on top
+   follwed by normal ads */
+
+   /* can be sorted based on more than one parameter. For eg. if necessary can sort based on 
+   isFeatured and date (date of posting the ad). In that case the if statement would be
+   if ( ad1.isFeatured < ad2.isFeatured && ad1.date < ad2.date)
+   */
+
+    this.advertisements.sort( function(ad1, ad2) {
+      if ( ad1.isFeatured < ad2.isFeatured){
+        return 1;/* sorts in descending order so that true comes before false. For ascending return -1 */
+      }else if( ad1.isFeatured > ad2.isFeatured){
+          return -1; /* sorts in descending order so that true comes before false. For ascending return 1*/
+      }else{
+        return 0;	
+      }
+    });
   }
 
 }

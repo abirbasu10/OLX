@@ -4,8 +4,8 @@
     </button> -->
 
     <div class="wrapper">
-        <div class="sidebar" data-color='orange' data-image=""  style="z-index:2032">
-            <advertisement-sidebar></advertisement-sidebar>
+        <div class="sidebar" data-color='red' data-image=""  style="z-index:2032">
+            <company-sidebar></company-sidebar>
             <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
         </div>
         <div class="main-panel">
@@ -133,9 +133,12 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <mat-radio-group name="featured" [(ngModel)]="featured">
-                                                                <mat-radio-button value="1">$ 700 for 7 days</mat-radio-button>
-                                                                <mat-radio-button value="2">$ 2500 for 30 days</mat-radio-button>
+                                                            <mat-radio-group name="featured" [(ngModel)]="featuredId" (click)="openCheckout()">
+                                                                <mat-radio-button *ngFor="let plan of featuredPlans" value={{plan.id}} class="featuredPlans">
+                                                                    <p>Name: {{plan.planName}}</p>
+                                                                    <p>Duration: {{plan.duration}}  {{plan.periodType}}</p>
+                                                                    <p>Amount: $ {{plan.amount}}</p>
+                                                                </mat-radio-button>
                                                             </mat-radio-group>
                                                         </div>
                                                     </div>
@@ -149,13 +152,7 @@
                                                     <!-- <div class="row">
                                                         <div class="col-md-12">
                                                             <image-upload
-                                                            [max]="3"
                                                             
-                                                            [buttonCaption]="'Select Images!'"
-                                                            [dropBoxMessage]="'Drop your images here!'"
-                                                            [maxFileSize]="8458240"
-                                                            [fileTooLargeMessage]="'Image too large!'"
-                                                            [extensions]="['jpg','jpeg','png','gif']"
                                                             
                                                             (removed)="onRemoved($event)"
                                                             (uploadFinished)="onUploadFinished($event)"
@@ -164,6 +161,10 @@
     
                                                         </div>
                                                     </div> -->
+
+                                                    <input type="file" id="bannerImg" (change)="onChangeImg($event)">
+                                                    <!-- <button (click)="uploadImg()">Upload</button> -->
+                                                    <img src="" id="imgBlock"  style="height:200px;width:300px;"/>
                                                 </div>
 
                                                 <div class="afterSubCategory" *ngIf="adSubCategory" style="border-top:solid black 1px">
@@ -228,7 +229,7 @@
                         <img [src]="url"> -->
                 </div>
 
-                <advertisement-footer></advertisement-footer>
+                <company-footer></company-footer>
         </div>
 </div>
 

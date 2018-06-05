@@ -53,6 +53,9 @@ import { LogisticsMessageListComponent } from './logistics/logistics-message-lis
 import { LogisticsMessageDetailsComponent } from './logistics/logistics-message-details/logistics-message-details.component';
 
 import {AdminCategoryManagementComponent} from './admin/admin-category-management/admin-category-management.component'
+import { ProvideQuotationComponent } from './logistics/provide-quotation/provide-quotation.component';
+import { LogisticsRequestListComponent } from './logistics/logistics-request-list/logistics-request-list.component';
+
 
 //import { AdminSubscriptionManagementComponent } from './admin/admin-subscription-management/admin-subscription-management.component';
 
@@ -81,10 +84,6 @@ const routes: Routes =[
     {path: 'admin', component:AdminComponent},
     {path: 'admin/dashboard', component:AdminDashboardComponent },
 
-    {path: 'logistics', component: LogisticsComponent},
-    {path: 'logistics/dashboard', component:LogisticsDashboardComponent},
-    
-
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'index',          component: IndexComponent },
 
@@ -93,10 +92,15 @@ const routes: Routes =[
 
     { path: '', redirectTo: 'advertisements/search', pathMatch: 'full' },
     { path: 'advertisement/:adName', component: AdvertisementDetailsComponent},
+
+    { path: 'logistics', component: LogisticsComponent},
+    { path: 'logistics/dashboard', component:LogisticsDashboardComponent},
     { path: 'logistics/logisticsCompanyDetails', component: LogisticsCompanyDetailsComponent},
     { path: 'logistics/profile', component: LogisticsProfileComponent},
     { path: 'logistics/messageList', component:LogisticsMessageListComponent},
     { path: 'logistics/messageDetails/:adId', component:LogisticsMessageDetailsComponent},
+    { path: 'logistics/quoteRequests', component:LogisticsRequestListComponent},
+    { path: 'logistics/setQuote/:companyName/:adName', component:ProvideQuotationComponent},
 
     { path:'landing', component:LandingComponent},
 

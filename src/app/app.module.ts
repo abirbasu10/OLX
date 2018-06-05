@@ -115,8 +115,12 @@ import { LogisticsMessageDetailsComponent } from './logistics/logistics-message-
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { AdminCategoryManagementComponent } from './admin/admin-category-management/admin-category-management.component';
 
-/* import { ImageUploadModule } from "angular2-image-upload";
-import { VendorComponent } from './vendor/vendor.component';
+import { ImageUploadModule } from "angular2-image-upload";
+import { ProvideQuotationComponent } from './logistics/provide-quotation/provide-quotation.component';
+import { LogisticsRequestListComponent } from './logistics/logistics-request-list/logistics-request-list.component';
+//import { AngularChromeImageStorageComponent } from '../../node_modules/angular-chrome-image-storage-master/angular-chrome-image-storage';
+
+/* import { VendorComponent } from './vendor/vendor.component';
 import { VendorProfileComponent } from './vendor/vendor-profile/vendor-profile.component'; */
 
 @NgModule({
@@ -236,6 +240,12 @@ CompanyComponent,
 
     LogisticsMessageDetailsComponent,
 
+    ProvideQuotationComponent,
+
+    LogisticsRequestListComponent,
+
+    //AngularChromeImageStorageComponent,
+
 
     //AdminSubscriptionManagementComponent
 
@@ -283,7 +293,7 @@ CompanyComponent,
     MatTableModule,
     MatSlideToggleModule,
 
-    /* ImageUploadModule.forRoot(), */
+    ImageUploadModule.forRoot(),
 /*     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA_h565MUlULgemvbsLJeizADz-wQ3FUp8'
     }), */
