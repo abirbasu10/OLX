@@ -16,198 +16,468 @@
             <div class="container-fluid">
                 
                 <div class="row">
-                  <div class="btn btn-round btn-primary" (click)="goToChat()">Chat</div>
+                  <div class="col-md-4">
+                    <div class="btn btn-round btn-primary" (click)="goToChat()">Chat With Logistics</div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="btn btn-round btn-primary" (click)="goToBuySellChat()">Chat With Seller</div>
+                  </div>
                 </div>
 
                 <div class="row">
-                  <div class="col-md-12">
-                      <div class="card">
-                          <div class="card-header" data-background-color="orange">
-                              <h4 class="title"><i class="material-icons notranslate">dashboard</i> Advertisements</h4>
-                          
-                          </div>
-                          
-                          <div class="card-content table-responsive">
-                          
-                            <div class="row">
-                              <div class="col-md-offset-1" id="productName">
-                                <h3>{{currentAdvertisementDetails.advertisementDetails.productName}}</h3>
-                              </div>
-                            </div>
-                              <div class="row" id="location">
-                                <div class="col-md-1">
-                                  
-                                    <i class="material-icons">location_on</i>
-                                </div>
-                                <div class="col-md-3">
-                                    <h6>{{currentAdvertisementDetails.advertisementDetails.portDetails.name}},{{currentAdvertisementDetails.advertisementDetails.portDetails.stateDetails.name}},{{currentAdvertisementDetails.advertisementDetails.portDetails.stateDetails.countryDetails.name}}</h6>
+
+                  <!-- Ad Details Section -->
+                  <div class="col-md-12 currentAdSection">
+                    <!-- Ad Details -->
+                    <div class="row">
+                      <div class="col-md-12">
+                          <div class="card">
+                              <div class="card-header" data-background-color="orange">
+                                <div class="row">
+                                  <div class="col-md-1 featured" *ngIf="currentAdvertisementDetails.advertisementDetails.isFeatured==true">
+                                    <img class="featuredImg" src="../assets/img/featured_1.png">
                                   </div>
-                                  
-                                  <div class="col-md-2">
-                                      <label>Added on:</label>
-                                      </div>
-
-                                  <div class="col-md-3">
-                                      <h6>{{currentAdvertisementDetails.advertisementDetails.date |date:'d-MM-yyyy'}}</h6>
-                                    </div>
+                                  <div class="col-md-7">
+                                      <h3 class="title">
+                                        <i class="material-icons notranslate">dashboard</i>
+                                        {{currentAdvertisementDetails.advertisementDetails.productName}}
+                                      </h3>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <span><i class="material-icons notranslate">access_time</i>
+                                      Posted on: {{currentAdvertisementDetails.advertisementDetails.date | date:'dd-MMM-yyy'}}</span>
+                                  </div>
+                                </div>
                               </div>
-                            
+                              
+                              <div class="card-content table-responsive">
+                                <div class="row">
+                                  <div class="col-md-10 col-md-offset-1">
+                                    <!-- images -->
+                                    <!--  -->
+                                    <!-- {{currentAdvertisementDetails.advertisementDetails.images.length | json}} -->
+                                    <div class="row" id="images" >
+                                      <div class="col-md-offset-2 col-md-6" id="slider">
+                                          <div id="adImageCarousel" class="carousel slide" data-ride="carousel" style="height: 200px !important">
+                                              <!-- Indicators -->
+                                              <ol class="carousel-indicators adImagesOL">
+                                                <!-- <li data-target="#adImageCarousel" data-slide-to="0" class="active"></li>
+                                                <li data-target="#adImageCarousel" data-slide-to="1"></li>
+                                                <li data-target="#adImageCarousel" data-slide-to="2"></li> -->
+                                              </ol>
+                                          
+                                              <!-- Wrapper for slides -->
+                                              <div class="carousel-inner text-center adImages">
+                                                <!-- <div class="item active">
+                                                  <img class='img-responsive' src="assets/img/items/apple.jpg" alt="Los Angeles" style="width:40%;">
+                                                </div>
+                                          
+                                                <div class="item">
+                                                  <img class='img-responsive' src="assets/img/items/beef.jpg" alt="Chicago" style="width:40%;">
+                                                </div>
+                                              
+                                                <div class="item">
+                                                  <img class='img-responsive' src="assets/img/items/pork.jpg" alt="New york" style="width:40%;">
+                                                </div> -->
+                                              </div>
+                                          
+                                              <!-- Left and right controls -->
+                                              <a class="left carousel-control" href="#adImageCarousel" data-slide="prev">
+                                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                                <span class="sr-only">Previous</span>
+                                              </a>
+                                              <a class="right carousel-control" href="#adImageCarousel" data-slide="next">
+                                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                                <span class="sr-only">Next</span>
+                                              </a>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    <!-- <ng-template #noImgBlock>
+                                      <div class="row" id="images" style="text-align: center">
+                                          <img src="/assets/img/nophoto.jpg" style="height:200px;width:200px;">
+                                      </div>
+                                    </ng-template> -->
 
-                              <div class="row" id="images">
-                                <div class="col-md-offset-2 col-md-6" id="slider">
-                                    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="height: 200px !important">
-                                        <!-- Indicators -->
-                                        <ol class="carousel-indicators">
-                                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                          <li data-target="#myCarousel" data-slide-to="1"></li>
-                                          <li data-target="#myCarousel" data-slide-to="2"></li>
-                                        </ol>
-                                    
-                                        <!-- Wrapper for slides -->
-                                        <div class="carousel-inner text-center">
-                                          <div class="item active">
-                                            <img class='img-responsive' src="assets/img/items/apple.jpg" alt="Los Angeles" style="width:40%;">
+                                    <!-- Category and Location -->
+                                    <div class="row cat_and_loc">
+                                      <div class="col-md-12">
+                                        <div class="row">
+                                          <div class="col-md-8">
+                                            <label class="heading_label">Category and Location: </label>
                                           </div>
-                                    
-                                          <div class="item">
-                                            <img class='img-responsive' src="assets/img/items/beef.jpg" alt="Chicago" style="width:40%;">
+                                        </div>
+                                      
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <div class="col-md-12">
+                                                <label>Category: </label>
+                                                <span class="fieldVal">
+                                                  {{currentAdvertisementDetails.advertisementDetails.subCategoryDetails.categoryDetails.name}} > 
+                                                  {{currentAdvertisementDetails.advertisementDetails.subCategoryDetails.name}}
+                                                </span>
+                                              </div>
+                                              <!-- <div class="col-md-10">
+                                                <span class="fieldVal">
+                                                  {{currentAdvertisementDetails.advertisementDetails.subCategoryDetails.categoryDetails.name}} > 
+                                                  {{currentAdvertisementDetails.advertisementDetails.subCategoryDetails.name}}
+                                                </span>
+                                              </div> -->
+                                            </div>
                                           </div>
+
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <div class="col-md-12">
+                                                <label>Location: </label>
+                                                <span class="fieldVal">
+                                                  {{currentAdvertisementDetails.advertisementDetails.portDetails.name}},  
+                                                  {{currentAdvertisementDetails.advertisementDetails.portDetails.stateDetails.name}},
+                                                  {{currentAdvertisementDetails.advertisementDetails.portDetails.stateDetails.countryDetails.name}}
+                                                </span>
+                                              </div>
+                                              <!-- <div class="col-md-10">
+                                                <span class="fieldVal">
+                                                  {{currentAdvertisementDetails.advertisementDetails.portDetails.name}},  
+                                                  {{currentAdvertisementDetails.advertisementDetails.portDetails.stateDetails.name}},
+                                                  {{currentAdvertisementDetails.advertisementDetails.portDetails.stateDetails.countryDetails.name}}
+                                                </span>
+                                              </div> -->
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <!-- Description -->
+                                    <div class="row description">
+                                      <div class="col-md-12">
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <label class="heading_label">Description: </label>
+                                          </div>
+                                        </div>
+
+                                        <div class="row">
+                                          <div class="col-md-6" *ngIf="currentAdvertisementDetails.advertisementDetails.productDescription; else noDescBlock">
+                                            <span class="fieldVal">{{currentAdvertisementDetails.advertisementDetails.productDescription}}</span>
+                                          </div>
+                                          <ng-template #noDescBlock>
+                                            <div class="col-md-6">
+                                              <span class="fieldVal">N/A</span>
+                                            </div>
+                                          </ng-template>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <!-- Other Details -->
+
+                                    <div class="row other_details">
+                                      <div class="col-md-12">
                                         
-                                          <div class="item">
-                                            <img class='img-responsive' src="assets/img/items/pork.jpg" alt="New york" style="width:40%;">
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <label class="heading_label">Other Details</label>
                                           </div>
                                         </div>
-                                    
-                                        <!-- Left and right controls -->
-                                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                          <span class="glyphicon glyphicon-chevron-left"></span>
-                                          <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                          <span class="glyphicon glyphicon-chevron-right"></span>
-                                          <span class="sr-only">Next</span>
-                                        </a>
+
+                                        <div class="row">
+                                          <div class="col-md-12">
+                                            
+                                                  <mat-form-field>
+                                                      <mat-select #valOfField placeholder="Select Currency" (change)="setCurrency(valOfField)">
+                                                          <mat-option *ngFor="let cur of currencyList" value="{{cur.id}}">
+                                                              {{cur.symbol}}--{{cur.name}}
+                                                          </mat-option>
+                                                      </mat-select>
+                                                  </mat-form-field>
+                                          </div>
+                                        </div>
+
+                                        <div class="row">
+                                          <div class="col-md-3" *ngFor="let detail of currentAdvertisementDetails.filterValues">
+                                            <div class="row">
+                                              <div class="col-md-12">
+                                                  <label *ngIf="detail.name=='Price'; else otherDetailsBlock">
+                                                    {{detail.name}} in {{chosenCurrency.symbol}}: </label>
+                                                  <ng-template #otherDetailsBlock>
+                                                    <label>{{detail.name}}: </label>
+                                                  </ng-template>
+                                                  <span class="fieldVal">{{detail.value}}</span>
+                                                </div>
+                                                <!-- <div class="col-md-5">
+                                                  <span class="fieldVal">{{detail.value}}</span>
+                                                </div> -->
+                                            </div>
+                                          </div>
+                                        </div>
                                       </div>
-                                </div>
-                              </div>
-
-                              <div class="row" id="details">
-                                <div class="row" *ngFor="let detail of currentAdvertisementDetails.filterValues">
-                                    <div class="col-md-6">
-                                      <label>{{detail.name}}</label>
                                     </div>
-                                    <div class="col-md-6">
-                                      <label>{{detail.value}}</label>
-                                    </div>
-                                </div>
-                              </div>
-                            
 
+                                    <!-- Seller Details -->
+                                    <div class="row seller_details">
+                                      <div class="col-md-12">
+                                        
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <label class="heading_label">Seller Details</label>
+                                          </div>
+                                        </div>
+
+                                        <div class="row">
+                                          <div class="col-md-5">
+                                            <label>Add Posted By: </label>
+                                            <span class="fieldVal">{{currentAdvertisementDetails.advertisementDetails.name}}</span>
+                                          </div>
+
+                                          <div class="col-md-5">
+                                            <label>Contact: </label>
+                                            <span class="fieldVal">{{currentAdvertisementDetails.advertisementDetails.contact}}</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+                                    <!-- <div class="row" id="location">
+                                      <div class="col-md-1">
+                                        
+                                          <i class="material-icons">location_on</i>
+                                      </div>
+                                      <div class="col-md-3">
+                                          <h6>{{currentAdvertisementDetails.advertisementDetails.portDetails.name}},{{currentAdvertisementDetails.advertisementDetails.portDetails.stateDetails.name}},{{currentAdvertisementDetails.advertisementDetails.portDetails.stateDetails.countryDetails.name}}</h6>
+                                        </div>
+                                        
+                                        <div class="col-md-2">
+                                            <label>Added on:</label>
+                                            </div>
+
+                                        <div class="col-md-3">
+                                            <h6>{{currentAdvertisementDetails.advertisementDetails.date |date:'d-MM-yyyy'}}</h6>
+                                          </div>
+                                    </div> -->
+                              </div>
                           </div>
                       </div>
+                    </div>
+            
+                    <!-- Request quote from logistics -->
+                    <div class="row">
+                      <div class="col-md-12">
+                          <div class="card">
+                            <div class="card-header" data-background-color="orange">
+                                <h4 class="title"><i class="material-icons notranslate">dashboard</i>Logistics Details</h4>
+                            </div>
+
+                            <div class="card-content">
+                              <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="row reqForLogistics" *ngIf="!this.logisticsReq; else reqSentBlock">
+                                        <div class="col-md-5">
+                                          <span class="firmSelectSpan">Select Firms to Request for Quotations</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <mat-form-field>
+                                            <mat-select placeholder="Firms" multiple [(ngModel)]="requestedFirms">
+                                              <mat-option *ngFor="let firms of firmsForAd" value="{{firms.id}}">{{firms.name}}</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2" *ngIf="requestedFirms">
+                                          <button class="btn btn-sm btn-primary btn-round" (click)="sendRequest()">Confirm</button>
+                                        </div>
+                                    </div>
+
+                                    <ng-template #reqSentBlock>
+                                      <div class=" row reqSentFimrs">
+                                        <div class="col-md-4">
+                                          <span class="firmSelectSpan">Your Request Sent To</span>
+                                        </div>
+                                        <div class="col-md-8">
+                                          <mat-chip-list>
+                                            <mat-chip *ngFor="let firms of firmsForAd">{{firms.name}}</mat-chip>
+                                          </mat-chip-list>
+                                        </div>
+                                      </div>
+                                    </ng-template>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        
+                      </div>
+                    </div>
+
+                    <!-- Quotations Received -->
+                    <div class="row" *ngIf="this.logisticsReq && quotesRecvd.length>0">
+                      <div class="col-md-12">
+                          <div class="card">
+                            <div class="card-header" data-background-color="orange">
+                                <h4 class="title"><i class="material-icons notranslate">dashboard</i>Quotes Received</h4>
+                            </div>
+
+                            <div class="card-content">
+                              <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                  <div class="row">
+                                    <div class="col-md-6" *ngFor="let quote of quotesRecvd">
+                                      <div class="card">
+                                        <div class="card-header" data-background-color="orange">
+                                            <h6 class="title" style="text-align:center">{{quote.logisticsName}}</h6>
+                                        </div>
+
+                                        <div class="card-content col-md-10 col-md-offset-1">
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <label>Product Price {{chosenCurrency.symbol}}:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                              <span>{{currentProductPrice}}</span>
+                                            </div>
+                                          </div>
+
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <label>Quoted Price {{chosenCurrency.symbol}}:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                              <span>{{quote.price}}</span>
+                                            </div>
+                                          </div>
+
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <label style="color:black">Total Price {{chosenCurrency.symbol}}:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                              <span style="font-weight:bold">{{quote.price + currentProductPrice}}</span>
+                                            </div>
+                                          </div>
+
+                                          <div class="row closeOrderBtn">
+                                            <div class="col-md-6" style="text-align:center">
+                                              <button class="btn btn-primary btn-sm btn-round" (click)="closeOrder()">
+                                                Confirm and Close Order
+                                              </button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
                   </div>
+
+                  <!-- Third Party Ads to the right -->
+                  <div class="col-md-3 rightAdSection hidden">
+                      <div class="col-md-12" id="slider">
+                          <div id="rightAdCarousel" class="carousel slide" data-ride="carousel" style="height: 200px !important">
+                              <!-- Indicators -->
+                              <ol class="carousel-indicators rightAdsOL">
+                                <!-- <li data-target="#rightAdCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#rightAdCarousel" data-slide-to="1"></li>
+                                <li data-target="#rightAdCarousel" data-slide-to="2"></li> -->
+                              </ol>
+                          
+                              <!-- Wrapper for slides -->
+                              <div class="carousel-inner text-center rightAdsDetails">
+                                <!-- <div class="item active">
+                                  <div class="row">
+                                    {{adsThirdParty[0].adName}}
+                                  </div>
+                                  <div class="row">
+                                      {{adsThirdParty[0].adDetails}}
+                                  </div>
+                                </div>
+                          
+                                <div class="item">
+                                    <div class="row">
+                                        {{adsThirdParty[1].adName}}
+                                      </div>
+                                      <div class="row">
+                                          {{adsThirdParty[1].adDetails}}
+                                    </div>
+                                </div> -->
+                              
+                                <!-- <div class="item">
+                                  <img class='img-responsive' src="assets/img/items/pork.jpg" alt="New york" style="width:40%;">
+                                </div> -->
+                              </div>
+                          
+                              <!-- Left and right controls -->
+                              <a class="left carousel-control" href="#rightAdCarousel" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="right carousel-control" href="#rightAdCarousel" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </div>
+                      </div>
+                  </div>
+
                 </div>
-        
-                <!-- Request quote from logistics -->
+
+                <!-- Third party ads to the bottom -->
                 <div class="row">
                   <div class="col-md-12">
-                      <div class="card">
-                        <div class="card-header" data-background-color="orange">
-                            <h4 class="title"><i class="material-icons notranslate">dashboard</i>Logistics Details</h4>
-                        </div>
+                    <div class="card">
+                      <div class="card-content">
+                          
 
-                        <div class="card-content">
-                          <div class="row">
-                            <div class="col-md-10 col-md-offset-1">
-                                <div class="row reqForLogistics" *ngIf="!this.logisticsReq; else reqSentBlock">
-                                    <div class="col-md-5">
-                                      <span class="firmSelectSpan">Select Firms to Request for Quotations</span>
-                                    </div>
-                                    <div class="col-md-4">
-                                      <mat-form-field>
-                                        <mat-select placeholder="Firms" multiple [(ngModel)]="requestedFirms">
-                                          <mat-option *ngFor="let firms of firmsForAd" value="{{firms.id}}">{{firms.name}}</mat-option>
-                                        </mat-select>
-                                      </mat-form-field>
-                                    </div>
-                                    <div class="col-md-2" *ngIf="requestedFirms">
-                                      <button class="btn btn-sm btn-primary btn-round" (click)="sendRequest()">Confirm</button>
-                                    </div>
-                                </div>
-
-                                <ng-template #reqSentBlock>
-                                  <div class=" row reqSentFimrs">
-                                    <div class="col-md-4">
-                                      <span class="firmSelectSpan">Your Request Sent To</span>
-                                    </div>
-                                    <div class="col-md-8">
-                                      <mat-chip-list>
-                                        <mat-chip *ngFor="let firms of firmsForAd">{{firms.name}}</mat-chip>
-                                      </mat-chip-list>
+                        <div class="ticker-wrap">
+                          <div class="ticker">
+                            <div class="ticker__item" *ngFor="let bad of bottomAds">
+                                <!-- <div class="col-md-4"> -->
+                                  <div class="row adNameThrdPrty">
+                                    <div class="col-md-12">
+                                      {{bad.adTitle}}
                                     </div>
                                   </div>
-                                </ng-template>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    
-                  </div>
-                </div>
-
-                <!-- Quotations Received -->
-                <div class="row" *ngIf="this.logisticsReq && quotesRecvd.length>0">
-                  <div class="col-md-12">
-                      <div class="card">
-                        <div class="card-header" data-background-color="orange">
-                            <h4 class="title"><i class="material-icons notranslate">dashboard</i>Quotes Received</h4>
-                        </div>
-
-                        <div class="card-content">
-                          <div class="row">
-                            <div class="col-md-10 col-md-offset-1">
-                              <div class="row">
-                                <div class="col-md-4" *ngFor="let quote of quotesRecvd">
-                                  <div class="card">
-                                    <div class="card-header" data-background-color="orange">
-                                        <h6 class="title" style="text-align:center">{{quote.logisticsName}}</h6>
-                                    </div>
-
-                                    <div class="card-content col-md-10 col-md-offset-1">
-                                      <div class="row">
-                                        <div class="col-md-6">
-                                          <label>Product Price ($):</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                          <span>{{currentProductPrice}}</span>
-                                        </div>
-                                      </div>
-
-                                      <div class="row">
-                                        <div class="col-md-6">
-                                          <label>Quoted Price ($):</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                          <span>{{quote.price}}</span>
-                                        </div>
-                                      </div>
-
-                                      <div class="row">
-                                        <div class="col-md-6">
-                                          <label style="color:black">Total Price ($):</label>
-                                        </div>
-                                        <div class="col-md-6">
-                                          <span style="font-weight:bold">{{quote.price + currentProductPrice}}</span>
-                                        </div>
-                                      </div>
+                                  
+                                  <div class="row adDetailsThrdPrty">
+                                    <div class="col-md-12">
+                                      {{bad.adDetails}}
                                     </div>
                                   </div>
-                                </div>
-                              </div>
+                                  
+                                  <div class="row thrdPrtyPostedBy">
+                                    <div class="col-md-12">
+                                      {{bad.postedByName}}
+                                    </div>
+                                  </div>
+
+                                  <div class="row thrdPrtyAdVisit">
+                                    <div class="col-md-12">
+                                      <a routerLink="{{bad.url}}">
+                                        <button class="btn btn-primary btn-round">Visit</button>
+                                      </a>
+                                    </div>
+                                  </div>
+                                <!-- </div> -->
                             </div>
+                            <!-- <div class="ticker__item">Letterpress chambray brunch.</div>
+                            <div class="ticker__item">Vice mlkshk crucifix beard chillwave meditation hoodie asymmetrical Helvetica.</div>
+                            <div class="ticker__item">Ugh PBR&B kale chips Echo Park.</div>
+                            <div class="ticker__item">Gluten-free mumblecore chambray mixtape food truck. </div> -->
+                            
                           </div>
                         </div>
+    
+    
+    
                       </div>
+                    </div>
                   </div>
                 </div>
                       

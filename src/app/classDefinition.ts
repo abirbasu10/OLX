@@ -53,8 +53,18 @@ export class Port{
     stateDetails:State;
 }
 
+export class Currency
+{
+    id:number;
+    symbol:string;
+    name:string;
+    fraction: number;
+}
+
+
 export class Advertisement{
     id:number;
+    images:Image[];
     productName:string;
     productDescription:string;    
     subCategoryDetails:SubCategory;
@@ -65,6 +75,7 @@ export class Advertisement{
     sellerLogisticSupport?:boolean;
     buyerLogsisticSupport?:boolean;
     isFeatured:boolean;
+    isOpen:boolean;
 }
 
 
@@ -140,6 +151,14 @@ export class LogisticFirmList
     port: Port; 
     avg_rating: number;
     profile_state: boolean; 
+}
+
+export class LogisticsPortMapping
+{
+    id:number;
+    logisticsId:number;
+    logisticsName:string;
+    ports:Port[];
 }
 
 export class CompanyDetails
@@ -232,6 +251,26 @@ export class LogisticsOrderList
     adDetails:ProductFilterValue;
     buyerStatus:string;
     logisticStatus:string;
+}
+
+export class ThirdPartyAds
+{
+    id:number;
+    img?:string;
+    url?:string;
+    adTitle:string;
+    adDetails:string;
+    location:string[];
+    postedById:number;
+    postedByName:string;
+    position:string;
+}
+
+export class ThirdPartyAdsPosition
+{
+    id:number;
+    position:string;
+    price:number;
 }
   //Admin Section 
 

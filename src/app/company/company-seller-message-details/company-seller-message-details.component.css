@@ -1,0 +1,42 @@
+.myName
+{
+    font-weight: bold;
+    border-bottom: solid rgba(243,236,236,0.2) 1px;
+}
+
+.senderName
+{
+    font-weight: bold;
+    border-bottom: solid rgba(8,8,8,0.2) 1px;
+}
+
+.sentByMe
+{
+    padding-top:5px;
+    padding-bottom:5px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color: #a900ff;
+    color:#f3eded;
+    margin-bottom:10px;
+}
+
+.receivedByMe
+{
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align: left;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color:#d6ddde;
+    color:black;
+    margin-bottom:10px;
+}
+
+.sendMsg
+{
+    border-top: solid #ded2d2 1px;
+    padding-top:10px;
+}

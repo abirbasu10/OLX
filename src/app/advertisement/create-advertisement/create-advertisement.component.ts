@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Category, SubCategory, Filter, SubCatFilterMap, Country, State, Port, Advertisement,AdvertisementFilterValue, ProductFilterValue, SubCategoryFilterOption, FeaturedPlan, FeaturedAdvertisementMap } from '../../classDefinition';
-import { CATEGORIES, SUBCATEGORIES, FILTERS, SUBCATFILTERMAP, COUNTRIES, STATES, PORTS, ADVERTISEMENTS, PRODUCTFILTERVALUES, SUBCATFILTEROPTIONS, FEATUREDPLANS, FEATURED_ADVERTISEMENT_MAP } from '../../application_mock_Data';
+import { Currency, Category, SubCategory, Filter, SubCatFilterMap, Country, State, Port,Image, Advertisement,AdvertisementFilterValue, ProductFilterValue, SubCategoryFilterOption, FeaturedPlan, FeaturedAdvertisementMap } from '../../classDefinition';
+import { CURRENCY,SELLER_CHOSEN_CURRENCY,CATEGORIES, SUBCATEGORIES, FILTERS, SUBCATFILTERMAP, COUNTRIES, STATES, PORTS,IMAGES, ADVERTISEMENTS, PRODUCTFILTERVALUES, SUBCATFILTEROPTIONS, FEATUREDPLANS, FEATURED_ADVERTISEMENT_MAP } from '../../application_mock_Data';
+import { AdLogisticsMapping } from '../../classDefinition';
+import { AD_LOGISTICS_MAPPING } from '../../application_mock_Data';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { Router } from '@angular/router';
-import { ImageUploadModule } from "angular2-image-upload";
+//import { ImageUploadModule } from "angular2-image-upload";
 
 import { HttpClient } from '@angular/common/http';
 import { Http, Headers, RequestOptions } from '@angular/http';
@@ -17,6 +20,9 @@ import swal from 'sweetalert2';
   styleUrls: ['./create-advertisement.component.css']
 })
 export class CreateAdvertisementComponent implements OnInit {
+currencyList:Currency[]=CURRENCY;
+selectedCurrencyId:number;
+
 loginStatus:string="true"
 categories:Category[]=[];
 subcategories:Category[]=[];
@@ -39,6 +45,7 @@ chosenPlan:FeaturedPlan=null;
 adCountry:string="";
 adState:string="";
 adPort:string="";
+adImage:Image[]=[];
 name:string="";
 contact:number;
 date: Date=new Date();
@@ -51,7 +58,7 @@ filterValues:AdvertisementFilterValue[]=[];
 URL = window.URL;
 
 //image:HexBase64BinaryEncoding;
-  constructor(private router: Router,private http: Http) { }
+  constructor(private router: Router,private http: Http, private _DomSanitizationService: DomSanitizer) { }
 
   ngOnInit() {
     this.checkLogInOrNot()
@@ -75,6 +82,14 @@ URL = window.URL;
     this.filterValueId=1;
     this.filterValues=[];
     this.subcategories=SUBCATEGORIES.filter(subc=>subc.categoryDetails.name.toLowerCase()==this.adCategory.toLowerCase())
+  }
+
+  setCurrency(valOfField)
+  {
+    /* console.log("valOfField",valOfField.value) */
+    var selectedCurrency=CURRENCY.find(c=>c.id==valOfField.value)
+    SELLER_CHOSEN_CURRENCY[0]=selectedCurrency;
+    console.log("SELLER_CHOSEN_CURRENCY",SELLER_CHOSEN_CURRENCY)
   }
 
   getFilters()
@@ -194,9 +209,9 @@ URL = window.URL;
       FEATURED_ADVERTISEMENT_MAP.push({id:featuredMapId,adId:adID,planDetails:this.chosenPlan,
         startDate:new Date(), endDate:new Date("5/21/2019")})
     }
-    var advertisementBasics={id:adID, productName:productName, productDescription:productDescription, 
+    var advertisementBasics={id:adID,images:this.adImage, productName:productName, productDescription:productDescription, 
       subCategoryDetails:subCatDetails, portDetails:portDetails,name:this.name,contact:this.contact,date:this.date, 
-      isFeatured:isFeatured}
+      isFeatured:isFeatured,isOpen:true}
     //pushing in an ad
 
     ADVERTISEMENTS.push(advertisementBasics);
@@ -210,6 +225,8 @@ URL = window.URL;
     console.log("FEATURED_ADVERTISEMENT_MAP");
     console.log(FEATURED_ADVERTISEMENT_MAP);
 
+    this.mapLogistics(adID)
+
     swal({
       title: 'Posted!',
       text: 'Ad Posted Successfully',
@@ -219,6 +236,21 @@ URL = window.URL;
       this.router.navigate(['/advertisements/search']);
       })
 
+  }
+
+  mapLogistics(adID)
+  {
+    var id;
+    if(AD_LOGISTICS_MAPPING)
+    {
+      id=AD_LOGISTICS_MAPPING[AD_LOGISTICS_MAPPING.length-1].id+1;
+    }
+    else
+    {
+      id=1;
+    }
+
+    AD_LOGISTICS_MAPPING.push({id:id,adId:adID,logisticIds:[2,3,5]})
   }
 
   checkIfFeatured()
@@ -372,19 +404,41 @@ URL = window.URL;
   onChangeImg(event)
   {
     var file, img;
-    if ((file = event.target.files[0])) 
+
+    for(let i=0; i<event.target.files.length; i++)
     {
-      console.log("File", file)
-      img = new Image();
-      img.onload = function () {
-          alert(this.width + " " + this.height);
-      };
+      if ((file = event.target.files[i])) 
+      {
+        console.log("File", file)
+        img = new Image();
+        img.onload = function () {
+            alert(this.width + " " + this.height);
+        };
 
-      var bannerImg = (<HTMLInputElement>document.getElementById('imgBlock'));
+        var bannerImg = (<HTMLInputElement>document.getElementById('imgBlock'));
 
-      localStorage.setItem("imgURL", this.URL.createObjectURL(file));
-      bannerImg.src = localStorage.getItem('imgURL');
-      //(<HTMLInputElement>document.getElementById('showImage')).style.display = 'block';
+        localStorage.setItem("imgURL", this.URL.createObjectURL(file));
+        //bannerImg.src = localStorage.getItem('imgURL');
+        //(<HTMLInputElement>document.getElementById('showImage')).style.display = 'block';
+
+
+        var id
+        if(IMAGES.length>0)
+        {
+          id=IMAGES[IMAGES.length-1].id+1;
+        }
+        else
+        {
+          id=1;
+        }
+
+        this.adImage.push({id:id, name:this.adTitle,path:localStorage.getItem('imgURL'),
+        extension:"",description:""})
+        
+        //IMAGES.push(this.adImage)
+        
+      }
     }
+    
   }
 }

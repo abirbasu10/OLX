@@ -1,3 +1,11 @@
+.basic_details, .additionalDetails, .contactDetails
+{
+    border: solid #0c0398 1px;
+    padding: 10px;
+    margin-bottom: 20px;
+    /* box-shadow: 1px 1px 2px black; */
+}
+
 .featuredPlans
 {
     background-color:aliceblue; 

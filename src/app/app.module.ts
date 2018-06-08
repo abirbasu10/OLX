@@ -118,6 +118,12 @@ import { AdminCategoryManagementComponent } from './admin/admin-category-managem
 import { ImageUploadModule } from "angular2-image-upload";
 import { ProvideQuotationComponent } from './logistics/provide-quotation/provide-quotation.component';
 import { LogisticsRequestListComponent } from './logistics/logistics-request-list/logistics-request-list.component';
+import { LogisticsPromoteComponent } from './logistics/logistics-promote/logistics-promote.component';
+import { LogisticsProfileCompletionComponent } from './logistics/logistics-profile-completion/logistics-profile-completion.component';
+import { CompanySellerMessageDetailsComponent } from './company/company-seller-message-details/company-seller-message-details.component';
+import { CompanyBuyerMessageDetailsComponent } from './company/company-buyer-message-details/company-buyer-message-details.component';
+import { CompanyBuyerMessageListComponent } from './company/company-buyer-message-list/company-buyer-message-list.component';
+import { CompanySellerMessageListComponent } from './company/company-seller-message-list/company-seller-message-list.component';
 //import { AngularChromeImageStorageComponent } from '../../node_modules/angular-chrome-image-storage-master/angular-chrome-image-storage';
 
 /* import { VendorComponent } from './vendor/vendor.component';
@@ -243,6 +249,18 @@ CompanyComponent,
     ProvideQuotationComponent,
 
     LogisticsRequestListComponent,
+
+    LogisticsPromoteComponent,
+
+    LogisticsProfileCompletionComponent,
+
+    CompanySellerMessageDetailsComponent,
+
+    CompanyBuyerMessageDetailsComponent,
+
+    CompanyBuyerMessageListComponent,
+
+    CompanySellerMessageListComponent,
 
     //AngularChromeImageStorageComponent,
 

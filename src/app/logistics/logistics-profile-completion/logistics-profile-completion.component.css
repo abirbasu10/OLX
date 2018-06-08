@@ -1,0 +1,21 @@
+mat-chip
+{
+    background-color: white !important;
+    border: solid black 1px;
+}
+
+.chosenPortName
+{
+    padding-right:5px;
+    border-right: solid rgb(201, 197, 197) 1px;
+}
+
+.removePort
+{
+    cursor: pointer;
+}
+
+.removePort:hover
+{
+    color:red;
+}
