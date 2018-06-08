@@ -126,6 +126,12 @@ import { AdminCompanyManagementComponent } from './admin/admin-company-managemen
 import { AddEditCompanyComponent } from './admin/add-edit-company/add-edit-company.component';
 import { FilterManagementComponent } from './admin/filter-management/filter-management.component';
 
+import { LogisticsPromoteComponent } from './logistics/logistics-promote/logistics-promote.component';
+import { LogisticsProfileCompletionComponent } from './logistics/logistics-profile-completion/logistics-profile-completion.component';
+import { CompanySellerMessageDetailsComponent } from './company/company-seller-message-details/company-seller-message-details.component';
+import { CompanyBuyerMessageDetailsComponent } from './company/company-buyer-message-details/company-buyer-message-details.component';
+import { CompanyBuyerMessageListComponent } from './company/company-buyer-message-list/company-buyer-message-list.component';
+import { CompanySellerMessageListComponent } from './company/company-seller-message-list/company-seller-message-list.component';
 //import { AngularChromeImageStorageComponent } from '../../node_modules/angular-chrome-image-storage-master/angular-chrome-image-storage';
 
 /* import { VendorComponent } from './vendor/vendor.component';
@@ -268,6 +274,17 @@ CompanyComponent,
 
 
     
+    LogisticsPromoteComponent,
+
+    LogisticsProfileCompletionComponent,
+
+    CompanySellerMessageDetailsComponent,
+
+    CompanyBuyerMessageDetailsComponent,
+
+    CompanyBuyerMessageListComponent,
+
+    CompanySellerMessageListComponent,
 
     //AngularChromeImageStorageComponent,
 

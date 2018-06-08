@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 import { AdLogisticsMapping, LogisticsQuoteRequest, Quotation, LogisticsOrderList, User } from './classDefinition'
 import { MessageList, MessageDetails, MessageThread} from "./classDefinition";
 import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList,CompanyDetails,ProfileFields, VerifyCompanyDocument, FeaturedPlan, FeaturedAdvertisementMap,Roles } from "./classDefinition";
 
+=======
+import { ThirdPartyAds, ThirdPartyAdsPosition }  from './classDefinition'
+import { AdLogisticsMapping, LogisticsQuoteRequest, Quotation, LogisticsOrderList } from './classDefinition'
+import { MessageList, MessageDetails, MessageThread} from "./classDefinition";
+import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList,LogisticsPortMapping,CompanyDetails,ProfileFields, VerifyCompanyDocument, FeaturedPlan, FeaturedAdvertisementMap } from "./classDefinition";
+import { Currency } from "./classDefinition"; 
+>>>>>>> fad2576251b8c496ea0b63329aeba9b3aac54c76
 
 export const CATEGORIES: Category[]=[
     {id:1,name:"Properties"},
@@ -148,32 +156,12 @@ export const SUBCATFILTERMAP:SubCatFilterMap[]=[
 
 ]
 
-export const IMAGES:Image[]=[
-    {id:1,name:"Audi Car Image",path:"",extension:"",description:""},
-    {id:2,name:"Bajaj MotorCycle Image",path:"",extension:"",description:""},
-    {id:3,name:"Panasonic Ac Image",path:"",extension:"",description:""},
-    {id:4,name:"Samsung Tv Image",path:"",extension:"",description:""},
-    {id:5,name:"2Bhk Flat Image",path:"",extension:"",description:""},
-    {id:6,name:"2Bhk Flat Image2",path:"",extension:"",description:""},
-    {id:7,name:"Audi Car Image2",path:"",extension:"",description:""},
-    {id:8,name:"Active Scooter Image",path:"",extension:"",description:""},
-
-    {id:9,name:"Property Image",path:"",extension:"",description:""},    
-    {id:10,name:"Electronics Image",path:"",extension:"",description:""},    
-    {id:11,name:"Bike Image",path:"",extension:"",description:""},  
-    {id:12,name:"Car Image",path:"",extension:"",description:""},
-
-    {id:13,name:"ForSale Image",path:"",extension:"",description:""},    
-    {id:14,name:"AC Image",path:"",extension:"",description:""},    
-    {id:15,name:"Scooter Image",path:"",extension:"",description:""}, 
-    {id:15,name:"Domestic Car Image",path:"",extension:"",description:""},        
-]
- 
 
 export const COUNTRIES:Country[]=[    
         {id:1,name:"India"}, 
-        {id:1,name:"Nepal"},
-        {id:1,name:"Srilanka"},
+        {id:2,name:"Nepal"},
+        {id:3,name:"Srilanka"},
+        {id:4,name:"USA"},
 ]
 
 export const STATES:State[]=[    
@@ -191,47 +179,79 @@ export const PORTS:Port[]=[
     {id:4,name:"Port of OD",stateDetails: {id:4,name:"OD",countryDetails:{id:1,name:"India"}}},
     
 ]   
+
+export const CURRENCY:Currency[]=[
+    {id:1,symbol:"Rs",name:"Indian Rupee",fraction:64.85},
+    {id:2,symbol:"$",name:"USD",fraction:1},
+    {id:3,symbol:"Yen",name:"Japanese Yen",fraction:106.84},
+    {id:4,symbol:"SGD",name:"Singapore Dollar",fraction:1.32},
+    {id:5,symbol:"EU",name:"Euro",fraction:0.81},
+]
+
+export const SELLER_CHOSEN_CURRENCY:Currency[]=[{id:2,symbol:"$",name:"USD",fraction:1}];
+
+export const LOGISTICS_CHOSEN_CURRENCY:Currency[]=[{id:2,symbol:"$",name:"USD",fraction:1}];
+
    
 
 export const ADVERTISEMENTS: Advertisement[]=[
 
     {
-        id:1,  productName:"Sea Facing New Flat",  productDescription:"", 
+        id:1,  
+        images:[{id:1,name:"Audi Car Image",path:"/assets/img/login5.jpg",extension:"",description:""},
+                {id:8,name:"Active Scooter Image",path:"/assets/img/problem12.jpg",extension:"",description:""}],
+        productName:"Sea Facing New Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:true
+        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:true,
+        isOpen:false,
     },
     
     {
-        id:2,  productName:"Good Condition Audi",  productDescription:"", 
+        id:2,  
+        images:[{id:2,name:"Bajaj MotorCycle Image",path:"/assets/img/login6.jpg",extension:"",description:""},],
+        productName:"Good Condition Audi",  productDescription:"", 
         subCategoryDetails: {id:4,name:"Commercial Car", categoryDetails:{id:2,name:"Car"}},
         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-        name:"Bipraneel",contact:9038102961,date:new Date(),sellerLogisticSupport:true,isFeatured:true
+        name:"Bipraneel",contact:9038102961,date:new Date(),sellerLogisticSupport:true,isFeatured:true,
+        isOpen:true,
     },
     
     {
-        id:3,  productName:"No EMI Mototr Cycle",  productDescription:"", 
+        id:3,
+        images:[{id:3,name:"Panasonic Ac Image",path:"/assets/img/login7.jpg",extension:"",description:""},],
+        productName:"No EMI Mototr Cycle",  productDescription:"", 
         subCategoryDetails: {id:8,name:"Motor Cycle", categoryDetails:{id:4,name:"Bike"}},
         portDetails: {id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},
-        name:"Abir Basu",contact:9943287632,date:new Date(),sellerLogisticSupport:true,isFeatured:true
+        name:"Abir Basu",contact:9943287632,date:new Date(),sellerLogisticSupport:true,isFeatured:true,
+        isOpen:true,
     },
     {
-        id:4,  productName:"2 years Old Flat",  productDescription:"", 
+        id:4,
+        images:[{id:4,name:"Samsung Tv Image",path:"/assets/img/login8.jpg",extension:"",description:""},],
+        productName:"2 years Old Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-        name:"Spandan",contact:9903527889,date:new Date(),sellerLogisticSupport:true,isFeatured:false
+        name:"Spandan",contact:9903527889,date:new Date(),sellerLogisticSupport:true,isFeatured:false,
+        isOpen:true,
     },
     {
-        id:5,  productName:"New Flat",  productDescription:"", 
+        id:5,
+        images:[{id:5,name:"2Bhk Flat Image",path:"/assets/img/login12.jpg",extension:"",description:""},],
+        productName:"New Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:false
+        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:false,
+        isOpen:true,
     },
     {
-        id:6,  productName:" Flat",  productDescription:"", 
+        id:6,
+        images:[{id:6,name:"2Bhk Flat Image2",path:"/assets/img/login111.jpg",extension:"",description:""},],
+        productName:" Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:false,isFeatured:true
+        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:false,isFeatured:true,
+        isOpen:true,
     }
 ]
 
@@ -241,10 +261,14 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
         id:1,
         advertisementDetails:
         {
-                         id:1,  productName:"Sea Facing New Flat",  productDescription:"", 
-                         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
-                         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-                         name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:true
+            id:1,
+            images:[{id:1,name:"Audi Car Image",path:"/assets/img/login5.jpg",extension:"",description:""},
+                    {id:8,name:"Active Scooter Image",path:"/assets/img/problem12.jpg",extension:"",description:""}],
+            productName:"Sea Facing New Flat",  productDescription:"", 
+            subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+            portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+            name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:true,
+            isOpen:false,
         },
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
@@ -254,29 +278,16 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
         ]
     },
     {
-        id:4,
-        advertisementDetails:
-        {
-                         id:4,  productName:"2 years Old Flat",  productDescription:"", 
-                         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
-                         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-                         name:"Spandan",contact:9903527889,date:new Date(),sellerLogisticSupport:true,isFeatured:false,
-        },
-        filterValues:[
-            {name:"Bedroom",value:"2bhk"},
-            {name:"Price",value:"1500000"},
-            {name:"Year",value:"2 Years"},
-            
-        ]
-    },
-    {
         id:2,
         advertisementDetails:
         {
-            id:2,  productName:"Good Condition Audi",  productDescription:"", 
+            id:2,
+            images:[{id:2,name:"Bajaj MotorCycle Image",path:"/assets/img/login6.jpg",extension:"",description:""},],
+            productName:"Good Condition Audi",  productDescription:"", 
             subCategoryDetails: {id:4,name:"Commercial Car", categoryDetails:{id:2,name:"Car"}},
             portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-            name:"Bipraneel",contact:9038102961,date:new Date(),sellerLogisticSupport:true,isFeatured:true
+            name:"Bipraneel",contact:9038102961,date:new Date(),sellerLogisticSupport:true,isFeatured:true,
+            isOpen:true,
         },
         filterValues:[
             {name:"Milege",value:"13"},
@@ -289,10 +300,13 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
         id:3,
         advertisementDetails:
         {
-            id:3,  productName:"No EMI Mototr Cycle",  productDescription:"", 
+            id:3,
+            images:[{id:3,name:"Panasonic Ac Image",path:"/assets/img/login7.jpg",extension:"",description:""},],
+            productName:"No EMI Mototr Cycle",  productDescription:"", 
             subCategoryDetails: {id:8,name:"Motor Cycle", categoryDetails:{id:4,name:"Bike"}},
             portDetails: {id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},
-            name:"Abir Basu",contact:9943287632,date:new Date(),sellerLogisticSupport:true,isFeatured:true
+            name:"Abir Basu",contact:9943287632,date:new Date(),sellerLogisticSupport:true,isFeatured:true,
+            isOpen:true,
         },
         filterValues:[
             {name:"Milege",value:"25"},
@@ -302,13 +316,35 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
         ]
     },
     {
+        id:4,
+        advertisementDetails:
+        {
+            id:4,
+            images:[{id:4,name:"Samsung Tv Image",path:"/assets/img/login8.jpg",extension:"",description:""},],
+            productName:"2 years Old Flat",  productDescription:"", 
+            subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+            portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
+            name:"Spandan",contact:9903527889,date:new Date(),sellerLogisticSupport:true,isFeatured:false,
+            isOpen:true,
+        },
+        filterValues:[
+            {name:"Bedroom",value:"2bhk"},
+            {name:"Price",value:"1500000"},
+            {name:"Year",value:"2 Years"},
+            
+        ]
+    },
+    {
         id:5,
         advertisementDetails:
         {
-                         id:5,  productName:"New Flat",  productDescription:"", 
-                         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
-                         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-                         name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:false
+            id:5,
+            images:[{id:5,name:"2Bhk Flat Image",path:"/assets/img/login12.jpg",extension:"",description:""},],
+            productName:"New Flat",  productDescription:"", 
+            subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+            portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+            name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:false,
+            isOpen:true,
         },
         filterValues:[
             {name:"Bedroom",value:"2bhk"},
@@ -321,14 +357,17 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
         id:6,
         advertisementDetails:
         {
-                         id:6,  productName:" Flat",  productDescription:"", 
-                         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
-                         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-                         name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:false,isFeatured:true
+            id:6,
+            images:[{id:6,name:"2Bhk Flat Image2",path:"/assets/img/login111.jpg",extension:"",description:""},],
+            productName:" Flat",  productDescription:"", 
+            subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
+            portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+            name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:false,isFeatured:true,
+            isOpen:true,
         },
         filterValues:[
             {name:"Bedroom",value:"3bhk"},
-            {name:"Price",value:"2000000"},
+            {name:"Price",value:"200"},
             {name:"Year-Range",value:"3 years"},
             
         ]
@@ -365,13 +404,34 @@ export const FEATURED_ADVERTISEMENT_MAP:FeaturedAdvertisementMap[]=[
     }
 ]
 
+export const IMAGES:Image[]=[
+    {id:1,name:"Audi Car Image",path:"/assets/img/login5.jpg",extension:"",description:""},
+    {id:2,name:"Bajaj MotorCycle Image",path:"/assets/img/login6.jpg",extension:"",description:""},
+    {id:3,name:"Panasonic Ac Image",path:"/assets/img/login7.jpg",extension:"",description:""},
+    {id:4,name:"Samsung Tv Image",path:"/assets/img/login8.jpg",extension:"",description:""},
+    {id:5,name:"2Bhk Flat Image",path:"/assets/img/login12.jpg",extension:"",description:""},
+    {id:6,name:"2Bhk Flat Image2",path:"/assets/img/login111.jpg",extension:"",description:""},
+    {id:7,name:"Audi Car Image2",path:"/assets/img/problem11.jpg",extension:"",description:""},
+    {id:8,name:"Active Scooter Image",path:"/assets/img/problem12.jpg",extension:"",description:""},
+
+    {id:9,name:"Property Image",path:"/assets/img/nophoto.jpg",extension:"",description:""},    
+    {id:10,name:"Electronics Image",path:"/assets/img/nophoto.jpg",extension:"",description:""},    
+    {id:11,name:"Bike Image",path:"/assets/img/nophoto.jpg",extension:"",description:""},  
+    {id:12,name:"Car Image",path:"/assets/img/nophoto.jpg",extension:"",description:""},
+
+    {id:13,name:"ForSale Image",path:"/assets/img/nophoto.jpg",extension:"",description:""},    
+    {id:14,name:"AC Image",path:"/assets/img/nophoto.jpg",extension:"",description:""},    
+    {id:15,name:"Scooter Image",path:"/assets/img/nophoto.jpg",extension:"",description:""}, 
+    {id:16,name:"Domestic Car Image",path:"/assets/img/nophoto.jpg",extension:"",description:""},        
+]
 
 export const IMAGEADVERTISEMENTMAP:ImageAdvertisementMap[]=[
-    {id:1,imageId:5,advertisementId:1},
-    {id:2,imageId:6,advertisementId:1},
-    {id:3,imageId:1,advertisementId:2},
-    {id:4,imageId:7,advertisementId:2},
-    {id:4,imageId:2,advertisementId:3},
+    {id:1,imageId:1,advertisementId:1},
+    {id:2,imageId:2,advertisementId:2},
+    {id:3,imageId:3,advertisementId:3},
+    {id:4,imageId:4,advertisementId:4},
+    {id:5,imageId:5,advertisementId:5},
+    {id:6,imageId:6,advertisementId:6},
 ]
 
 
@@ -445,6 +505,20 @@ export const LOGISTICFIRMS: LogisticFirmList[]=[
 
 export const DefaultLogisticFirm:LogisticFirmList=LOGISTICFIRMS[LOGISTICFIRMS.length-1];
 
+export const LOGISTICS_PORT_MAPPING: LogisticsPortMapping[]=[
+    {id:1, logisticsId:1, logisticsName:'Mariners Bay', 
+    ports:[
+        {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+        {id:2,name:"Port of Chennai",stateDetails: {id:2,name:"CH",countryDetails:{id:1,name:"India"}}}
+    ]},
+    /* {id:1, logisticsId:5, logisticsName:'The Indian', 
+    ports:[
+        {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
+        {id:2,name:"Port of Chennai",stateDetails: {id:2,name:"CH",countryDetails:{id:1,name:"India"}}}
+    ]} */
+
+];
+
 export const COMPANYDETAILS: CompanyDetails[]=[
     {id:1, name:'Marine Affiliates', contact:'9903458227', email:'maff@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4.5,profile_completion_percent:50,profileFields:[{id:1,fieldName:"Phone No",verifyStatus:true},{id:2,fieldName:"Email",verifyStatus:true},{id:3,fieldName:"Document",verifyStatus:false}]},
     {id:2, name:'Deep Oceans', contact:'9903422127', email:'deepoceans@gmail.com',port:{id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},avg_rating:4,profile_completion_percent:70,profileFields:[{id:1,fieldName:"Phone No",verifyStatus:true},{id:2,fieldName:"Email",verifyStatus:true},{id:3,fieldName:"Document",verifyStatus:true}]},
@@ -462,6 +536,16 @@ export const MESSAGELIST: MessageList[]=[
 export const MESSAGEDETAILS: MessageDetails[]=[
     {messageId:1, msgThread:[{msg:"hi how are you?",senderId:4, receiverId: 2}, {msg:"Am Fine?",senderId:2, receiverId: 1}]},
     {messageId:2, msgThread:[{msg:"Ki haal?",senderId:4, receiverId: 5}, {msg:"Ami bhalo..tui kemn?",senderId:5, receiverId: 1}]}
+];
+
+export const BUY_SELL_MESSAGELIST: MessageList[]=[
+    {messageId:1, adId: 1, senderId:3, receiverId: 4},
+    {messageId:2, adId: 2, senderId:3, receiverId: 4},
+];
+
+export const BUY_SELL_MESSAGEDETAILS: MessageDetails[]=[
+    {messageId:1, msgThread:[{msg:"hi how are you?",senderId:3, receiverId: 2}, {msg:"Am Fine?",senderId:2, receiverId: 3}]},
+    {messageId:2, msgThread:[{msg:"Ki haal?",senderId:3, receiverId: 4}, {msg:"Ami bhalo..tui kemn?",senderId:4, receiverId: 3}]}
 ];
 
 export const AD_LOGISTICS_MAPPING: AdLogisticsMapping[]=[
@@ -485,6 +569,30 @@ export const QUOTATION: Quotation[]=[
 /* List of logistics request received by firm and their status */
 export const LOGISTICS_ORDER_LIST:LogisticsOrderList[]=[];
 
+export const THIRD_PARTY_AD_POSITIONS: ThirdPartyAdsPosition[]=[
+    {id:1, position:"right", price:700},
+    {id:2, position:"bottom", price:500},
+];
+
+export const THIRD_PARTY_ADS: ThirdPartyAds[]=[
+    {id:1,url:"/company/logisticsFirmProfile",adTitle:"Serving in Kol and Chennai", adDetails:"Hi!! we are now in Kolkata and Chennai", 
+    location:["Kolkata Port","Port of Chennai"], postedById: 1, postedByName:"Mariners Bay", position:"right"},
+
+    {id:2,url:"/company/logisticsFirmProfile",adTitle:"We are in Kol", adDetails:"Hi!! Serving in Kolkata Now", 
+    location:["Kolkata Port"], postedById: 2, postedByName:"Sea Farer", position:"right"},
+
+    {id:3,url:"/company/logisticsFirmProfile",adTitle:"Improved Services", adDetails:"Hi..we have renovated and raring to go", 
+    location:["Kolkata Port"], postedById: 3, postedByName:"Blue Shark", position:"bottom"},
+
+    {id:4,url:"/company/logisticsFirmProfile",adTitle:"Monsoon Discounts", adDetails:"Discounts in Monsoon Shipments", 
+    location:["Kolkata Port"], postedById: 5, postedByName:"The Indian", position:"bottom"},
+
+    {id:5,url:"/company/logisticsFirmProfile",adTitle:"All Year Discounts", adDetails:"The amount you pay will keep going down but our promises will never go down", 
+    location:["Kolkata Port"], postedById: 5, postedByName:"The Indian", position:"bottom"},
+
+    {id:6,url:"/company/logisticsFirmProfile",adTitle:"Free Shipments", adDetails:"We are providing free shipments within 2000 nautical miles. Offer ends on 30th Sept", 
+    location:["Kolkata Port"], postedById: 5, postedByName:"The Indian", position:"bottom"},
+];
 //Admin Section
 
 export const VERIFYCOMPANYDOCUMENT : VerifyCompanyDocument[]=[
