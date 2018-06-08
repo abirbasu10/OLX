@@ -148,10 +148,10 @@ export class CompanyDetails
     name: string;
     contact: string;
     email: string;
-    port: Port; 
-    avg_rating: number;
-    profile_completion_percent: number;
-    profileFields:ProfileFields[];
+    port?: Port; 
+    avg_rating?: number;
+    profile_completion_percent?: number;
+    profileFields?:ProfileFields[];
 }
 
 export class ProfileFields{
@@ -240,3 +240,18 @@ export class VerifyCompanyDocument{
     name:string
     status: boolean
 }
+
+
+export class Roles {
+    id:number
+    name:string
+}
+
+export class User {
+    id:number
+    name:string
+    email:string
+    contact:string
+    role:Roles["name"]
+}
+

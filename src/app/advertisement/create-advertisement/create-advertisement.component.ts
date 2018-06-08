@@ -3,7 +3,7 @@ import { Category, SubCategory, Filter, SubCatFilterMap, Country, State, Port, A
 import { CATEGORIES, SUBCATEGORIES, FILTERS, SUBCATFILTERMAP, COUNTRIES, STATES, PORTS, ADVERTISEMENTS, PRODUCTFILTERVALUES, SUBCATFILTEROPTIONS, FEATUREDPLANS, FEATURED_ADVERTISEMENT_MAP } from '../../application_mock_Data';
 
 import { Router } from '@angular/router';
-import { ImageUploadModule } from "angular2-image-upload";
+//import { ImageUploadModule } from "angular2-image-upload";
 
 import { HttpClient } from '@angular/common/http';
 import { Http, Headers, RequestOptions } from '@angular/http';

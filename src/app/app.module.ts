@@ -115,9 +115,17 @@ import { LogisticsMessageDetailsComponent } from './logistics/logistics-message-
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { AdminCategoryManagementComponent } from './admin/admin-category-management/admin-category-management.component';
 
-import { ImageUploadModule } from "angular2-image-upload";
+//import { ImageUploadModule } from "angular2-image-upload";
 import { ProvideQuotationComponent } from './logistics/provide-quotation/provide-quotation.component';
 import { LogisticsRequestListComponent } from './logistics/logistics-request-list/logistics-request-list.component';
+import { AdminUserManagementComponent } from './admin/admin-user-management/admin-user-management.component';
+import { AddEditUsersComponent } from './admin/add-edit-users/add-edit-users.component';
+import { AdminCompanyDetailsComponent } from './admin/admin-company-details/admin-company-details.component';
+import { AdminCompanyManagementComponent } from './admin/admin-company-management/admin-company-management.component';
+
+import { AddEditCompanyComponent } from './admin/add-edit-company/add-edit-company.component';
+import { FilterManagementComponent } from './admin/filter-management/filter-management.component';
+
 //import { AngularChromeImageStorageComponent } from '../../node_modules/angular-chrome-image-storage-master/angular-chrome-image-storage';
 
 /* import { VendorComponent } from './vendor/vendor.component';
@@ -244,6 +252,23 @@ CompanyComponent,
 
     LogisticsRequestListComponent,
 
+    AdminUserManagementComponent,
+
+    AddEditUsersComponent,
+
+    AdminCompanyDetailsComponent,
+
+    AdminCompanyManagementComponent,
+
+
+    AddEditCompanyComponent,
+
+
+    FilterManagementComponent,
+
+
+    
+
     //AngularChromeImageStorageComponent,
 
 
@@ -293,7 +318,7 @@ CompanyComponent,
     MatTableModule,
     MatSlideToggleModule,
 
-    ImageUploadModule.forRoot(),
+   // ImageUploadModule.forRoot(),
 /*     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA_h565MUlULgemvbsLJeizADz-wQ3FUp8'
     }), */
@@ -305,8 +330,15 @@ CompanyComponent,
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
    entryComponents: [
+    AddEditUsersComponent,
+    AddEditCompanyComponent,
    // CompanyAddVesselComponent,
     CompanyAddEditEmployeeComponent,
-  ] 
+  ] ,
+  
+   
+  
+
+  
 })
 export class AppModule { }

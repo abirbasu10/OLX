@@ -56,9 +56,11 @@ import {AdminCategoryManagementComponent} from './admin/admin-category-managemen
 import { ProvideQuotationComponent } from './logistics/provide-quotation/provide-quotation.component';
 import { LogisticsRequestListComponent } from './logistics/logistics-request-list/logistics-request-list.component';
 
-
+import { AdminUserManagementComponent } from './admin/admin-user-management/admin-user-management.component';
 //import { AdminSubscriptionManagementComponent } from './admin/admin-subscription-management/admin-subscription-management.component';
-
+import {AdminCompanyManagementComponent} from './admin/admin-company-management/admin-company-management.component'
+import { AdminCompanyDetailsComponent } from './admin/admin-company-details/admin-company-details.component';
+import { FilterManagementComponent } from './admin/filter-management/filter-management.component';
 
 
 
@@ -116,7 +118,10 @@ const routes: Routes =[
      { path:'logistics/register', component:LogisticsRegisterComponent},
      { path:'logistics/changePassword', component:LogisticsChangePasswordComponent},
      { path:'admin/categoryManagement', component:AdminCategoryManagementComponent},
-     
+     { path:'admin/userManagement', component:AdminUserManagementComponent},
+     { path:'admin/companyManagement', component:AdminCompanyManagementComponent},
+     { path:'admin/companyDetails', component:AdminCompanyDetailsComponent},
+     { path:'admin/filterManagement', component:FilterManagementComponent},
 ];
 
 @NgModule({

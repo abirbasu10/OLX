@@ -1,6 +1,6 @@
-import { AdLogisticsMapping, LogisticsQuoteRequest, Quotation, LogisticsOrderList } from './classDefinition'
+import { AdLogisticsMapping, LogisticsQuoteRequest, Quotation, LogisticsOrderList, User } from './classDefinition'
 import { MessageList, MessageDetails, MessageThread} from "./classDefinition";
-import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList,CompanyDetails,ProfileFields, VerifyCompanyDocument, FeaturedPlan, FeaturedAdvertisementMap } from "./classDefinition";
+import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList,CompanyDetails,ProfileFields, VerifyCompanyDocument, FeaturedPlan, FeaturedAdvertisementMap,Roles } from "./classDefinition";
 
 
 export const CATEGORIES: Category[]=[
@@ -121,7 +121,7 @@ export const SUBCATFILTERMAP:SubCatFilterMap[]=[
         hasChild:1
     },
     {
-        id:6,
+        id:7,
         subCategoryDetails:{id:6,name:"Scooter",categoryDetails:{id:4,name:"Bike"}},
         filterDetails:
         [ 
@@ -133,7 +133,7 @@ export const SUBCATFILTERMAP:SubCatFilterMap[]=[
         hasChild:1
     },
     {
-        id:7,
+        id:8,
         subCategoryDetails:{id:7,name:"Motor Cycles",categoryDetails:{id:4,name:"Bike"}},
         filterDetails:
         [ 
@@ -489,5 +489,17 @@ export const LOGISTICS_ORDER_LIST:LogisticsOrderList[]=[];
 
 export const VERIFYCOMPANYDOCUMENT : VerifyCompanyDocument[]=[
 
+
+];
+
+
+export const ROLES : Roles[] = [
+    {id:1, name: "Admin"},
+    {id:2, name: "User"}
+];
+
+export const USERS : User[] = [
+    {id:1, name: "Raj", email : "abc@ddd.com", contact : "23242343", role : "User"},
+    {id:2, name: "Raja", email : "ac@dd.co", contact : "567676543", role : "Admin"}
 
 ];
