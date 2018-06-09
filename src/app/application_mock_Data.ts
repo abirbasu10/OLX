@@ -513,7 +513,7 @@ export const LOGISTICS_PORT_MAPPING: LogisticsPortMapping[]=[
         {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
         {id:2,name:"Port of Chennai",stateDetails: {id:2,name:"CH",countryDetails:{id:1,name:"India"}}}
     ]} */
- 
+
 ];
 
 export const COMPANYDETAILS: CompanyDetails[]=[
