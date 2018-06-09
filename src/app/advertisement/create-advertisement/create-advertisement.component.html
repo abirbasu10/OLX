@@ -24,16 +24,18 @@
                                         </div>
                                         
                                         <div class="card-content ">
-                                          <div class="col-md-10 col-md-offset-2">
+                                          <div class="col-md-10 col-md-offset-1">
+                                            <div class="basic_details">
+                                                <!-- title -->
                                                 <div class="row">
-                                                    <div class="col-md-12">
-                                                            <mat-form-field class="example-full-width">
-                                                                <input matInput placeholder="Title" [(ngModel)]="adTitle">
-                                                            </mat-form-field>
-                                                                
-                                                    </div>
+                                                    <mat-form-field class="col-md-12">
+                                                        <textarea textarea matInput 
+                                                        matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" 
+                                                        placeholder="Title" [(ngModel)]="adTitle"></textarea>
+                                                    </mat-form-field>
                                                 </div>
 
+                                                <!-- category subcategory -->
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <mat-form-field>
@@ -55,8 +57,54 @@
                                                         </mat-form-field>
                                                     </div>
                                                 </div>
+                                            </div>
 
-                                                <div class="afterSubCategory" *ngIf="adSubCategory" style="border-top:solid black 1px">
+                                            <div class="additionalDetails">
+                                                <!-- images -->
+                                                <div class="row images">
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <label>Select Pictures</label>
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                <input type="file" id="bannerImg" (change)="onChangeImg($event)" multiple>
+                                                            </div>
+                                                        </div>
+                                                            
+                                                            <!-- <button (click)="uploadImg()">Upload</button> -->
+                                                        <div class="row" *ngIf="adImage.length>0">
+                                                            <div class="col-md-2" *ngFor="let img of adImage">
+                                                                <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(img.path)" id="addedImage"  
+                                                                style="height:100px;width:100px;margin-right:20px;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Description -->
+                                                <div class="row">
+                                                    <mat-form-field class="col-md-12">
+                                                        <textarea textarea matInput 
+                                                        matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"
+                                                        placeholder="Description" [(ngModel)]="adDescription"></textarea>
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <!-- Filters -->
+                                                <!--  style="border-top:solid black 1px" -->
+                                                <div class="afterSubCategory" *ngIf="adSubCategory">
+                                                    <div class="row">
+                                                        <div class="col-md-12"> 
+                                                            <mat-form-field>
+                                                                <mat-select #valOfField placeholder="Select Currency" (change)="setCurrency(valOfField)">
+                                                                    <mat-option *ngFor="let cur of currencyList" value="{{cur.id}}">
+                                                                        {{cur.symbol}}--{{cur.name}}
+                                                                    </mat-option>
+                                                                </mat-select>
+                                                            </mat-form-field>
+                                                        </div>
+                                                    </div>
                                                     <div *ngFor="let filters of reqdfilters">
                                                         <div class="row" *ngIf="filters.addType=='numeric'">
                                                             <div class="col-md-12">
@@ -133,7 +181,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <mat-radio-group name="featured" [(ngModel)]="featuredId" (click)="openCheckout()">
+                                                            <mat-radio-group name="featured" [(ngModel)]="featuredId">
                                                                 <mat-radio-button *ngFor="let plan of featuredPlans" value={{plan.id}} class="featuredPlans">
                                                                     <p>Name: {{plan.planName}}</p>
                                                                     <p>Duration: {{plan.duration}}  {{plan.periodType}}</p>
@@ -142,13 +190,7 @@
                                                             </mat-radio-group>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <mat-form-field class="example-full-width">
-                                                                <textarea matInput placeholder="Description" [(ngModel)]="adDescription"></textarea>
-                                                            </mat-form-field>
-                                                        </div>
-                                                    </div>
+                                                    
                                                     <!-- <div class="row">
                                                         <div class="col-md-12">
                                                             <image-upload
@@ -161,17 +203,18 @@
     
                                                         </div>
                                                     </div> -->
-
-                                                    <input type="file" id="bannerImg" (change)="onChangeImg($event)">
-                                                    <!-- <button (click)="uploadImg()">Upload</button> -->
-                                                    <img src="" id="imgBlock"  style="height:200px;width:300px;"/>
+                                                    
                                                 </div>
+                                            </div>
 
-                                                <div class="afterSubCategory" *ngIf="adSubCategory" style="border-top:solid black 1px">
+                                            <div class="contactDetails">
+                                                <!-- style="border-top:solid black 1px" -->
+                                                <div class="afterSubCategory">
+                                                    <!-- Seller name and contacts -->
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <mat-form-field class="example-full-width">
-                                                                <input matInput placeholder="Name" [(ngModel)]="name">
+                                                                <input matInput placeholder="Seller Name" [(ngModel)]="name">
                                                             </mat-form-field>
                                                         </div>
 
@@ -182,6 +225,7 @@
                                                         </div>
                                                     </div>
 
+                                                    <!-- Location -->
                                                     <div class="row">
                                                         <div class="col-md-4">
                                                             <mat-form-field>
@@ -214,19 +258,20 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row" *ngIf="adSubCategory">
-                                                    <div class="col-md-6 col-md-offset-3">
-                                                        <button class="btn btn-primary btn-round" (click)="postAd()">Post AD</button>
-                                                    </div>
+                                            </div>
+
+                                            <div class="row" *ngIf="adSubCategory">
+                                                <div class="col-md-6 col-md-offset-3">
+                                                    <button class="btn btn-primary btn-round" (click)="postAd()">Post AD</button>
                                                 </div>
+                                            </div>
                                           </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-<!-- 
-                        <img [src]="url"> -->
+                    <!-- <img [src]="url"> -->
                 </div>
 
                 <company-footer></company-footer>

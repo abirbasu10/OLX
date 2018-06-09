@@ -1,0 +1,88 @@
+
+  <div class="modal-body">
+      <div class="row">
+      
+          
+
+          <div class="col-md-6">
+            <!-- {{currentCompany|json}} -->
+              <div class="input-group">
+                      
+                  <mat-form-field class="example-full-width">
+                      <input #name matInput placeholder="Company Name" type="text" id="companyName" value="{{data.currentCompany.name}}" 
+                      >
+                  </mat-form-field>
+              </div>
+          </div>
+
+
+          <div class="col-md-6">
+              <div class="input-group">
+                
+                  <mat-form-field>
+                      <mat-select #country placeholder="Countries" [(ngModel)]="currentCountry" value="{{data.currentCompany.port.stateDetails.countryDetails}}">
+                          <mat-option  *ngFor="let country of data.countries"  value="{{country}}">
+                              {{country.name}}
+                          </mat-option>
+                      </mat-select>
+                  </mat-form-field>
+              </div>
+          </div>
+
+          <div class="col-md-6">
+              <div class="input-group">
+                
+                  <mat-form-field>
+                      <mat-select #state placeholder="States" [(ngModel)]="currentState" value="{{data.currentCompany.port.stateDetails}}">
+                          <mat-option  *ngFor="let state of data.states"  value="{{state}}">
+                              {{state.name}}
+                          </mat-option>
+                      </mat-select>
+                  </mat-form-field>
+              </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="input-group">
+              
+                <mat-form-field>
+                    <mat-select #port placeholder="Ports" [(ngModel)]="currentPortID" value="{{data.currentCompany.port}}" >
+                        <mat-option  *ngFor="let port of data.ports"  value="{{port.id}}">
+                            {{port.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+          <div class="col-md-6">
+            <div class="input-group">
+                    
+                <mat-form-field class="example-full-width">
+                    <input #email matInput placeholder="Email" type="email" id="companyemail" value="{{data.currentCompany.email}}" 
+                    >
+                </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="input-group">
+                    
+                <mat-form-field class="example-full-width">
+                    <input #contact matInput placeholder="Contact" type="text" id="companyContact" value="{{data.currentCompany.contact}}" 
+                    >
+                </mat-form-field>
+            </div>
+        </div>
+              
+              
+
+          
+     
+      
+      </div>
+  </div>
+  <div class="modal-footer">
+          
+  <input type="submit" class="btn btn-primary" (click)="addEditCompany(name,email,contact)" value="Save changes" data-dismiss="AddEditCompanyForm">
+  </div>

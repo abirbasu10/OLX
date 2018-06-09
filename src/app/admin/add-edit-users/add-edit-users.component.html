@@ -1,0 +1,73 @@
+<form [formGroup]="formdata" id="AddEditUserForm" (ngSubmit) = "addEditUser(formdata.value)">
+  <div class="modal-body">
+    <div class="row">
+        <!-- <div class="col-md-6">
+            <div class="input-group">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="User ID" type="text" value="{{data.currentUser.id}}" id="userId" 
+                    formControlName="id" readonly>
+                </mat-form-field>
+            </div>
+        </div> -->
+        <div class="col-md-6">
+            <div class="input-group">
+                <!-- <span class="input-group-addon">
+                    <i class="material-icons notranslate">search</i>
+                </span> -->
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="User Name" type="text" id="userName" value="{{data.currentUser.name}}" 
+                    formControlName="name">
+                </mat-form-field>
+            </div>
+        </div>
+
+     
+        
+        <div class="col-md-6">
+          <div class="input-group">
+              <!-- <span class="input-group-addon">
+                  <i class="material-icons notranslate">search</i>
+              </span> -->
+              <mat-form-field>
+
+                  <mat-select placeholder="Role"  [(ngModel)]="userRole" [ngModelOptions]="{standalone: true}">
+      
+
+                      <mat-option  *ngFor="let r of roles"  value="{{r.name}}">
+                          {{r.name}}
+                      </mat-option>
+                  </mat-select>
+              </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="input-group">
+                <!-- <span class="input-group-addon">
+                    <i class="material-icons notranslate">search</i>
+                </span> -->
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" type="email" id="userEmail" value="{{data.currentUser.email}}"
+                    formControlName="email">
+                    </mat-form-field>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <!-- <span class="input-group-addon">
+                    <i class="material-icons notranslate">search</i>
+                </span> -->
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Contact" type="text" id="usrContact" value="{{data.currentUser.contact}}"
+                    formControlName="contact">
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+      
+  </div>
+  <div class="modal-footer">
+            
+    <input type="submit" class="btn btn-primary" value="Save changes" title="Add User" data-dismiss="AddEditUserForm">
+  </div>
+</form>

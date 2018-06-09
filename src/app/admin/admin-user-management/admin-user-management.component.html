@@ -1,0 +1,89 @@
+
+
+<button type="button" class="btn btn-sm btn-primary add_button pull-right" (click)="openDialog()">
+        <i class="material-icons notranslate plus_sign" >person_add</i>
+    </button>
+<div class="wrapper">
+  <div class="sidebar" data-color='purple' data-image="" style="z-index:2032">
+      <admin-sidebar></admin-sidebar>
+      <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+  </div>
+  <div class="main-panel">
+          
+          <!-- <router-outlet></router-outlet> -->
+          <div class="main-content">
+                  <div class="container-fluid">
+                      <div class="row">
+                        
+                          <div class="col-md-12">
+                              <div class="card">
+                                  <div class="card-header" data-background-color="purple">
+                                        <div class="row" style="font-size: 24px; position: relative; left: 20px; top: 0px;">
+                                                <i class="material-icons notranslate" style="position:relative; top:3px">person</i>Users
+                                        </div>  
+                                  </div>
+                                  
+                                  <div class="card-content table-responsive">
+                                        <div class="col-md-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="material-icons notranslate">search</i>
+                                                    </span>
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Search" type="text" [value]="searchTerm" (input)="searchUser($event)">
+                                                    </mat-form-field>
+                                                </div>
+                                        </div>
+                                  
+                                        <div class="col-md-12">
+                                            <table class="table">
+                                                <thead class="text-danger">
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Name</th>
+                                                        <th>Role </th>
+                                                        <th>Email</th>
+                                                        <th>Contact</th>
+                                                        <th>Edit</th>
+                                                        <th>Delete</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody *ngFor="let user of users">
+                                                    <tr>
+                                                        <td>
+                                                            {{user.id}}
+                                                        </td>
+                                                        <td>
+                                                            <!-- <a routerLink="/company/employeeDetails"> -->
+                                                                {{user.name}}
+                                                            <!-- </a> -->
+                                                        </td>
+                                                        <td>{{user.role}}</td>
+                                                        <td>{{user.email}}</td>
+                                                        <td>{{user.contact}}</td> 
+                                                        <td><button class="btn btn-sm btn-success" (click)="setCurrentUser(user)" >
+                                                        <i class="material-icons notranslate">edit</i></button>
+                                                        </td>
+                                                        <td><button class="btn btn-sm btn-danger" (click)="deleteUser(user)"> 
+                                                        <i class="material-icons notranslate">delete</i></button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+              
+                      
+                            
+                  </div>
+              </div>
+          <!-- <div *ngIf="isMaps('maps')"> -->
+              
+          <!-- </div> -->
+      </div>
+</div>
+
+

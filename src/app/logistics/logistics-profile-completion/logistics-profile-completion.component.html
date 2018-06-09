@@ -1,0 +1,100 @@
+<!-- <logistics-navbar></logistics-navbar> -->
+
+<div class="wrapper">
+  <div class="sidebar" data-color='purple' data-image=""  style="z-index:2032">
+      <logistics-sidebar></logistics-sidebar>
+      <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+  </div>
+  <div class="main-panel">
+            
+    <!-- <router-outlet></router-outlet> -->
+    <div class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              
+              <div class="card-header" data-background-color="purple">
+                <h4 class="title"><i class="material-icons notranslate">description</i>Complete Your Profile</h4><h4></h4>
+              </div>
+
+              <div class="card-content">
+                <div class="row">
+                  <div class="col-md-10 col-md-offset-1">
+
+                    <!-- Ports Served -->
+                    <div class="row portServed">
+                      <div class="col-md-12">
+                        
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h3>Fill in Ports where you serve</h3>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-4">
+                              <mat-form-field>
+                                  <mat-select placeholder="Country" [(ngModel)]="chosenCountry" (change)="getState()">
+                                      <mat-option *ngFor="let country of countries" value="{{country.name}}">
+                                          {{country.name}}
+                                      </mat-option>
+                                  </mat-select>
+                              </mat-form-field>
+                          </div>
+    
+                          <div class="col-md-4" *ngIf="states.length>0">
+                              <mat-form-field>
+                                  <mat-select placeholder="State" [(ngModel)]="chosenState" (change)="getPort()">
+                                      <mat-option *ngFor="let state of states" value="{{state.name}}">
+                                          {{state.name}}
+                                      </mat-option>
+                                  </mat-select>
+                              </mat-form-field>
+                          </div>
+    
+                          <div class="col-md-4" *ngIf="ports.length>0">
+                              <mat-form-field>
+                                  <mat-select placeholder="Port" [(ngModel)]="selectedPort" (change)="updateChosenPorts()">
+                                      <mat-option *ngFor="let port of ports" value="{{port.name}}">
+                                          {{port.name}}
+                                      </mat-option>
+                                  </mat-select>
+                              </mat-form-field>
+                          </div>
+                        </div>
+
+                        <div class="row" *ngIf="chosenPorts.length>0">
+                          <div class="col-md-3">
+                            <h5>Ports You Chose: </h5>
+                          </div>
+                          <div class="col-md-9">
+                            <!-- {{this.currentPortMapping.ports | json}} -->
+                              <mat-chip-list>
+                                  <mat-chip *ngFor="let port of this.currentPortMapping.ports">
+                                    <span class="chosenPortName">{{port.name}}</span>
+                                    <span class="removePort" (click)="removePort(port)">
+                                      <i class="material-icons">clear</i>
+                                    </span>
+                                  </mat-chip>
+                              </mat-chip-list>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <logistics-footer></logistics-footer> -->
+
+  </div>
+</div>

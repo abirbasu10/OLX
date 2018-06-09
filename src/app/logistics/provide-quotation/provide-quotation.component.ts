@@ -3,10 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
-import { Category,SubCategory,Advertisement,ProductFilterValue,AdvertisementFilterValue,CompanyDetails,
+import { Currency, Category,SubCategory,Advertisement,ProductFilterValue,AdvertisementFilterValue,CompanyDetails,
   LogisticFirmList, AdLogisticsMapping, LogisticsQuoteRequest, Quotation, LogisticsOrderList } from '../../classDefinition'
 
-import { CATEGORIES,SUBCATEGORIES,ADVERTISEMENTS,SUBCATFILTERMAP,SUBCATFILTEROPTIONS,PRODUCTFILTERVALUES,
+import { CURRENCY, SELLER_CHOSEN_CURRENCY, LOGISTICS_CHOSEN_CURRENCY,CATEGORIES,SUBCATEGORIES,ADVERTISEMENTS,SUBCATFILTERMAP,SUBCATFILTEROPTIONS,PRODUCTFILTERVALUES,
   DefaultCompany,DefaultLogisticFirm, COMPANYDETAILS, AD_LOGISTICS_MAPPING, LOGISTICS_QUOTE_REQUEST, QUOTATION, 
   LOGISTICS_ORDER_LIST } from '../../application_mock_Data'
 
@@ -16,11 +16,17 @@ import { CATEGORIES,SUBCATEGORIES,ADVERTISEMENTS,SUBCATFILTERMAP,SUBCATFILTEROPT
   styleUrls: ['./provide-quotation.component.css']
 })
 export class ProvideQuotationComponent implements OnInit {
+  currencyList:Currency[]=CURRENCY;
+  sellerCurrency:Currency=SELLER_CHOSEN_CURRENCY[0];
+  logisticsCurrency:Currency=LOGISTICS_CHOSEN_CURRENCY[0];
+
+
   currentAd:ProductFilterValue;
+  currentAdPrice:number;
   currentLogistics:LogisticFirmList;
   currentCompany:CompanyDetails;
   currentQuoteReq:LogisticsQuoteRequest;
-
+  
   quotedPrice:number;
 
   constructor(
@@ -33,6 +39,7 @@ export class ProvideQuotationComponent implements OnInit {
     var company = this.route.snapshot.paramMap.get('companyName');
 
     this.currentAd=PRODUCTFILTERVALUES.find(ad=>ad.advertisementDetails.productName==adName);
+    this.currentAdPrice=Number(this.currentAd.filterValues.find(fltr=>fltr.name=="Price").value)
     this.currentCompany=COMPANYDETAILS.find(cmp=>cmp.name==company);
     this.currentLogistics=DefaultLogisticFirm;
     this.currentQuoteReq=LOGISTICS_QUOTE_REQUEST.find(req=>req.companyId==this.currentCompany.id && 
@@ -53,6 +60,14 @@ export class ProvideQuotationComponent implements OnInit {
     }
     
     //this.sendQuote()
+  }
+
+  setCurrency(valOfField)
+  {
+    /* console.log("valOfField",valOfField.value) */
+    var selectedCurrency=CURRENCY.find(c=>c.id==valOfField.value)
+    LOGISTICS_CHOSEN_CURRENCY[0]=selectedCurrency;
+    console.log("LOGISTICS_CHOSEN_CURRENCY",LOGISTICS_CHOSEN_CURRENCY)
   }
 
   sendQuote()

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Category,SubCategory,Advertisement,ProductFilterValue,AdvertisementFilterValue } from '../../classDefinition'
-import { CATEGORIES,SUBCATEGORIES,ADVERTISEMENTS,SUBCATFILTERMAP,SUBCATFILTEROPTIONS,PRODUCTFILTERVALUES } from '../../application_mock_Data'
+import { Category,SubCategory,Advertisement,ProductFilterValue,AdvertisementFilterValue, Image, ImageAdvertisementMap } from '../../classDefinition'
+import { CATEGORIES,SUBCATEGORIES,ADVERTISEMENTS,SUBCATFILTERMAP,SUBCATFILTEROPTIONS,PRODUCTFILTERVALUES,IMAGES, IMAGEADVERTISEMENTMAP } from '../../application_mock_Data'
+import { DomSanitizer } from '@angular/platform-browser';
 
 declare const $;
 
@@ -24,10 +25,17 @@ searchTerm:string=""
 mappedFilters:any[]=[]
 tempAd:Advertisement[]=[]
 userFilterValues:AdvertisementFilterValue[]=[]
-userFiters:any[]=[]
-  constructor() { }
+userFiters:any[]=[];
+
+images:Image[]=[];
+imgAdMapping:ImageAdvertisementMap[]=[];
+
+  constructor(private _DomSanitizationService: DomSanitizer ) { }
 
   ngOnInit() {
+
+    this.images=IMAGES;
+    this.imgAdMapping=IMAGEADVERTISEMENTMAP;
 
      var tempLocation=""
     for (let ad of ADVERTISEMENTS){

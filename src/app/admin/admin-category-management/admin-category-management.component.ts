@@ -17,7 +17,10 @@ export class AdminCategoryManagementComponent implements OnInit {
   totalNoOfCategories : number = 0
   totalNoOfSubCategories : number = 0
 category:Category[]=CATEGORIES
-currentCategory : Category[] = null
+subCategory : SubCategory[]=SUBCATEGORIES
+currentCategory : Category = null
+catOfSubCat : number = null
+currentSubCat : SubCategory = null
  // allSubCatByCat : any[]
   
   constructor() { }
@@ -61,37 +64,81 @@ currentCategory : Category[] = null
 
   editCat(cat)
   {
-    this.currentCategory = cat
-    $("#editCatModal").modal('show')
+    console.log(cat)
+    this.currentCategory = CATEGORIES.find(ct=>ct.name==cat.catName);
+    console.log("this.currentCategory from edit: ",this.currentCategory)
+    $("#catEditModal").modal('show')
+    $("#catEdit").val(cat.catName)
     //this.refreshCategoryTable();
   }
 
   addCat()
   {
     this.currentCategory = null
-    $("#editCatModal").modal('show')
+    $("#catEditModal").modal('show')
+  }
+
+  addSubCat(){
+    this.currentSubCat = null
+    $("#subCatEditModal").modal('show')
   }
 
   saveCategory(cat){
 
+    console.log(cat)
     var catName = $("#catEdit").val()
+    alert("catName: "+catName)
     if(cat)
     {
+      alert("1st  "+cat.name)
+      //During edit
+      this.currentCategory.name=catName;
 
+      alert("2nt  "+cat.name)
     }
     else{
-      CATEGORIES.push({id:CATEGORIES.length+1,name:catName})
+      //During Add
       this.category.push({id:this.category.length+1,name:catName})
-      this.refreshCategoryTable()
     }
+    console.log("this.currentCategory after saving",this.currentCategory)
+    this.refreshCategoryTable()
   }
 
   refreshCategoryTable(){
     this.catDataSource = new MatTableDataSource(this.getCategories());
   }
-
-  delCat(catId){
+  refreshSubCategoryTable(){
+    this.subCatDataSource = new MatTableDataSource(this.getSubCatByCat());
+  }
+  saveSubCategory(subCat){
+    var catId = $("#catofSubCat").val();
+    alert("catId:  "+catId)
+    var subCatName = $("#subCatVal").val();    
+    //console.log("vc",this.catOfSubCat)
     
+    if(subCat){
+      console.log("finding",CATEGORIES.find(ct=>ct.id == catId))
+      this.currentSubCat.categoryDetails = CATEGORIES.find(ct=>ct.id == catId);
+      this.currentSubCat.name = subCatName
+    }
+    else{
+    var cat=CATEGORIES.find(ct=>ct.id==this.catOfSubCat)
+    var id=this.subCategory[this.subCategory.length-1].id+1;
+    this.subCategory.push({id:id, name:subCatName, categoryDetails:cat})
+    }
+    console.log("this.subCategory after adding ",this.subCategory)
+    this.refreshSubCategoryTable()
+  }
+
+  editCatSubCat(subCatId)
+  {
+    $("#subCatEditModal").modal("show")
+    this.currentSubCat=SUBCATEGORIES.find(sCat => sCat.id == subCatId)
+    $("#subCatVal").val(this.currentSubCat.name)
+    $("#catofSubCat").val(this.currentSubCat.categoryDetails.id)
+  }
+
+  delCat(catId){    
     this.category=this.category.filter(cat => cat.id != catId)
     this.refreshCategoryTable()
   }

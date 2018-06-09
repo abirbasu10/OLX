@@ -1,0 +1,177 @@
+
+<div class="wrapper">
+            
+  <div class="sidebar" data-color='purple' data-image="" style="z-index:2032">
+      <admin-sidebar></admin-sidebar>
+      <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+  </div>
+
+  
+
+  <div class="main-panel">
+     
+          <!-- <router-outlet></router-outlet> -->
+          <div class="main-content">
+
+                  <div class="container-fluid">
+
+                    <div class="row">
+                      <div class="col-md-12">
+                         
+                        <div class="card">
+                              <div class="card-header" data-background-color="purple">
+                                  <h2>
+                                    <i class="material-icons notranslate" style="font-size:40px;">list</i>
+                                    <span>Filter Management</span>
+                                   
+                                  </h2>
+                              </div>
+                              <div class="card-content">
+                                  <div class="row">
+                                    <div class="col-md-4 col-md-offset-1">
+                                      <label>Category : </label>
+                                      <mat-form-field>
+                                          <mat-select  placeholder="Category"  (change)="getSubCatByCat($event)">
+                                              <mat-option  *ngFor="let cat of category"  value="{{cat.id}}">
+                                                  {{cat.name}}
+                                              </mat-option>
+                                          </mat-select>
+                                      </mat-form-field>
+
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1" *ngIf="subCatsByCat">
+                                        <label>Sub-Category : </label>
+                                        <mat-form-field>
+                                            <mat-select placeholder="Sub-Category" (change)="getFiltersBySubCat($event)" >
+                                                <mat-option *ngFor="let subCat of subCatsByCat"   value="{{subCat.id}}">
+                                                    {{subCat.name}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+  
+                                      </div>
+                                  </div>
+                                  <div class="row" *ngIf = "filtersBySubCat">
+                                    <div class="col-md-12">
+                                      <h2>Filters Already Tagged Are</h2>
+                                      <div class="table-responsive">
+                                        <table class="table table-hover">
+                                          <thead class="text-danger">
+                                            <th>Name</th>
+                                            <th>Desc</th>
+                                            <th>Type</th>
+                                            <th>Add-Type</th>
+                                            <th>Extra-Info</th>
+                                          </thead>
+                                          <tbody>
+                                            <tr *ngFor="let fil of filtersBySubCat">
+                                              <td>{{fil.name}}</td>
+                                              <td>{{fil.description}}</td>
+                                              <td>{{fil.type}}</td>
+                                              <td>{{fil.addType}}</td>
+                                              <td *ngIf="fil.extraInfo else elseBlock">
+                                                  <i class="material-icons" style="color:green;font-weight:800;">
+                                                      check
+                                                      </i>
+                                              </td>
+                                              <ng-template #elseBlock>
+                                                <td>
+                                                    <i class="material-icons" style="color:red;font-weight:800;">
+                                                        clear
+                                                        </i>
+                                                </td>
+                                              </ng-template>
+                                            </tr>
+                                            <tr>
+                                              <td class="col-md-12 pull-right">
+                                              <button class="btn btn-sm btn-primary" (click)="checkAddFilter()">  Add Filter  </button>
+                                              </td>
+                                            </tr>
+                                            <tr *ngIf="addFilter">
+                                              <td>
+                                                  <mat-form-field class="example-full-width">
+                                                      <input matInput placeholder="Filter Name" [(ngModel)]="filterName" value="" >
+                                                    </mat-form-field>
+                                              </td>
+                                              <td>
+                                                  <mat-form-field class="example-full-width">
+                                                      <input  matInput placeholder="Filter Desc"  [(ngModel)]="filterDesc" value="" >
+                                                    </mat-form-field>
+                                              </td>
+                                              <td>
+                                                  <mat-form-field>
+                                                      <mat-select  placeholder="Type" (change)="onChangeFilterType($event)"  [(ngModel)]="filterType">
+                                                          <mat-option value="text">
+                                                              Text
+                                                          </mat-option>
+                                                          <mat-option value="numeric">
+                                                              Numeric
+                                                          </mat-option>
+                                                          <mat-option value="dropdown">
+                                                              Dropdown
+                                                          </mat-option>
+                                                      </mat-select>
+                                                  </mat-form-field>
+                                              </td>
+                                              <td>
+                                                  <mat-form-field>
+                                                      <mat-select  placeholder="Add-Type" [(ngModel)]="filterAddType">
+                                                          <mat-option value="text">
+                                                              Text
+                                                          </mat-option>
+                                                          <mat-option value="numeric">
+                                                              Numeric
+                                                          </mat-option>
+                                                          <mat-option value="dropdown">
+                                                              Dropdown
+                                                          </mat-option>
+                                                      </mat-select>
+                                                  </mat-form-field>
+                                              </td>
+                                              <td>
+                                                  <mat-checkbox (change)="checkExtraInfo()" [checked]="extraInfo">Extra Info</mat-checkbox>
+                                              </td>
+                                            </tr>
+                                            <!-- Dropdown Value -->
+
+                                            <tr *ngIf="addDropdown">
+                                              <td>
+                                                <h3>Add Dropdown Values</h3>
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Dropdown Value" [(ngModel)]="currentDropdownVal">
+                                                  </mat-form-field>
+                                                  <button class="btn btn-sm btn-success" (click)="addDropdownValue()">Add</button>    
+                                              </td>
+                                              <td *ngIf="listOfDropdownVal.length >= 1" colspan="4">
+                                                <h3> Added Values Of Dropdown </h3>
+                                                <h6 *ngFor="let val of listOfDropdownVal "> {{val}} </h6>
+                                              </td>
+                                            </tr>
+
+                                            <tr *ngIf="addFilter">
+                                              <button class="btn btn-sm btn-success" (click)="saveFilter()">Save</button>
+                                              <button class="btn btn-sm btn-danger" (click)="closeFilter()">Close</button>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                    </div>
+                                    </div>
+                                  </div>
+                                   
+                              </div>
+                              <div class="card-footer">
+                                  <div class="stats">
+                                      <i class="material-icons notranslate">local_offer</i> Updated
+                                  </div>
+                              </div>
+                          </div>
+
+                    </div>
+                  </div>
+                         
+                     
+              </div>
+         
+  </div>
+</div>
+

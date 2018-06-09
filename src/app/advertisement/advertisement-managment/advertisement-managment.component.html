@@ -155,32 +155,40 @@
 
                                              <div class="row" id=ads>
                                                 <table class="table table-hover table-responsive" >
-                                                        <thead class="text-danger notranslate" style="text-align:center">
-                                                            <tr class="row"  >
-                                                                <!-- <th class="" >Image </th> -->
-                                                                <th class="" >Product Name </th>
-                                                                <th class="" >Featured </th>
-                                                                <th class="">Description</th>
-                                                                <th class="">Category</th>
-                                                                <th class="">SubCategory</th>
-                                                                <th class="">Location</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody *ngFor="let ad of advertisements">
-                                                         
-                                                              <tr class="row" >
-                                                                <!-- <td><img src="" class="imgBlock"  style="height:200px;width:300px;"></td> -->
-                                                                <td class=" notranslate"><a  routerLink="/advertisement/{{ad.productName}}">  {{ad.productName}}  </a> </td>
-                                                                <td class="">{{ad.isFeatured}}</td>
-                                                                <td  class="">{{ad.productDescription}}</td>
-                                                                <td  class="">{{ad.subCategoryDetails.categoryDetails.name}}</td>
-                                                                <td class="">{{ad.subCategoryDetails.name}} </td>
-                                                                <td class="">{{ad.portDetails.name}},{{ad.portDetails.stateDetails.name}},{{ad.portDetails.stateDetails.countryDetails.name}} </td>
-                                                                   
-                                                               
-                                                            </tr>
+                                                    <thead class="text-danger notranslate" style="text-align:center">
+                                                        <tr class="row"  >
+                                                            <th class="" >Featured </th>
+                                                            <th class="" >Image </th>
+                                                            <th class="" >Product Name </th>
+                                                            <th class="">Description</th>
+                                                            <th class="">Category</th>
+                                                            <th class="">SubCategory</th>
+                                                            <th class="">Location</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody *ngFor="let ad of advertisements">
                                                         
-                                                        </tbody>
+                                                        <tr class="row" *ngIf="ad.isOpen==true">
+                                                            <td class="" >
+                                                                <img src="/assets/img/featured_1.png" *ngIf="ad.isFeatured==true" style="width:75px; height:75px">
+                                                            </td>
+                                                            <td *ngIf="ad.images.length>0;else noImgBlock">
+                                                                <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(ad.images[0].path)" style="height:100px;width:100px;">
+                                                            </td>
+                                                            <ng-template #noImgBlock>
+                                                                <img src="/assets/img/nophoto.jpg" style="height:100px;width:100px;">
+                                                            </ng-template>
+                                                            <!-- <td><img src="" class="imgBlock"  ></td> -->
+                                                            <td class=" notranslate"><a  routerLink="/advertisement/{{ad.productName}}">  {{ad.productName}}  </a> </td>
+                                                            <td  class="">{{ad.productDescription}}</td>
+                                                            <td  class="">{{ad.subCategoryDetails.categoryDetails.name}}</td>
+                                                            <td class="">{{ad.subCategoryDetails.name}} </td>
+                                                            <td class="">{{ad.portDetails.name}},{{ad.portDetails.stateDetails.name}},{{ad.portDetails.stateDetails.countryDetails.name}} </td>
+                                                                
+                                                            
+                                                        </tr>
+                                                    
+                                                    </tbody>
                                                 </table> 
 
                                             </div>

@@ -136,21 +136,31 @@
                           <div class="col-md-12">
                             <div class=row>
                               
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="row">
                                   <div class="col-md-3">
-                                    <label>Price ($): </label>
+                                    <label>Price in {{sellerCurrency.symbol}}: </label>
                                   </div>
                                   <div class="col-md-8 fieldVal">
-                                    {{currentAd.filterValues[1].value}}
+                                    {{currentAdPrice}}
                                   </div>
                                 </div>
                               </div>
 
-                              <div class="col-md-6">
+                              <div class="col-md-4"> 
+                                <mat-form-field style="position: relative;bottom:8px">
+                                  <mat-select #valOfField placeholder="Select Currency" (change)="setCurrency(valOfField)">
+                                    <mat-option *ngFor="let cur of currencyList" value="{{cur.id}}">
+                                      {{cur.symbol}}--{{cur.name}}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-4">
                                 <div class="row">
                                   <div class="col-md-3">
-                                    <label>Quoted ($): </label>
+                                    <label>Quoted in {{logisticsCurrency.symbol}}: </label>
                                   </div>
                                   <div class="col-md-9 fieldVal" *ngIf="currentQuoteLogisticStatus=='Sent'; else placeQuoteBlock">
                                     {{quotedPrice}}
