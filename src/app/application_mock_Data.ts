@@ -1,15 +1,12 @@
-<<<<<<< HEAD
-import { AdLogisticsMapping, LogisticsQuoteRequest, Quotation, LogisticsOrderList, User } from './classDefinition'
+
+import { AdLogisticsMapping, LogisticsQuoteRequest, Quotation, LogisticsOrderList, User, LogisticsPortMapping } from './classDefinition'
 import { MessageList, MessageDetails, MessageThread} from "./classDefinition";
 import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList,CompanyDetails,ProfileFields, VerifyCompanyDocument, FeaturedPlan, FeaturedAdvertisementMap,Roles } from "./classDefinition";
 
-=======
+
 import { ThirdPartyAds, ThirdPartyAdsPosition }  from './classDefinition'
-import { AdLogisticsMapping, LogisticsQuoteRequest, Quotation, LogisticsOrderList } from './classDefinition'
-import { MessageList, MessageDetails, MessageThread} from "./classDefinition";
-import { Category,SubCategory,Filter,SubCatFilterMap,Image,Country,State,Port,Advertisement,ImageAdvertisementMap,ProductFilterValue,AdvertisementFilterValue,SubCategoryFilterOption,SubCategoryOption,CatSubcatImageMap, LogisticFirmList,LogisticsPortMapping,CompanyDetails,ProfileFields, VerifyCompanyDocument, FeaturedPlan, FeaturedAdvertisementMap } from "./classDefinition";
 import { Currency } from "./classDefinition"; 
->>>>>>> fad2576251b8c496ea0b63329aeba9b3aac54c76
+
 
 export const CATEGORIES: Category[]=[
     {id:1,name:"Properties"},
