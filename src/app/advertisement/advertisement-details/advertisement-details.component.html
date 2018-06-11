@@ -107,6 +107,19 @@
                                           <div class="col-md-8">
                                             <label class="heading_label">Category and Location: </label>
                                           </div>
+
+                                          <div class="col-md-offset-1 col-md-6" >
+                                                  <div class="col-md-5">
+                                                    <h5>Seller Logistic Support</h5>
+                                                  </div>
+                                                  <div class="col-md-1">
+                                                    <i style="color:green" class="material-icons" *ngIf="currentAdvertisementDetails.advertisementDetails.sellerLogisticSupport; else elseblock">check</i>
+                                                    <ng-template #elseblock>
+                                                      <i style="color:red" class="material-icons" >clear</i>
+                                                    </ng-template>
+                                                  </div>
+                                           
+                                          </div>
                                         </div>
                                       
                                         <div class="row">

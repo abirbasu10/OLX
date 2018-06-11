@@ -55,7 +55,7 @@ name:string="";
 contact:number;
 date: Date=new Date();
 filterValueId:number=1;
-
+sellLogistic:boolean=false
 advertisementDetails:Advertisement;
 filterValues:AdvertisementFilterValue[]=[];
 
@@ -172,6 +172,12 @@ URL = window.URL;
     this.ports=PORTS.filter(prt=>prt.stateDetails.name==this.adState);
   }
 
+
+  needLogisticSupport(event){
+   // alert(event.checked)
+    this.sellLogistic=event.checked
+  
+  }
 
   enterValue(valueOfField)
   {
