@@ -51,33 +51,57 @@
   
                                       </div>
                                   </div>
-                                  <div class="row" *ngIf = "filtersBySubCat">
+                                  <div class="row" *ngIf = "filtersBySubCat.length >= 1">
                                     <div class="col-md-12">
                                       <h2>Filters Already Tagged Are</h2>
                                       <div class="table-responsive">
                                         <table class="table table-hover">
-                                          <thead class="text-danger">
-                                            <th>Name</th>
-                                            <th>Desc</th>
-                                            <th>Type</th>
-                                            <th>Add-Type</th>
-                                            <th>Extra-Info</th>
+                                          <thead class="text-primary">
+                                            <th class="text-center">Name</th>
+                                            <th class="text-center">Desc</th>
+                                            <th class="text-center">Value</th>
+                                            <th class="text-center">Type</th>
+                                            <th class="text-center">Add-Type</th>
+                                            <th class="text-center">Extra-Info</th>
                                           </thead>
-                                          <tbody>
+                                          <tbody class="text-center">
                                             <tr *ngFor="let fil of filtersBySubCat">
-                                              <td>{{fil.name}}</td>
-                                              <td>{{fil.description}}</td>
-                                              <td>{{fil.type}}</td>
-                                              <td>{{fil.addType}}</td>
-                                              <td *ngIf="fil.extraInfo else elseBlock">
-                                                  <i class="material-icons" style="color:green;font-weight:800;">
+                                              <td>{{fil.details.name}}</td>
+                                              <td>{{fil.details.description}}</td>
+                                              <td *ngIf="fil.values.length >= 1; else noValue">
+                                                 <!-- <span *ngIf="!editDropdown">  -->
+                                                     {{fil.values}} 
+                                                        <i class="material-icons"  title="Edit Filter" style="color:blue;font-weight:800;cursor:pointer;" (click)="editDropdownVal(fil.details.id)">
+                                                                edit
+                                                             </i>
+                                                 <!-- </span>
+                                                <span *ngIf="editDropdown">
+                                                        <mat-form-field class="example-full-width">
+                                                                <input matInput placeholder="Dropdown Value" [(ngModel)]="currentDropdownVal">
+                                                              </mat-form-field>
+                                                        <button class="btn btn-sm btn-primary" (click)="addDropdownValue()">Add</button>   
+                                                        <button class="btn btn-sm btn-success" (click)="saveEditedDropdownVal()">Save</button>
+                                                </span> -->
+                                              </td>
+
+                                              <td>{{fil.details.type}}</td>
+                                              <td>{{fil.details.addType}}</td>
+                                              <td *ngIf="fil.details.extraInfo else elseBlock">
+                                                  <i class="material-icons" style="color:green;font-weight:800;" title="Has Extra Info">
                                                       check
                                                       </i>
                                               </td>
                                               <ng-template #elseBlock>
                                                 <td>
-                                                    <i class="material-icons" style="color:red;font-weight:800;">
+                                                    <i class="material-icons" style="color:red;font-weight:800;" title="No Extra Info">
                                                         clear
+                                                        </i>
+                                                </td>
+                                              </ng-template>
+                                              <ng-template #noValue>
+                                                <td>
+                                                    <i class="material-icons" style="color:black;font-weight:800;" title="Has No Value">
+                                                      remove
                                                         </i>
                                                 </td>
                                               </ng-template>
@@ -93,7 +117,7 @@
                                                       <input matInput placeholder="Filter Name" [(ngModel)]="filterName" value="" >
                                                     </mat-form-field>
                                               </td>
-                                              <td>
+                                              <td colspan="2">
                                                   <mat-form-field class="example-full-width">
                                                       <input  matInput placeholder="Filter Desc"  [(ngModel)]="filterDesc" value="" >
                                                     </mat-form-field>
@@ -139,10 +163,13 @@
                                                 <h3>Add Dropdown Values</h3>
                                                 <mat-form-field class="example-full-width">
                                                     <input matInput placeholder="Dropdown Value" [(ngModel)]="currentDropdownVal">
+                                                    <i class="material-icons" title="Add Filter" (click)="addDropdownValue()" style="color:green;cursor:pointer;" matSuffix>
+                                                            check_circle
+                                                    </i>
                                                   </mat-form-field>
-                                                  <button class="btn btn-sm btn-success" (click)="addDropdownValue()">Add</button>    
+                                                      
                                               </td>
-                                              <td *ngIf="listOfDropdownVal.length >= 1" colspan="4">
+                                              <td *ngIf="listOfDropdownVal.length >= 1" colspan="5">
                                                 <h3> Added Values Of Dropdown </h3>
                                                 <h6 *ngFor="let val of listOfDropdownVal "> {{val}} </h6>
                                               </td>
@@ -155,6 +182,7 @@
                                           </tbody>
                                         </table>
                                     </div>
+                                    
                                     </div>
                                   </div>
                                    
@@ -175,3 +203,51 @@
   </div>
 </div>
 
+<!-- Edit Dropdown Modal -->
+<div id="editDropdownModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Edit Dropdown Value</h4>
+            </div>
+            <div class="modal-body">
+                    <!-- <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Dropdown Value" [(ngModel)]="currentDropdownVal">
+                          </mat-form-field> -->
+                          
+                     <span  *ngFor="let val of editFilterVal; let i=index">
+
+                            <mat-form-field class="example-full-width" style="width:100%;">
+                                    <input matInput placeholder="Filter Name" id="editDropdownVal{{i+1}}" value="{{val}}" autofocus>
+                                  
+                                <i class="material-icons" id="deleteFilter" matSuffix (click)="deleteFilterVal(i)" style="cursor:pointer;" title="Delete Filter">
+                                    add_circle
+                                </i>           
+                            </mat-form-field>
+                     </span>
+
+                     <!-- <span  *ngFor="let val of addEditFilter;">
+
+                            <mat-form-field class="example-full-width" style="width:100%;">
+                                    <input matInput placeholder="Filter Name" id="editDropdownVal{{editFilterVal.length + val + 1}}" value="">
+                                  
+                                <i class="material-icons" id="deleteFilter" matSuffix>
+                                    add_circle
+                                </i>           
+                            </mat-form-field>
+                     </span> -->
+
+                    <button class="btn btn-sm btn-primary" (click)="addEditedDropdownValue()">Add</button>   
+                    
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-sm btn-success" (click)="saveEditedDropdownVal()">Save</button>
+              <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+      
+        </div>
+      </div>
