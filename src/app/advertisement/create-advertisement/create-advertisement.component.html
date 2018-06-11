@@ -37,7 +37,7 @@
 
                                                 <!-- category subcategory -->
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <mat-form-field>
                                                             <mat-select placeholder="Enter Category" [(ngModel)]="adCategory" (change)="getSubCategory()">
                                                                 <mat-option *ngFor="let category of categories" value="{{category.name}}">
@@ -47,7 +47,7 @@
                                                         </mat-form-field>
                                                     </div>
 
-                                                    <div class="col-md-6" *ngIf="adCategory">
+                                                    <div class="col-md-4" *ngIf="adCategory">
                                                         <mat-form-field>
                                                             <mat-select placeholder="Enter Sub Category" [(ngModel)]="adSubCategory" (change)="getFilters()">
                                                                 <mat-option *ngFor="let subcategory of subcategories" value="{{subcategory.name}}">
@@ -55,6 +55,12 @@
                                                                 </mat-option>
                                                             </mat-select>   
                                                         </mat-form-field>
+                                                    </div>
+
+                                                    
+                                                    <div class="col-md-4">
+                                                        <mat-checkbox (change)="needLogisticSupport($event)">Need Logistics Support</mat-checkbox>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -212,15 +218,25 @@
                                                 <div class="afterSubCategory">
                                                     <!-- Seller name and contacts -->
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <mat-form-field class="example-full-width">
                                                                 <input matInput placeholder="Seller Name" [(ngModel)]="name">
                                                             </mat-form-field>
                                                         </div>
 
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <mat-form-field class="example-full-width">
                                                                 <input type="number" matInput placeholder="Contact" [(ngModel)]="contact">
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <!-- #valOfField id="{{filters.name}}" (change)="enterValue(valOfField)" -->
+                                                        <div class="col-md-4">
+                                                            <mat-form-field class="example-full-width">
+                                                                <mat-select placeholder="Company" [(ngModel)]="companyId">
+                                                                    <mat-option *ngFor="let comp of companyList" value="{{comp.id}}">
+                                                                        {{comp.name}}
+                                                                    </mat-option>
+                                                                </mat-select>
                                                             </mat-form-field>
                                                         </div>
                                                     </div>
@@ -261,7 +277,7 @@
                                             </div>
 
                                             <div class="row" *ngIf="adSubCategory">
-                                                <div class="col-md-6 col-md-offset-3">
+                                                <div class="col-md-12" style="text-align:center">
                                                     <button class="btn btn-primary btn-round" (click)="postAd()">Post AD</button>
                                                 </div>
                                             </div>

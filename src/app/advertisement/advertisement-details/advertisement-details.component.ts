@@ -285,7 +285,7 @@ currentAdvertisementDetails:ProductFilterValue={
     }
 
     LOGISTICS_QUOTE_REQUEST.push(firmRequested);
-    //console.log("LOGISTICS_QUOTE_REQUEST",LOGISTICS_QUOTE_REQUEST)
+    console.log("LOGISTICS_QUOTE_REQUEST",LOGISTICS_QUOTE_REQUEST)
     this.logisticsReq=this.checkLogisticsQuoteRequest();
     //console.log("this.logisticsReq",this.logisticsReq)
     this.getSelectedFirms();

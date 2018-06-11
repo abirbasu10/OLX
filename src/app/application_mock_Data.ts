@@ -200,7 +200,7 @@ export const ADVERTISEMENTS: Advertisement[]=[
         productName:"Sea Facing New Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:true,
+        name:"Amit Halder",contact:9038568379, companyId:4, companyName:"MC Ships", date:new Date(),sellerLogisticSupport:true,isFeatured:true,
         isOpen:false,
     },
     
@@ -210,7 +210,7 @@ export const ADVERTISEMENTS: Advertisement[]=[
         productName:"Good Condition Audi",  productDescription:"", 
         subCategoryDetails: {id:4,name:"Commercial Car", categoryDetails:{id:2,name:"Car"}},
         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-        name:"Bipraneel",contact:9038102961,date:new Date(),sellerLogisticSupport:true,isFeatured:true,
+        name:"Bipraneel",contact:9038102961, companyId:4, companyName:"MC Ships",date:new Date(),sellerLogisticSupport:true,isFeatured:true,
         isOpen:true,
     },
     
@@ -220,7 +220,7 @@ export const ADVERTISEMENTS: Advertisement[]=[
         productName:"No EMI Mototr Cycle",  productDescription:"", 
         subCategoryDetails: {id:8,name:"Motor Cycle", categoryDetails:{id:4,name:"Bike"}},
         portDetails: {id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},
-        name:"Abir Basu",contact:9943287632,date:new Date(),sellerLogisticSupport:true,isFeatured:true,
+        name:"Abir Basu",contact:9943287632, companyId:2, companyName:"Deep Oceans",date:new Date(),sellerLogisticSupport:true,isFeatured:true,
         isOpen:true,
     },
     {
@@ -229,7 +229,7 @@ export const ADVERTISEMENTS: Advertisement[]=[
         productName:"2 years Old Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-        name:"Spandan",contact:9903527889,date:new Date(),sellerLogisticSupport:true,isFeatured:false,
+        name:"Spandan",contact:9903527889, companyId:2, companyName:"Deep Oceans",date:new Date(),sellerLogisticSupport:true,isFeatured:false,
         isOpen:true,
     },
     {
@@ -238,7 +238,7 @@ export const ADVERTISEMENTS: Advertisement[]=[
         productName:"New Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:false,
+        name:"Amit Halder",contact:9038568379, companyId:4, companyName:"MC Ships",date:new Date(),sellerLogisticSupport:true,isFeatured:false,
         isOpen:true,
     },
     {
@@ -247,7 +247,7 @@ export const ADVERTISEMENTS: Advertisement[]=[
         productName:" Flat",  productDescription:"", 
         subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
         portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-        name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:false,isFeatured:true,
+        name:"Amit Halder",contact:9038568379, companyId:4, companyName:"MC Ships",date:new Date(),sellerLogisticSupport:false,isFeatured:true,
         isOpen:true,
     }
 ]
@@ -264,7 +264,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             productName:"Sea Facing New Flat",  productDescription:"", 
             subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
             portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-            name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:true,
+            name:"Amit Halder",contact:9038568379, companyId:4, companyName:"MC Ships",date:new Date(),sellerLogisticSupport:true,isFeatured:true,
             isOpen:false,
         },
         filterValues:[
@@ -283,7 +283,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             productName:"Good Condition Audi",  productDescription:"", 
             subCategoryDetails: {id:4,name:"Commercial Car", categoryDetails:{id:2,name:"Car"}},
             portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-            name:"Bipraneel",contact:9038102961,date:new Date(),sellerLogisticSupport:true,isFeatured:true,
+            name:"Bipraneel",contact:9038102961, companyId:4, companyName:"MC Ships",date:new Date(),sellerLogisticSupport:true,isFeatured:true,
             isOpen:true,
         },
         filterValues:[
@@ -302,7 +302,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             productName:"No EMI Mototr Cycle",  productDescription:"", 
             subCategoryDetails: {id:8,name:"Motor Cycle", categoryDetails:{id:4,name:"Bike"}},
             portDetails: {id:4,name:"Port of OD",stateDetails:{id:4,name:"OD",countryDetails:{id:1,name:"India"}}},
-            name:"Abir Basu",contact:9943287632,date:new Date(),sellerLogisticSupport:true,isFeatured:true,
+            name:"Abir Basu",contact:9943287632, companyId:2, companyName:"Deep Oceans",date:new Date(),sellerLogisticSupport:true,isFeatured:true,
             isOpen:true,
         },
         filterValues:[
@@ -321,7 +321,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             productName:"2 years Old Flat",  productDescription:"", 
             subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
             portDetails: {id:2,name:"Port of Chennai",stateDetails:{id:2,name:"CH",countryDetails:{id:1,name:"India"}}},
-            name:"Spandan",contact:9903527889,date:new Date(),sellerLogisticSupport:true,isFeatured:false,
+            name:"Spandan",contact:9903527889, companyId:2, companyName:"Deep Oceans",date:new Date(),sellerLogisticSupport:true,isFeatured:false,
             isOpen:true,
         },
         filterValues:[
@@ -340,7 +340,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             productName:"New Flat",  productDescription:"", 
             subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
             portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-            name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:true,isFeatured:false,
+            name:"Amit Halder",contact:9038568379, companyId:4, companyName:"MC Ships",date:new Date(),sellerLogisticSupport:true,isFeatured:false,
             isOpen:true,
         },
         filterValues:[
@@ -359,7 +359,7 @@ export const PRODUCTFILTERVALUES:ProductFilterValue[]=[
             productName:" Flat",  productDescription:"", 
             subCategoryDetails: {id:1,name:"ForSale", categoryDetails:{id:1,name:"Properties"}},
             portDetails: {id:1,name:"Kolkata Port",stateDetails:{id:1,name:"WB",countryDetails:{id:1,name:"India"}}},
-            name:"Amit Halder",contact:9038568379,date:new Date(),sellerLogisticSupport:false,isFeatured:true,
+            name:"Amit Halder",contact:9038568379, companyId:4, companyName:"MC Ships",date:new Date(),sellerLogisticSupport:false,isFeatured:true,
             isOpen:true,
         },
         filterValues:[
@@ -555,12 +555,12 @@ export const AD_LOGISTICS_MAPPING: AdLogisticsMapping[]=[
 ];
 
 export const LOGISTICS_QUOTE_REQUEST:LogisticsQuoteRequest[]=[
-    /* {id:1,adId:1, companyId: 4, logisticIdsStatus:[{id:5,buyerStatus:"Sent", logisticsStatus:"Received"},{id:3,buyerStatus:"Sent", logisticsStatus:"Received"}]} */
+    {id:1,adId:1, companyId: 4, logisticIdsStatus:[{id:5,buyerStatus:"Sent", logisticsStatus:"Received"},{id:3,buyerStatus:"Sent", logisticsStatus:"Received"}]}
 ]
 
 export const QUOTATION: Quotation[]=[
-    /* {id:3,quoteReqId:2,companyId:4,companyName:"MC Ships",logisticsId:5,logisticsName:"The Indian",price:1200, adId:1},
-    {id:4,quoteReqId:2,companyId:4,companyName:"MC Ships",logisticsId:3,logisticsName:"Blue Shark",price:1000, adId:1} */
+    {id:3,quoteReqId:2,companyId:4,companyName:"MC Ships",logisticsId:5,logisticsName:"The Indian",price:1200, adId:1},
+    {id:4,quoteReqId:2,companyId:4,companyName:"MC Ships",logisticsId:3,logisticsName:"Blue Shark",price:1000, adId:1}
 ]
 
 /* List of logistics request received by firm and their status */

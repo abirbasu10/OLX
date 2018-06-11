@@ -1,0 +1,97 @@
+<!-- <company-navbar></company-navbar> -->
+
+<div class="wrapper">
+    <div class="sidebar" data-color='red' data-image=""  style="z-index:2032">
+        <company-sidebar></company-sidebar>
+        <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+    </div>
+    <div class="main-panel">
+            
+      <!-- <router-outlet></router-outlet> -->
+      <div class="main-content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header" data-background-color="red">
+                      <h4 class="title"><i class="material-icons notranslate">library_books</i>My Ads</h4>
+                  </div>
+  
+                  <div class="card-content">
+                    <div class="row">
+                      <div class="col-md-12">
+  
+                          <div id="receivedReq"  class="table-responsive">
+                            <div class="row" *ngIf="allAdList.length>0;else noAdsElseBlock">
+                              <div class="col-md-12">
+                                  <table class="table">
+                                      <thead class="text-danger">
+                                          <tr>
+                                              <th>Featured</th>
+                                              <th>Image</th>
+                                              <th>Product Name</th>
+                                              <th>Description</th>
+                                              <th>Category</th>
+                                              <th>Subcategory</th>
+                                              <th>Location</th>
+                                              <th>Posted By</th>
+                                              <th>Contact</th>
+                                              <th>Status</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody *ngFor=" let ad of allAdList">
+                                          <tr>
+                                              <td class="" >
+                                                <img src="/assets/img/featured_1.png" *ngIf="ad.advertisementDetails.isFeatured==true" style="width:75px; height:75px">
+                                              </td>
+                                              <td *ngIf="ad.advertisementDetails.images.length>0;else noImgBlock">
+                                                  <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(ad.advertisementDetails.images[0].path)" style="height:100px;width:100px;">
+                                              </td>
+                                              <ng-template #noImgBlock>
+                                                  <img src="/assets/img/nophoto.jpg" style="height:100px;width:100px;">
+                                              </ng-template>
+
+                                              <td>
+                                                  <a routerLink="/advertisement/{{ad.advertisementDetails.productName}}">
+                                                      {{ad.advertisementDetails.productName}}
+                                                  </a>
+                                              </td>
+                                              <td>{{ad.advertisementDetails.productDescription}}</td>
+                                              <td >{{ad.advertisementDetails.subCategoryDetails.categoryDetails.name}}</td>
+                                              <td>{{ad.advertisementDetails.subCategoryDetails.name}} </td>
+                                              <td>{{ad.advertisementDetails.portDetails.name}},{{ad.advertisementDetails.portDetails.stateDetails.name}},{{ad.advertisementDetails.portDetails.stateDetails.countryDetails.name}} </td>
+                                              <td>{{ad.advertisementDetails.name}}</td>
+                                              <td>{{ad.advertisementDetails.contact}}</td>
+                                              <td *ngIf="ad.advertisementDetails.isOpen==true; else adClosedBlock" style="color:green">Open</td>
+                                              <ng-template #adClosedBlock>
+                                                <td style="color:red">Closed</td>
+                                              </ng-template>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                            </div>
+      
+                            <ng-template #noAdsElseBlock>
+                              <div class="row">
+                                <div class="col-md-10 col-md-offset-1" style="text-align:center">
+                                  <h2>No Ads Posted Yet</h2>
+                                </div>
+                              </div>
+                            </ng-template>
+                          </div>
+      
+      
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- <logistics-footer></logistics-footer> -->
+    </div>
+  </div>

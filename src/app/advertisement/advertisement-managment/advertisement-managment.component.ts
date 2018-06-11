@@ -296,7 +296,7 @@ var apartFromRangeFlag:boolean=false
               }
               else{
          
-             
+
                 if(userFilterValue.name.toLowerCase().indexOf('_from')!=-1){
                  var part= userFilterValue.name.substring(0,userFilterValue.name.indexOf("_"))
                 var toValueObject =this.userFilterValues.find(f=>f.name==part+"_to")
@@ -312,10 +312,10 @@ var apartFromRangeFlag:boolean=false
 
                  }
                 }
-             }
+              }
 
               
-            } 
+            }
 
 
            

@@ -12,6 +12,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/company/messageList', title: 'Messages',  icon:'email', class: '' },
     { path: '/advertisements/search', title: 'Browse Ads', icon:'playlist_add', class:''},
     { path: '/advertisements/create', title: 'Create Ad', icon:'dashboard', class:''},
+    { path: '/company/myAds', title: 'My Ads', icon: 'library_books', class: ''},
+    { path: '/company/quoteRequests', title: 'Requests', icon: 'library_books', class: ''},
     { path: '/company/BuyerMessageList', title: 'Buyer Messages',  icon:'email', class: '' },
     { path: '/company/SellerMessageList', title: 'Seller Messages',  icon:'email', class: '' },
     /* { path: '/company/profile', title: 'Profile',  icon:'description', class: '' }, */

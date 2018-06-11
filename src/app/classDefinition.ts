@@ -71,6 +71,8 @@ export class Advertisement{
     portDetails:Port;
     name:string;
     contact:number;
+    companyId?:number;
+    companyName?:string;
     date:Date;
     sellerLogisticSupport?:boolean;
     buyerLogsisticSupport?:boolean;
