@@ -61,6 +61,8 @@ import { CompanySellerMessageDetailsComponent } from './company/company-seller-m
 import { CompanyBuyerMessageDetailsComponent } from './company/company-buyer-message-details/company-buyer-message-details.component';
 import { CompanyBuyerMessageListComponent } from './company/company-buyer-message-list/company-buyer-message-list.component';
 import { CompanySellerMessageListComponent } from './company/company-seller-message-list/company-seller-message-list.component';
+import { CompanyAdRequestListComponent } from './company/company-ad-request-list/company-ad-request-list.component';
+import { CompanyMyAdsComponent } from './company/company-my-ads/company-my-ads.component';
 
 
 //import { AdminSubscriptionManagementComponent } from './admin/admin-subscription-management/admin-subscription-management.component';
@@ -81,6 +83,8 @@ const routes: Routes =[
     { path: 'company/changePassword', component:CompanyChangePasswordComponent},
     { path: 'company/register', component: CompanyRegisterComponent},
     { path: 'company/messageList', component:CompanyMessageListComponent},
+    { path: 'company/myAds', component:CompanyMyAdsComponent},
+    { path: 'company/quoteRequests', component:CompanyAdRequestListComponent},
     { path: 'company/messageDetails/:adId', component:CompanyMessageDetailsComponent},
     { path: 'company/SellerMessageList', component:CompanySellerMessageListComponent},
     { path: 'company/SellerMessageDetails/:adId', component:CompanySellerMessageDetailsComponent},

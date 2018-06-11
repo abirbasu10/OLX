@@ -124,6 +124,8 @@ import { CompanySellerMessageDetailsComponent } from './company/company-seller-m
 import { CompanyBuyerMessageDetailsComponent } from './company/company-buyer-message-details/company-buyer-message-details.component';
 import { CompanyBuyerMessageListComponent } from './company/company-buyer-message-list/company-buyer-message-list.component';
 import { CompanySellerMessageListComponent } from './company/company-seller-message-list/company-seller-message-list.component';
+import { CompanyAdRequestListComponent } from './company/company-ad-request-list/company-ad-request-list.component';
+import { CompanyMyAdsComponent } from './company/company-my-ads/company-my-ads.component';
 //import { AngularChromeImageStorageComponent } from '../../node_modules/angular-chrome-image-storage-master/angular-chrome-image-storage';
 
 /* import { VendorComponent } from './vendor/vendor.component';
@@ -261,6 +263,10 @@ CompanyComponent,
     CompanyBuyerMessageListComponent,
 
     CompanySellerMessageListComponent,
+
+    CompanyAdRequestListComponent,
+
+    CompanyMyAdsComponent,
 
     //AngularChromeImageStorageComponent,
 

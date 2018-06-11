@@ -212,15 +212,25 @@
                                                 <div class="afterSubCategory">
                                                     <!-- Seller name and contacts -->
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <mat-form-field class="example-full-width">
                                                                 <input matInput placeholder="Seller Name" [(ngModel)]="name">
                                                             </mat-form-field>
                                                         </div>
 
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <mat-form-field class="example-full-width">
                                                                 <input type="number" matInput placeholder="Contact" [(ngModel)]="contact">
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <!-- #valOfField id="{{filters.name}}" (change)="enterValue(valOfField)" -->
+                                                        <div class="col-md-4">
+                                                            <mat-form-field class="example-full-width">
+                                                                <mat-select placeholder="Company" [(ngModel)]="companyId">
+                                                                    <mat-option *ngFor="let comp of companyList" value="{{comp.id}}">
+                                                                        {{comp.name}}
+                                                                    </mat-option>
+                                                                </mat-select>
                                                             </mat-form-field>
                                                         </div>
                                                     </div>

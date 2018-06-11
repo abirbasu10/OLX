@@ -19,7 +19,8 @@ export class LogisticsRequestListComponent implements OnInit {
 
   currentFirm:LogisticFirmList;
   currentRequests:LogisticsQuoteRequest[]=[];
-  reqList:LogisticsOrderList[]=[];
+  reqListRecvd:LogisticsOrderList[]=[];
+  reqListSent:LogisticsOrderList[]=[];
   constructor() { }
 
   ngOnInit() {
@@ -63,14 +64,24 @@ export class LogisticsRequestListComponent implements OnInit {
       var buyerStatus=req.logisticIdsStatus.find(log=>log.id==this.currentFirm.id).buyerStatus;
       var logisticStatus=req.logisticIdsStatus.find(log=>log.id==this.currentFirm.id).logisticsStatus
 
-      this.reqList.push({id:id,quoteReqId:quoteReqId,companyId:companyId,companyName:companyName,
-        logisticsId:logisticsId,logisticsName:logisticsName,adDetails:adDetails,buyerStatus:buyerStatus,
-        logisticStatus:logisticStatus})
+      if(logisticStatus=="Received")
+      {
+        this.reqListRecvd.push({id:id,quoteReqId:quoteReqId,companyId:companyId,companyName:companyName,
+          logisticsId:logisticsId,logisticsName:logisticsName,adDetails:adDetails,buyerStatus:buyerStatus,
+          logisticStatus:logisticStatus})
+      }
+      else if(logisticStatus=="Sent")
+      {
+        this.reqListSent.push({id:id,quoteReqId:quoteReqId,companyId:companyId,companyName:companyName,
+          logisticsId:logisticsId,logisticsName:logisticsName,adDetails:adDetails,buyerStatus:buyerStatus,
+          logisticStatus:logisticStatus})
+      }
       /* LOGISTICS_ORDER_LIST.push({id:id,quoteReqId:quoteReqId,companyId:companyId,companyName:companyName,
         logisticsId:logisticsId,logisticsName:logisticsName,adDetails:adDetails,buyerStatus:buyerStatus,
         logisticStatus:logisticStatus}) */
     }
-    console.log("this.reqList",this.reqList)
+    /* console.log("this.reqListRecvd",this.reqListRecvd)
+    console.log("this.reqListSent",this.reqListSent) */
     //this.reqList=LOGISTICS_ORDER_LIST;
 
   }

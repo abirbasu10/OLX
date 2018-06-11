@@ -1,0 +1,128 @@
+<!-- <company-navbar></company-navbar> -->
+
+<div class="wrapper">
+    <div class="sidebar" data-color='red' data-image=""  style="z-index:2032">
+        <company-sidebar></company-sidebar>
+        <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+    </div>
+    <div class="main-panel">
+            
+      <!-- <router-outlet></router-outlet> -->
+      <div class="main-content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header" data-background-color="red">
+                      <h4 class="title"><i class="material-icons notranslate">library_books</i>Requests</h4>
+  
+                      <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                          <ul class="nav nav-tabs" data-tabs="tabs">
+                              <li class="nav-item active" >
+                                <a class="nav-link" href="#receivedReq" data-toggle="tab">Received Requests</a>
+                              </li>
+                              
+                              <li class="nav-item">
+                                <a class="nav-link" href="#sentReq" data-toggle="tab">Sent Request</a>
+                              </li>
+                          </ul>
+                        </div>
+                      </div>
+                  </div>
+  
+                  <div class="card-content">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="tab-content">
+  
+                          <div id="receivedReq"  class="tab-pane active table-responsive">
+                            <div class="row" *ngIf="reqListRecvd.length>0;else reqReceivedElseBlock">
+                              <div class="col-md-12">
+                                  <table class="table">
+                                      <thead class="text-danger">
+                                          <tr>
+                                              <th>Ad</th>
+                                              <th>Quote Received From</th>
+                                              <th>Status</th>
+                                              
+                                          </tr>
+                                      </thead>
+                                      <tbody *ngFor=" let req of reqListRecvd">
+                                          <tr>
+                                              
+                                              <td>
+                                                  <a routerLink="/advertisement/{{req.adDetails.advertisementDetails.productName}}">
+                                                      {{req.adDetails.advertisementDetails.productName}}
+                                                  </a>
+                                              </td>
+                                              <td>{{req.logisticsName}}</td>
+                                              <td>{{req.buyerStatus}}</td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                            </div>
+      
+                            <ng-template #reqReceivedElseBlock>
+                              <div class="row">
+                                <div class="col-md-10 col-md-offset-1" style="text-align:center">
+                                  <h2>No Quotes Received</h2>
+                                </div>
+                              </div>
+                            </ng-template>
+                          </div>
+      
+                          <div id="sentReq"  class="tab-pane  table-responsive">
+                            <div class="row" *ngIf="reqListSent.length>0;else reqSentElseBlock">
+                              
+                              <div class="col-md-12">
+                                  <table class="table">
+                                      <thead class="text-danger">
+                                          <tr>
+                                              <th>Ad</th>
+                                              <th>Requested Sent To</th>
+                                              <th>Status</th>
+                                              
+                                          </tr>
+                                      </thead>
+                                      <tbody *ngFor=" let req of reqListSent"  >
+                                          <tr>
+                                              
+                                              <td>
+                                                  <a routerLink="/advertisement/{{req.adDetails.advertisementDetails.productName}}">
+                                                      {{req.adDetails.advertisementDetails.productName}}
+                                                  </a>
+                                              </td>
+                                              <td>{{req.logisticsName}}</td>
+                                              <td>{{req.buyerStatus}}</td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                            </div>
+      
+                            <ng-template #reqSentElseBlock>
+                              <div class="row">
+                                <div class="col-md-10 col-md-offset-1"  style="text-align:center">
+                                  <h2>No Request Sent</h2>
+                                </div>
+                              </div>
+                            </ng-template>
+                          </div>
+      
+      
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- <logistics-footer></logistics-footer> -->
+    </div>
+  </div>

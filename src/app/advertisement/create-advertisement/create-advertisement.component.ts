@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Currency, Category, SubCategory, Filter, SubCatFilterMap, Country, State, Port,Image, Advertisement,AdvertisementFilterValue, ProductFilterValue, SubCategoryFilterOption, FeaturedPlan, FeaturedAdvertisementMap } from '../../classDefinition';
-import { CURRENCY,SELLER_CHOSEN_CURRENCY,CATEGORIES, SUBCATEGORIES, FILTERS, SUBCATFILTERMAP, COUNTRIES, STATES, PORTS,IMAGES, ADVERTISEMENTS, PRODUCTFILTERVALUES, SUBCATFILTEROPTIONS, FEATUREDPLANS, FEATURED_ADVERTISEMENT_MAP } from '../../application_mock_Data';
+import { CompanyDetails, Currency, Category, SubCategory, Filter, SubCatFilterMap, Country, State, Port,Image, Advertisement,AdvertisementFilterValue, ProductFilterValue, SubCategoryFilterOption, FeaturedPlan, FeaturedAdvertisementMap } from '../../classDefinition';
+import { COMPANYDETAILS, CURRENCY,SELLER_CHOSEN_CURRENCY,CATEGORIES, SUBCATEGORIES, FILTERS, SUBCATFILTERMAP, COUNTRIES, STATES, PORTS,IMAGES, ADVERTISEMENTS, PRODUCTFILTERVALUES, SUBCATFILTEROPTIONS, FEATUREDPLANS, FEATURED_ADVERTISEMENT_MAP } from '../../application_mock_Data';
 import { AdLogisticsMapping } from '../../classDefinition';
 import { AD_LOGISTICS_MAPPING } from '../../application_mock_Data';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -20,6 +20,11 @@ import swal from 'sweetalert2';
   styleUrls: ['./create-advertisement.component.css']
 })
 export class CreateAdvertisementComponent implements OnInit {
+
+companyList:CompanyDetails[]=COMPANYDETAILS;
+companyId:number;
+companyName:string;
+
 currencyList:Currency[]=CURRENCY;
 selectedCurrencyId:number;
 
@@ -209,9 +214,11 @@ URL = window.URL;
       FEATURED_ADVERTISEMENT_MAP.push({id:featuredMapId,adId:adID,planDetails:this.chosenPlan,
         startDate:new Date(), endDate:new Date("5/21/2019")})
     }
+
+    this.companyName=COMPANYDETAILS.find(com=>com.id==this.companyId).name;
     var advertisementBasics={id:adID,images:this.adImage, productName:productName, productDescription:productDescription, 
       subCategoryDetails:subCatDetails, portDetails:portDetails,name:this.name,contact:this.contact,date:this.date, 
-      isFeatured:isFeatured,isOpen:true}
+      isFeatured:isFeatured,companyId:this.companyId,companyName:this.companyName,isOpen:true}
     //pushing in an ad
 
     ADVERTISEMENTS.push(advertisementBasics);

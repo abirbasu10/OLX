@@ -67,6 +67,7 @@ export class ProvideQuotationComponent implements OnInit {
     /* console.log("valOfField",valOfField.value) */
     var selectedCurrency=CURRENCY.find(c=>c.id==valOfField.value)
     LOGISTICS_CHOSEN_CURRENCY[0]=selectedCurrency;
+    this.logisticsCurrency=selectedCurrency;
     console.log("LOGISTICS_CHOSEN_CURRENCY",LOGISTICS_CHOSEN_CURRENCY)
   }
 

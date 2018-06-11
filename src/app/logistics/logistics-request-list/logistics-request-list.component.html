@@ -37,7 +37,7 @@
                       <div class="tab-content">
 
                         <div id="receivedReq"  class="tab-pane active table-responsive">
-                          <div class="row">
+                          <div class="row" *ngIf="reqListRecvd.length>0;else reqReceivedElseBlock">
                             <div class="col-md-12">
                                 <table class="table">
                                     <thead class="text-danger">
@@ -48,8 +48,8 @@
                                             
                                         </tr>
                                     </thead>
-                                    <tbody *ngFor=" let req of reqList"  >
-                                        <tr *ngIf="reqList.length>0 && req.logisticStatus=='Received'; else reqReceivedElseBlock">
+                                    <tbody *ngFor=" let req of reqListRecvd">
+                                        <tr>
                                             
                                             <td>
                                                 <a routerLink="/logistics/setQuote/{{req.companyName}}/{{req.adDetails.advertisementDetails.productName}}">
@@ -74,7 +74,8 @@
                         </div>
     
                         <div id="sentReq"  class="tab-pane  table-responsive">
-                          <div class="row">
+                          <div class="row" *ngIf="reqListSent.length>0;else reqSentElseBlock">
+                            
                             <div class="col-md-12">
                                 <table class="table">
                                     <thead class="text-danger">
@@ -85,8 +86,8 @@
                                             
                                         </tr>
                                     </thead>
-                                    <tbody *ngFor=" let req of reqList"  >
-                                        <tr  *ngIf="req.logisticStatus=='Sent'; else reqSentElseBlock">
+                                    <tbody *ngFor=" let req of reqListSent"  >
+                                        <tr>
                                             
                                             <td>
                                                 <a routerLink="/logistics/setQuote/{{req.companyName}}/{{req.adDetails.advertisementDetails.productName}}">
