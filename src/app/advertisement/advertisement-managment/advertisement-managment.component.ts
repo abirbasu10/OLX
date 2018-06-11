@@ -256,13 +256,14 @@ tempLocation=""
                 
                 if((adFiltervalue.name.toLowerCase()==userFilterValue.name.toLowerCase()) && (adFiltervalue.value.toLowerCase()==userFilterValue.value.toLowerCase()) ){
                          
-                       // this.advertisements.push(mockAd.advertisementDetails)
-                         this.tempAdvertisements.push(mockAd)
+                  if(!this.advertisements.find(ad=>ad.id==mockAd.advertisementDetails.id)){
+                    this.advertisements.push(mockAd.advertisementDetails)
+                  }
                 }
               }
               else{
          
-             
+
                 if(userFilterValue.name.toLowerCase().indexOf('_from')!=-1){
                  var part= userFilterValue.name.substring(0,userFilterValue.name.indexOf("_"))
                 var toValueObject =this.userFilterValues.find(f=>f.name==part+"_to")
@@ -270,14 +271,15 @@ tempLocation=""
          
                 if( (adFiltervalue.value.toLowerCase().localeCompare(userFilterValue.value.toLowerCase())==1)  && (adFiltervalue.value.toLowerCase().localeCompare(toValueObject.value.toLowerCase())==-1)){
                     alert(mockAd.advertisementDetails.name)     
-                //  this.advertisements.push(mockAd.advertisementDetails)
-                this.tempAdvertisements.push(mockAd)
+                    if(!this.advertisements.find(ad=>ad.id==mockAd.advertisementDetails.id)){
+                      this.advertisements.push(mockAd.advertisementDetails)
+                    }
                  }
                 }
-             }
+              }
 
               
-            } 
+            }
 
 
            
