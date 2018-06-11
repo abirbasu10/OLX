@@ -106,12 +106,27 @@ import { LogisticsLoginComponent } from './logistics/logistics-login/logistics-l
 import { LogisticsRegisterComponent } from './logistics/logistics-register/logistics-register.component';
 import { LogisticsChangePasswordComponent } from './logistics/logistics-change-password/logistics-change-password.component';
 import { AdminChangePasswordComponent } from './admin/admin-change-password/admin-change-password.component';
+import { CompanyMessageDetailsComponent } from './company/company-message-details/company-message-details.component';
+import { CompanyMessageListComponent } from './company/company-message-list/company-message-list.component';
+import { LogisticsMessageListComponent } from './logistics/logistics-message-list/logistics-message-list.component';
+import { LogisticsMessageDetailsComponent } from './logistics/logistics-message-details/logistics-message-details.component';
 
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { AdminCategoryManagementComponent } from './admin/admin-category-management/admin-category-management.component';
 
-/* import { ImageUploadModule } from "angular2-image-upload";
-import { VendorComponent } from './vendor/vendor.component';
+import { ImageUploadModule } from "angular2-image-upload";
+import { ProvideQuotationComponent } from './logistics/provide-quotation/provide-quotation.component';
+import { LogisticsRequestListComponent } from './logistics/logistics-request-list/logistics-request-list.component';
+import { LogisticsPromoteComponent } from './logistics/logistics-promote/logistics-promote.component';
+import { LogisticsProfileCompletionComponent } from './logistics/logistics-profile-completion/logistics-profile-completion.component';
+import { CompanySellerMessageDetailsComponent } from './company/company-seller-message-details/company-seller-message-details.component';
+import { CompanyBuyerMessageDetailsComponent } from './company/company-buyer-message-details/company-buyer-message-details.component';
+import { CompanyBuyerMessageListComponent } from './company/company-buyer-message-list/company-buyer-message-list.component';
+import { CompanySellerMessageListComponent } from './company/company-seller-message-list/company-seller-message-list.component';
+//import { AngularChromeImageStorageComponent } from '../../node_modules/angular-chrome-image-storage-master/angular-chrome-image-storage';
+
+/* import { VendorComponent } from './vendor/vendor.component';
 import { VendorProfileComponent } from './vendor/vendor-profile/vendor-profile.component'; */
 
 @NgModule({
@@ -222,6 +237,33 @@ CompanyComponent,
 
     AdminChangePasswordComponent,
 
+    AdminCategoryManagementComponent,
+    CompanyMessageDetailsComponent,
+
+    CompanyMessageListComponent,
+
+    LogisticsMessageListComponent,
+
+    LogisticsMessageDetailsComponent,
+
+    ProvideQuotationComponent,
+
+    LogisticsRequestListComponent,
+
+    LogisticsPromoteComponent,
+
+    LogisticsProfileCompletionComponent,
+
+    CompanySellerMessageDetailsComponent,
+
+    CompanyBuyerMessageDetailsComponent,
+
+    CompanyBuyerMessageListComponent,
+
+    CompanySellerMessageListComponent,
+
+    //AngularChromeImageStorageComponent,
+
 
     //AdminSubscriptionManagementComponent
 
@@ -269,7 +311,7 @@ CompanyComponent,
     MatTableModule,
     MatSlideToggleModule,
 
-    /* ImageUploadModule.forRoot(), */
+    ImageUploadModule.forRoot(),
 /*     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA_h565MUlULgemvbsLJeizADz-wQ3FUp8'
     }), */

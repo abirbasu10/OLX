@@ -1,0 +1,197 @@
+<!-- <logistics-navbar></logistics-navbar> -->
+
+<div class="wrapper">
+  <div class="sidebar" data-color='purple' data-image=""  style="z-index:2032">
+      <logistics-sidebar></logistics-sidebar>
+      <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+  </div>
+  <div class="main-panel">
+          
+    <!-- <router-outlet></router-outlet> -->
+    <div class="main-content">
+      <div class="container-fluid">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header" data-background-color="purple">
+                  <h4 class="title"><i class="material-icons notranslate">library_books</i>Place Your Quote</h4>
+              </div>
+
+              <div class="card-content">
+                <div class="row">
+                  <div class="col-md-10 col-md-offset-1">
+                    
+                    <!-- Ad Heading -->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h2 style="text-align: center">{{currentAd.advertisementDetails.productName}}</h2>
+                      </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="row">
+                      <div class="col-md-2">
+                        <label>Description: </label>
+                      </div>
+                      <div class="col-md-10 fieldVal" *ngIf="currentAd.advertisementDetails.productDescription; else noDescBlock">
+                        {{currentAd.advertisementDetails.productDescription}}
+                      </div>
+                      <ng-template #noDescBlock>
+                        <div class="col-md-10 fieldVal">
+                          N/A
+                        </div>
+                      </ng-template>
+                    </div>
+
+                    <!-- Category and Subcategory -->
+                    <div class="row">
+                      <div class="col-md-2">
+                        <label>Category: </label>
+                      </div>
+                      <div class="col-md-10 fieldVal">
+                          {{currentAd.advertisementDetails.subCategoryDetails.categoryDetails.name}} > {{currentAd.advertisementDetails.subCategoryDetails.name}}
+                      </div>
+                    </div>
+
+                    <!-- Port -->
+                    <div class="row">
+                      <div class="col-md-2">
+                        <label>Port: </label>
+                      </div>
+                      <div class="col-md-10 fieldVal">
+                          {{currentAd.advertisementDetails.portDetails.name}}, 
+                          {{currentAd.advertisementDetails.portDetails.stateDetails.name}}, {{currentAd.advertisementDetails.portDetails.stateDetails.countryDetails.name}}
+                      </div>
+                      <!-- <div class="col-md-6">
+                        <div class="row">
+                          <div class="col-md-2">
+                            <label>Port: </label>
+                          </div>
+                          <div class="col-md-10 fieldVal">
+                              {{currentAd.advertisementDetails.portDetails.name}}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="row">
+                            <div class="col-md-2">
+                              <label>Location: </label>
+                            </div>
+                            <div class="col-md-10 fieldVal">
+                                {{currentAd.advertisementDetails.portDetails.stateDetails.name}}, {{currentAd.advertisementDetails.portDetails.stateDetails.countryDetails.name}}
+                            </div>
+                          </div>
+                      </div> -->
+                    </div>
+
+                    <!-- Contact Details -->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h3>Contact Details</h3>
+                          </div>
+                        </div>
+                      
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class=row>
+                              
+                              <div class="col-md-6">
+                                <div class="row">
+                                  <div class="col-md-4">
+                                    <label>Add Posted By:</label>
+                                  </div>
+                                  <div class="col-md-8 fieldVal">
+                                    {{currentAd.advertisementDetails.name}}
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                <div class="row">
+                                  <div class="col-md-3">
+                                    <label>Contact:</label>
+                                  </div>
+                                  <div class="col-md-9 fieldVal">
+                                    {{currentAd.advertisementDetails.contact}}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Price and Place Quote -->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h3>Price and Quote Details</h3>
+                          </div>
+                        </div>
+                      
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class=row>
+                              
+                              <div class="col-md-4">
+                                <div class="row">
+                                  <div class="col-md-3">
+                                    <label>Price in {{sellerCurrency.symbol}}: </label>
+                                  </div>
+                                  <div class="col-md-8 fieldVal">
+                                    {{currentAdPrice}}
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-md-4"> 
+                                <mat-form-field style="position: relative;bottom:8px">
+                                  <mat-select #valOfField placeholder="Select Currency" (change)="setCurrency(valOfField)">
+                                    <mat-option *ngFor="let cur of currencyList" value="{{cur.id}}">
+                                      {{cur.symbol}}--{{cur.name}}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-4">
+                                <div class="row">
+                                  <div class="col-md-3">
+                                    <label>Quoted in {{logisticsCurrency.symbol}}: </label>
+                                  </div>
+                                  <div class="col-md-9 fieldVal" *ngIf="currentQuoteLogisticStatus=='Sent'; else placeQuoteBlock">
+                                    {{quotedPrice}}
+                                  </div>
+                                  <ng-template #placeQuoteBlock>
+                                    <div class="col-md-6" style="position: relative; bottom: 15px">
+                                      <mat-form-field class="example-full-width">
+                                        <input type="number" matInput placeholder="Place Your Quote" [(ngModel)]="quotedPrice">
+                                      </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3" *ngIf="quotedPrice>0" style="position: relative; bottom: 15px">
+                                      <button class="btn btn-sm btn-primary btn-round" (click)="sendQuote()">
+                                        Send Quote
+                                      </button>
+                                    </div>
+                                  </ng-template>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+
+    <!-- <logistics-footer></logistics-footer> -->
+  </div>
+</div>

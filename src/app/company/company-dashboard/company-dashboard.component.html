@@ -124,18 +124,42 @@
                                         </div>
                                         <div class="row">
                                             <label class="col-md-2" *ngFor="let field of defaultCompany.profileFields">{{field.fieldName}}
+                                                <span *ngIf="field.fieldName.toLowerCase().indexOf('document') == -1; else docBlock">
                                                     <span *ngIf="field.verifyStatus; else elseBlock">
-                                                        <i class="material-icons" style="color:green;font-size:20px;font-weight:900;">
+                                                      <i class="material-icons" title="Verified" style="color:green;font-size:30px;font-weight:900;">
                                                             check
                                                             </i>
+                                                     
                                                     </span>
                                                     <ng-template #elseBlock>
-
-                                                            <i class="material-icons" style="color:red;font-size:20px;font-weight:900;">
-                                                                    close
-                                                                    </i>
-
+                                                        <i class="material-icons" title="Not Verified" style="color:red;font-size:30px;font-weight:900;">
+                                                            clear
+                                                            </i>
                                                     </ng-template>
+                                                </span>
+                                                <ng-template #docBlock>
+                                                    <span *ngIf="docVerificationStatus && field.verifyStatus">
+                                                            <i class="material-icons" title="Verified" style="color:green;font-size:30px;font-weight:900;">
+                                                                    check
+                                                                    </i>
+                                                    </span>
+                                                    <span *ngIf="field.verifyStatus && docVerificationStatus==null">
+                                                        <i class="material-icons" title="Pending" style="color:orange;font-size:30px;font-weight:900;">
+                                                                help
+                                                                </i>
+                                                    </span>
+                                                    <span *ngIf="field.verifyStatus==false">
+                                                        <i class="material-icons" title="Not Verified" style="color:red;font-size:30px;font-weight:900;">
+                                                            clear
+                                                            </i>
+                                                    </span>
+                                                    <span *ngIf="field.verifyStatus && docVerificationStatus==false">
+                                                        <i class="material-icons" title="Rejected"  style="color:red;font-size:30px;font-weight:900;">
+                                                            clear
+                                                            </i>
+                                                    </span>
+                                                    
+                                                </ng-template>
                                                 
                                                 </label>
                                             </div> 

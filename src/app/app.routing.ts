@@ -47,6 +47,20 @@ import {AdminChangePasswordComponent} from './admin/admin-change-password/admin-
 import { LogisticsRegisterComponent } from './logistics/logistics-register/logistics-register.component'
 import { LogisticsLoginComponent } from './logistics/logistics-login/logistics-login.component'
 import {LogisticsChangePasswordComponent} from './logistics/logistics-change-password/logistics-change-password.component'
+import { CompanyMessageDetailsComponent } from './company/company-message-details/company-message-details.component';
+import { CompanyMessageListComponent } from './company/company-message-list/company-message-list.component';
+import { LogisticsMessageListComponent } from './logistics/logistics-message-list/logistics-message-list.component';
+import { LogisticsMessageDetailsComponent } from './logistics/logistics-message-details/logistics-message-details.component';
+
+import {AdminCategoryManagementComponent} from './admin/admin-category-management/admin-category-management.component'
+import { ProvideQuotationComponent } from './logistics/provide-quotation/provide-quotation.component';
+import { LogisticsRequestListComponent } from './logistics/logistics-request-list/logistics-request-list.component';
+import { LogisticsPromoteComponent } from './logistics/logistics-promote/logistics-promote.component';
+import { LogisticsProfileCompletionComponent } from './logistics/logistics-profile-completion/logistics-profile-completion.component';
+import { CompanySellerMessageDetailsComponent } from './company/company-seller-message-details/company-seller-message-details.component';
+import { CompanyBuyerMessageDetailsComponent } from './company/company-buyer-message-details/company-buyer-message-details.component';
+import { CompanyBuyerMessageListComponent } from './company/company-buyer-message-list/company-buyer-message-list.component';
+import { CompanySellerMessageListComponent } from './company/company-seller-message-list/company-seller-message-list.component';
 
 
 //import { AdminSubscriptionManagementComponent } from './admin/admin-subscription-management/admin-subscription-management.component';
@@ -66,7 +80,12 @@ const routes: Routes =[
     { path: 'company/login', component:CompanyLoginComponent},
     { path: 'company/changePassword', component:CompanyChangePasswordComponent},
     { path: 'company/register', component: CompanyRegisterComponent},
-
+    { path: 'company/messageList', component:CompanyMessageListComponent},
+    { path: 'company/messageDetails/:adId', component:CompanyMessageDetailsComponent},
+    { path: 'company/SellerMessageList', component:CompanySellerMessageListComponent},
+    { path: 'company/SellerMessageDetails/:adId', component:CompanySellerMessageDetailsComponent},
+    { path: 'company/BuyerMessageList', component:CompanyBuyerMessageListComponent},
+    { path: 'company/BuyerMessageDetails/:adId', component:CompanyBuyerMessageDetailsComponent},
     { path: 'company/logisticsFirmProfile', component: LogisticsFirmProfileComponent},
     //{ path: 'company/purchaseOrder/:id', component: CompanyPurchaseOrderComponent},
 
@@ -74,22 +93,30 @@ const routes: Routes =[
     {path: 'admin', component:AdminComponent},
     {path: 'admin/dashboard', component:AdminDashboardComponent },
 
-    {path: 'logistics', component: LogisticsComponent},
-    {path: 'logistics/dashboard', component:LogisticsDashboardComponent},
-    
-
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'index',          component: IndexComponent },
-
+    { path: '', redirectTo: 'index', pathMatch: 'full' },
+    
     { path: 'advertisements/search',  component: AdvertisementManagmentComponent },
     { path: 'advertisements/create',  component: CreateAdvertisementComponent },
 
-    { path: '', redirectTo: 'advertisements/search', pathMatch: 'full' },
+    
     { path: 'advertisement/:adName', component: AdvertisementDetailsComponent},
+
+    { path: 'logistics', component: LogisticsComponent},
+    { path: 'logistics/dashboard', component:LogisticsDashboardComponent},
     { path: 'logistics/logisticsCompanyDetails', component: LogisticsCompanyDetailsComponent},
     { path: 'logistics/profile', component: LogisticsProfileComponent},
-
-    { path:'landing', component:LandingComponent},
+    { path: 'logistics/messageList', component:LogisticsMessageListComponent},
+    { path: 'logistics/messageDetails/:adId', component:LogisticsMessageDetailsComponent},
+    { path: 'logistics/quoteRequests', component:LogisticsRequestListComponent},
+    { path: 'logistics/setQuote/:companyName/:adName', component:ProvideQuotationComponent},
+    { path: 'logistics/createPromotionalAd', component:LogisticsPromoteComponent},
+    { path: 'logistics/login', component:LogisticsLoginComponent},
+    { path: 'logistics/register', component:LogisticsRegisterComponent},
+    { path: 'logistics/profileCompletion', component:LogisticsProfileCompletionComponent},
+    { path: 'logistics/changePassword', component:LogisticsChangePasswordComponent},
+    { path: 'landing', component:LandingComponent},
 
 
     { path:'login_register', component:LoginComponent},
@@ -99,9 +126,9 @@ const routes: Routes =[
 
      { path:'admin/login', component:AdminLoginComponent},
      { path:'admin/changePassword', component:AdminChangePasswordComponent},
-     { path:'logistics/login', component:LogisticsLoginComponent},
-     { path:'logistics/register', component:LogisticsRegisterComponent},
-     { path:'logistics/changePassword', component:LogisticsChangePasswordComponent},
+     
+     { path:'admin/categoryManagement', component:AdminCategoryManagementComponent},
+     
 ];
 
 @NgModule({

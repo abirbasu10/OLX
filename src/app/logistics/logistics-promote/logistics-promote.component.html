@@ -1,0 +1,123 @@
+<!-- <logistics-navbar></logistics-navbar> -->
+
+<div class="wrapper">
+  <div class="sidebar" data-color='purple' data-image=""  style="z-index:2032">
+      <logistics-sidebar></logistics-sidebar>
+      <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+  </div>
+  <div class="main-panel">
+          
+    <!-- <router-outlet></router-outlet> -->
+    <div class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              
+              <div class="card-header" data-background-color="purple">
+                <h4 class="title"><i class="material-icons notranslate">card_giftcard</i>Create Promotional Ad</h4><h4></h4>
+              </div>
+
+              <div class="card-content">
+                <!--   -->
+                <div class="row" *ngIf="currentPortMapping!=undefined; else incompleteProfileBlock">
+                  <div class="col-md-10 col-md-offset-1">
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Enter Ad Title" [(ngModel)]="adTitle">
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    
+                    <!-- <div class="row">
+                      <div class="col-md-12">
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Enter URL" [(ngModel)]="adUrl">
+                        </mat-form-field>
+                      </div>
+                    </div> -->
+
+                    <div class="row">
+                        <mat-form-field class="col-md-12">
+                          <textarea matInput 
+                          matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" 
+                          placeholder="Enter Details" [(ngModel)]="adDetails"></textarea>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-4">
+                          <mat-form-field>
+                              <mat-select placeholder="Country" [(ngModel)]="chosenCountry" (change)="getState()">
+                                  <mat-option *ngFor="let country of countries" value="{{country.name}}">
+                                      {{country.name}}
+                                  </mat-option>
+                              </mat-select>
+                          </mat-form-field>
+                      </div>
+
+                      <div class="col-md-4" *ngIf="states.length>0">
+                          <mat-form-field>
+                              <mat-select placeholder="State" [(ngModel)]="chosenState" (change)="getPort()">
+                                  <mat-option *ngFor="let state of states" value="{{state.name}}">
+                                      {{state.name}}
+                                  </mat-option>
+                              </mat-select>
+                          </mat-form-field>
+                      </div>
+
+                      <div class="col-md-4" *ngIf="ports.length>0">
+                          <mat-form-field>
+                              <mat-select placeholder="Port" [(ngModel)]="selectedPort" (change)="updateChosenPorts()">
+                                  <mat-option *ngFor="let port of ports" value="{{port.name}}">
+                                      {{port.name}}
+                                  </mat-option>
+                              </mat-select>
+                          </mat-form-field>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                          <label>Select Ad Position: </label>
+                          <!-- (click)="openCheckout()" -->
+                          <mat-radio-group name="adPos" [(ngModel)]="chosenPosition">
+                              <mat-radio-button *ngFor="let pos of adPositions" value={{pos.position}} class="thrdPrtyAdPos">
+                                  <p>Position: {{pos.position}}</p>
+                                  <p>Amount: $ {{pos.price}}</p>
+                              </mat-radio-button>
+                          </mat-radio-group>
+                        </div>
+                    </div>
+
+                    <div class="row postAd">
+                      <div class="col-md-12" style="text-align: center">
+                        <button class="btn btn-primary btn-round" (click)="postAd()">Post Ad</button>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+
+                <ng-template #incompleteProfileBlock>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 style="text-align:center">Please Add PORTS from where you operate</h2>
+                      <p style="text-align:center;font-weight:bold;"><a routerLink="/logistics/profileCompletion">Click Here</a></p>
+                    </div>
+                  </div>
+                </ng-template>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <logistics-footer></logistics-footer> -->
+  </div>
+</div>
+  

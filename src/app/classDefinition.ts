@@ -1,3 +1,5 @@
+//import { HexBase64BinaryEncoding } from "crypto";
+
 export class Category{
     id:number;
     name:string
@@ -51,8 +53,18 @@ export class Port{
     stateDetails:State;
 }
 
+export class Currency
+{
+    id:number;
+    symbol:string;
+    name:string;
+    fraction: number;
+}
+
+
 export class Advertisement{
     id:number;
+    images:Image[];
     productName:string;
     productDescription:string;    
     subCategoryDetails:SubCategory;
@@ -62,6 +74,8 @@ export class Advertisement{
     date:Date;
     sellerLogisticSupport?:boolean;
     buyerLogsisticSupport?:boolean;
+    isFeatured:boolean;
+    isOpen:boolean;
 }
 
 
@@ -76,6 +90,23 @@ export class AdvertisementFilterValue{
     group?:string;
     name:string
    value:string
+}
+
+export class FeaturedAdvertisementMap{
+    id:number;
+    adId:number
+    planDetails:FeaturedPlan;
+    startDate:Date;
+    endDate:Date;
+}
+
+export class FeaturedPlan{
+    id:number;
+    planName:string;
+    duration:number; //(number ofdays/weeks/months/years)
+    periodType:string;// (days/weeks/months/years)
+    amount:number;
+    isActive:boolean;
 }
 
 
@@ -122,6 +153,14 @@ export class LogisticFirmList
     profile_state: boolean; 
 }
 
+export class LogisticsPortMapping
+{
+    id:number;
+    logisticsId:number;
+    logisticsName:string;
+    ports:Port[];
+}
+
 export class CompanyDetails
 {
     id:number;
@@ -150,10 +189,93 @@ export class Review{
    
   }
 
+export class MessageList
+{
+    messageId:number;
+    adId:number;
+    senderId:number;
+    receiverId:number;
+}
+
+export class MessageDetails
+{
+    messageId:number;
+    msgThread:MessageThread[]
+}
+
+export class MessageThread
+{
+    msg:string;
+    senderId:number;
+    receiverId:number;
+}
+
+export class AdLogisticsMapping
+{
+    id:number;
+    adId:number;
+    logisticIds:number[];
+}
+
+export class LogisticsQuoteRequest
+{
+    id:number;
+    adId:number;
+    companyId:number;
+    logisticIdsStatus:any[];/* stores id of logistic firms and their request status */
+    /* buyerStatus:string;
+    logisticStatus:string; */
+}
+
+export class Quotation
+{
+    id:number;
+    quoteReqId:number;
+    companyId:number;
+    companyName:string;
+    logisticsId:number;
+    logisticsName:string;
+    price:number;
+    adId:number;
+}
+
+export class LogisticsOrderList
+{
+    id:number;
+    quoteReqId:number;
+    companyId:number;
+    companyName:string;
+    logisticsId:number;
+    logisticsName:string;
+    //adId:number;
+    adDetails:ProductFilterValue;
+    buyerStatus:string;
+    logisticStatus:string;
+}
+
+export class ThirdPartyAds
+{
+    id:number;
+    img?:string;
+    url?:string;
+    adTitle:string;
+    adDetails:string;
+    location:string[];
+    postedById:number;
+    postedByName:string;
+    position:string;
+}
+
+export class ThirdPartyAdsPosition
+{
+    id:number;
+    position:string;
+    price:number;
+}
   //Admin Section 
 
-  export class VerifyCompanyDocument{
-      id:number
-      name:string
-      status: boolean
-  }
+export class VerifyCompanyDocument{
+    id:number
+    name:string
+    status: boolean
+}

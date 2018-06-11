@@ -1,6 +1,6 @@
 <div class="wrapper">
         <div class="sidebar" data-color='orange' data-image=""  style="z-index:2032">
-            <advertisement-sidebar></advertisement-sidebar>
+            <company-sidebar></company-sidebar>
             <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
         </div>
         <div class="main-panel">
@@ -69,7 +69,7 @@
                                                 {{field.fieldName}}
                                                 <span *ngIf="field.fieldName.toLowerCase().indexOf('document') == -1; else docBlock">
                                                     <span *ngIf="field.verifyStatus; else elseBlock">
-                                                      <i class="material-icons" style="color:green;font-size:30px;font-weight:900;">
+                                                      <i class="material-icons" title="Verified" style="color:green;font-size:30px;font-weight:900;">
                                                             check
                                                             </i>
                                                      
@@ -81,24 +81,30 @@
                                                                     close
                                                                     </i>
                                                       -->
-                                                        <button class="btn btn-danger" (click)="setFieldName(field.fieldName)" data-toggle="modal" data-target="#verificationModal">Verify</button>           
+                                                        <button class="btn btn-danger" title="Verify" (click)="setFieldName(field.fieldName)" data-toggle="modal" data-target="#verificationModal">Verify</button>           
                                                     </ng-template>
                                                 </span>
                                                 <ng-template #docBlock>
-                                                    <span *ngIf="docVerificationStatus; else docElseBlock">
-                                                            <i class="material-icons" style="color:green;font-size:30px;font-weight:900;">
+                                                    <span *ngIf="docVerificationStatus && field.verifyStatus">
+                                                            <i class="material-icons" title="Verified" style="color:green;font-size:30px;font-weight:900;">
                                                                     check
                                                                     </i>
                                                     </span>
+                                                    <span *ngIf="field.verifyStatus && docVerificationStatus==null">
+                                                        <i class="material-icons" title="Pending" style="color:orange;font-size:30px;font-weight:900;">
+                                                                help
+                                                                </i>
+                                                    </span>
+                                                    <span *ngIf="field.verifyStatus && docVerificationStatus==false">
+                                                        <button class="btn btn-danger" title="Verify" (click)="setFieldName(field.fieldName)" data-toggle="modal" data-target="#verificationModal">Verify</button> 
+                                                    </span>
+                                                    <span *ngIf="field.verifyStatus==false">
+                                                        <button class="btn btn-danger" title="Verify" (click)="setFieldName(field.fieldName)" data-toggle="modal" data-target="#verificationModal">Verify</button> 
+                                                    </span>
+                                                    
                                                 </ng-template>
 
-                                                <ng-template #docElseBlock>
-                                                        
-                                                                <i class="material-icons" style="color:red;font-size:30px;font-weight:900;">
-                                                                        help
-                                                                        </i>
-                                                        
-                                                    </ng-template>
+                                                
 
                                             </h5>     
 

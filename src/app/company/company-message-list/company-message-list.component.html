@@ -1,0 +1,59 @@
+<company-navbar></company-navbar>
+
+
+<div class="wrapper">
+  <div class="sidebar" data-color='red' data-image=""  style="z-index:2032">
+      <company-sidebar></company-sidebar>
+      <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+  </div>
+
+  <div class="main-panel">
+          
+    <!-- <router-outlet></router-outlet> -->
+    <div class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+
+            <div class="card">
+                <div class="card-header" data-background-color="red">
+                    <h4 class="title"><i class="material-icons notranslate">email</i> Messages </h4>
+                    <!-- <p class="category">Here is a subtitle for this table</p>                       -->
+                </div>
+
+                <div class="card-content table-responsive">
+                    <table class="table">
+                        <thead class="text-danger">
+                            <tr>
+                                <th>Msg ID</th>
+                                <th>Ad</th>
+                                <th>Spoke With </th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let msg of messageHeads">
+                        <tr>
+                            <td>
+                                {{msg.messageId}}
+                            </td>
+                            <td>
+                              <a routerLink="/company/messageDetails/{{msg.adId}}">
+                                  {{msg.adName}}
+                              </a>
+                            </td>
+                            <td>{{msg.receiverName}}</td>
+                            
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <company-footer></company-footer>
+  
+  </div>
+</div>
