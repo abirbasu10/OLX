@@ -461,7 +461,7 @@ export const SUBCATFILTEROPTIONS: SubCategoryFilterOption[]=[
     {
         id:2,
         filterSubCatMapId:2,
-        subCategoryDetails: {id:1,name:"ForRent", categoryDetails:{id:1,name:"Properties"}},
+        subCategoryDetails: {id:2,name:"ForRent", categoryDetails:{id:1,name:"Properties"}},
         subCatFilterValues:[
             {id:1,filterDetails: {id:3,name:"Bedroom",description:"sacdsfsfdf",type:"dropdown",addType:"dropdown",extraInfo:false},value:["1bhk","2bhk","3bhk"]},
             {id:2,filterDetails: {id:1,name:"Price",description:"sacdsfsfdf",type:"dropdown",addType:"numeric",extraInfo:true},value:["10,00,000","20,00,000","30,00,000"]},
